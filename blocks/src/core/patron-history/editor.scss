@@ -1,0 +1,13 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+.patips-patron-history-block                       { max-width: 1024px; margin: auto; }
+.patips-patron-history-block.patips-selected-block { margin: 20px auto; }
+
+.patips-patron-history-block .patips-patron-history-list-column-actions div { display: flex; flex-wrap: wrap; gap: 5px 10px; }
+
+@media screen and ( max-width: 768px ) {
+	.patips-patron-history-block.patips-selected-block {
+		padding: 0 20px;
+	}
+}

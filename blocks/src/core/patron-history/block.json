@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "patrons-tips/patron-history",
+	"version": "1.0.2",
+	"category": "patrons-tips",
+	"icon": "backup",
+	"title": "Patron history",
+	"description": "Show the list of patronage tier(s) subscribed per period.",
+	"keywords": [ "patronage", "history", "level", "old", "past", "previous", "list", "summary", "orders", "record", "archive", "timeline", "periods", "monthly" ],
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"userID": {
+			"type": "integer",
+			"default": 0
+		},
+		"patronID": {
+			"type": "integer",
+			"default": 0
+		},
+		"tiers": {
+			"type": "array",
+			"default": []
+		},
+		
+		"period": {
+			"type": "string",
+			"default": ""
+		},
+		"date": {
+			"type": "string",
+			"default": ""
+		},
+		"current": {
+			"type": "boolean",
+			"default": false
+		},
+		"active": {
+			"type": "boolean",
+			"default": true
+		},
+		
+		"columns": {
+			"type": "array",
+			"default": [ "period", "end", "tier", "price", "actions" ]
+		},
+		"perPage": {
+			"type": "integer",
+			"default": 12
+		}
+	},
+	"textdomain": "patrons-tips",
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"style": "file:style-index.css",
+	"script": [ "patips-js-global-variables", "patips-js-global-functions" ]
+}

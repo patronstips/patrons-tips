@@ -1,0 +1,82 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "patrons-tips/patron-post-list",
+	"version": "1.0.4",
+	"category": "patrons-tips",
+	"icon": "excerpt-view",
+	"title": "Patron post list",
+	"description": "Display a list of posts, images or products with patronage restrictions.",
+	"keywords": [ "patronage", "patron", "list", "posts", "images", "media", "products", "restricted", "tier", "locked", "unlocked", "gray out", "filtered" ],
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"userID": {
+			"type": "integer",
+			"default": 0
+		},
+		"userEmail": {
+			"type": "string",
+			"default": ""
+		},
+		"patronID": {
+			"type": "integer",
+			"default": 0
+		},
+		
+		"types": {
+			"type": "array",
+			"default": [ "post" ]
+		},
+		"categories": {
+			"type": "array",
+			"default": []
+		},
+		"tags": {
+			"type": "array",
+			"default": []
+		},
+		"catAndTag": {
+			"type": "boolean",
+			"default": true
+		},
+		
+		"restricted": {
+			"type": "integer",
+			"default": -1
+		},
+		"unlocked": {
+			"type": "integer",
+			"default": -1
+		},
+		
+		"perPage": {
+			"type": "integer",
+			"default": 12
+		},
+		
+		"grayOut": {
+			"type": "boolean",
+			"default": true
+		},
+		"imageOnly": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageSize": {
+			"type": "string",
+			"default": ""
+		},
+		"noLink": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "patrons-tips",
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"style": "file:style-index.css",
+	"script": [ "patips-js-global-variables", "patips-js-global-functions" ]
+}

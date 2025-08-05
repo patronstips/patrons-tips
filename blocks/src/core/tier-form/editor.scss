@@ -1,0 +1,11 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+.patips-add-to-cart-tier-form                       { max-width: 650px; margin: auto; }
+.patips-add-to-cart-tier-form.patips-selected-block { margin: 20px auto; }
+
+@media screen and ( max-width: 768px ) {
+	.patips-add-to-cart-tier-form.patips-selected-block {
+		padding: 0 20px;
+	}
+}

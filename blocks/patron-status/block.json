@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "patrons-tips/patron-status",
+  "version": "1.0.2",
+  "category": "patrons-tips",
+  "icon": "admin-users",
+  "title": "Patron status",
+  "description": "Show the patronage tier(s) currently subscribed.",
+  "keywords": [
+    "patronage",
+    "patron",
+    "status",
+    "level",
+    "current",
+    "actual",
+    "now",
+    "period",
+    "list"
+  ],
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "userID": {
+      "type": "integer",
+      "default": 0
+    },
+    "patronID": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "textdomain": "patrons-tips",
+  "editorScript": "file:index.js",
+  "editorStyle": "file:index.css",
+  "style": "file:style-index.css",
+  "script": [
+    "patips-js-global-variables",
+    "patips-js-global-functions"
+  ]
+}

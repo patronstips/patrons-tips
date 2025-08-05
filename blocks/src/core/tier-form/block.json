@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "patrons-tips/tier-form",
+	"version": "1.0.4",
+	"category": "patrons-tips",
+	"icon": "cart",
+	"title": "Patronage form",
+	"description": "Display a form to add tier products to cart.",
+	"keywords": [ "patronage", "form", "tier", "product", "cart", "subscribe", "pledge", "purchase", "buy", "support", "sign up" ],
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"tiers": {
+			"type": "array",
+			"default": []
+		},
+		"defaultTier": {
+			"type": "integer",
+			"default": 0
+		},
+		"frequencies": {
+			"type": "array",
+			"default": []
+		},
+		"defaultFrequency": {
+			"type": "string",
+			"default": ""
+		},
+		"decimals": {
+			"type": "integer",
+			"default": 0
+		},
+		"submitLabel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "patrons-tips",
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"style": "file:style-index.css",
+	"script": [ "patips-js-global-variables", "patips-js-global-functions" ]
+}

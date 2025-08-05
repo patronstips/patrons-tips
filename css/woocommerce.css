@@ -1,0 +1,31 @@
+/***** FRONTEND *****/
+
+/* Product Page */
+.patips-locked-post.single-product form.cart,
+.patips-locked-post.single-product .wp-block-add-to-cart-form { display:none; }
+
+
+
+
+/***** BACKEND *****/
+
+/* Patrons */
+#patips-export-patrons-from-container *, 
+#patips-export-patrons-to-container *             { vertical-align: middle; }
+#patips-export-patrons-to-container label         { margin: 0 3px; }
+#patips-export-patrons-from-container label       { margin-right: 3px; }
+.rtl #patips-export-patrons-from-container label  { margin-right: 0; margin-left: 3px; }
+
+#patips-patron-area-page-tuto-container .patips-warning { display: none; }
+
+
+/* Tiers */
+#patips-tier-settings-fields-presentation #patips-price-container .patips-info      { display: inline-flex; vertical-align: middle; margin-left: 5px; }
+.rtl #patips-tier-settings-fields-presentation #patips-price-container .patips-info { margin-left: 0; margin-right: 5px; }
+
+.patips-tier-form-instructions-container { font-size: 0.85em; font-style: italic; }
+
+
+/* Settings */
+.patips-settings-section-price       { display: block !important; }
+.patips-settings-section-price table { display: none; }

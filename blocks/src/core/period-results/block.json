@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "patrons-tips/period-results",
+	"version": "1.0.4",
+	"category": "patrons-tips",
+	"icon": "money-alt",
+	"title": "Number of patrons / Income",
+	"description": "Display number of patrons and income for the period.",
+	"keywords": [ "patronage", "patrons", "number", "amount", "figure", "quantity", "income", "earnings", "revenus", "gains", "profit", "gain", "money", "period", "month" ],
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"period": {
+			"type": "string",
+			"default": "current"
+		},
+		"display": {
+			"type": "string",
+			"default": ""
+		},
+		"zeroText": {
+			"type": "string",
+			"default": ""
+		},
+		"raw": {
+			"type": "boolean",
+			"default": false
+		},
+		"decimals": {
+			"type": "integer",
+			"default": 0
+		},
+		"includeTax": {
+			"type": "boolean",
+			"default": true
+		},
+		"includeDiscounts": {
+			"type": "boolean",
+			"default": false
+		},
+		"includeScheduled": {
+			"type": "boolean",
+			"default": true
+		},
+		"includeManual": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "patrons-tips",
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"style": "file:style-index.css",
+	"script": [ "patips-js-global-variables", "patips-js-global-functions" ]
+}

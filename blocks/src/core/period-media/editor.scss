@@ -1,0 +1,11 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+.patips-period-media                       { max-width: 650px; margin: auto; text-align: center; }
+.patips-period-media.patips-selected-block { margin: 20px auto; }
+
+@media screen and ( max-width: 768px ) {
+	.patips-period-media.patips-selected-block {
+		padding: 0 20px;
+	}
+}

@@ -1,0 +1,3455 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Patrons Tips 0.25.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/patrons-tips\n"
+"POT-Creation-Date: 2025-07-25T13:30:09+00:00\n"
+"PO-Revision-Date: 2025-07-25 15:32+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.6\n"
+"X-Domain: patrons-tips\n"
+
+#. Plugin Name of the plugin
+#: patrons-tips.php
+msgid "Patrons Tips"
+msgstr "Patrons Tips"
+
+#. Plugin URI of the plugin
+#: patrons-tips.php
+msgid ""
+"https://patronstips.com/en/?"
+"utm_source=plugin&utm_medium=plugin&utm_content=header"
+msgstr ""
+"https://patronstips.com/fr/?"
+"utm_source=plugin&utm_medium=plugin&utm_content=header"
+
+#. Description of the plugin
+#: patrons-tips.php
+msgid ""
+"Patronage system. A free Patreon-like tool to monetize your creations and "
+"reward your backers with restricted content. Works great with WooCommerce."
+msgstr ""
+"Système de mécénat gratuit comme Patreon. Monétisez vos créations et "
+"récompensez vos contributeurs avec du contenu exclusif. Idéal avec "
+"WooCommerce."
+
+#. Author of the plugin
+#: patrons-tips.php
+msgid "Patrons Tips Team"
+msgstr "Patrons Tips Team"
+
+#. Author URI of the plugin
+#: patrons-tips.php
+msgid "https://profiles.wordpress.org/patronstips/#content-plugins"
+msgstr "https://profiles.wordpress.org/patronstips/#content-plugins"
+
+#: class/class-patrons-list-table.php:51 class/class-tiers-list-table.php:52
+#: functions/functions-settings.php:213
+msgid "ID"
+msgstr "ID"
+
+#: class/class-patrons-list-table.php:52
+msgid "Patron"
+msgstr "Mécène"
+
+#: class/class-patrons-list-table.php:53 view/view-patron-editor.php:98
+#: view/view-patron-list-table.php:92
+msgid "User"
+msgstr "Compte"
+
+#: class/class-patrons-list-table.php:54
+msgid "Current tier"
+msgstr "Niveau d’adhésion actuel"
+
+#: class/class-patrons-list-table.php:55 functions/functions-settings.php:215
+msgid "Creation date"
+msgstr "Date de création"
+
+#: class/class-patrons-list-table.php:213 class/class-tiers-list-table.php:223
+#: controller/controller-backend.php:69
+msgid "Edit"
+msgstr "Modifier"
+
+#: class/class-patrons-list-table.php:217 class/class-tiers-list-table.php:227
+#: view/view-patron-editor.php:373 view/view-tier-editor.php:275
+msgctxt "verb"
+msgid "Trash"
+msgstr "Mettre à la corbeille"
+
+#: class/class-patrons-list-table.php:219 class/class-tiers-list-table.php:229
+msgid "Restore"
+msgstr "Restaurer"
+
+#: class/class-patrons-list-table.php:220 class/class-tiers-list-table.php:230
+msgid "Delete Permanently"
+msgstr "Supprimer définitivement"
+
+#: class/class-patrons-list-table.php:267
+msgid "No account"
+msgstr "Aucun compte"
+
+#. translators: %s = integer
+#: class/class-patrons-list-table.php:277 blocks/patron-status/index.js:2
+msgid "User #%s"
+msgstr "Compte n°%s"
+
+#. translators: %s is the tier ID
+#: class/class-patrons-list-table.php:304 class/class-tiers-list-table.php:279
+#: class/widgets/class-widget-tier-form.php:121
+#: class/widgets/class-widget-tier-form.php:137
+#: controller/controller-frontend.php:133
+#: controller/controller-patron-editor.php:379
+#: controller/controller-shortcodes.php:156
+#: controller/controller-woocommerce-backend.php:524
+#: controller/controller-woocommerce-backend.php:578
+#: controller/controller-woocommerce-frontend.php:235
+#: controller/controller-woocommerce-frontend.php:719
+#: functions/functions-patron-editor.php:132
+#: functions/functions-patrons.php:1291 functions/functions-tiers.php:543
+#: functions/functions-woocommerce.php:696 view/view-patron-editor.php:172
+#: view/view-patron-editor.php:174 view/view-patron-editor.php:176
+#: view/view-patron-editor.php:183 view/view-patron-list-table.php:123
+#: blocks/patron-history/index.js:3 blocks/patron-history/index.js:5
+#: blocks/patron-history/index.js:7 blocks/patron-history/index.js:9
+#: blocks/patron-history/index.js:13 blocks/patron-list/index.js:3
+#: blocks/patron-status/index.js:7 blocks/patron-status/index.js:9
+#: blocks/tier-form/index.js:3
+msgid "Tier #%s"
+msgstr "Niveau d’adhésion #%s"
+
+#. translators: %s = formatted date (e.g.: July 21st, 2024)
+#: class/class-patrons-list-table.php:306
+msgid "until %s"
+msgstr "jusqu’au %s"
+
+#: class/class-patrons-list-table.php:312 class/class-tiers-list-table.php:351
+msgid "id"
+msgstr "id"
+
+#: class/class-patrons-list-table.php:390 class/class-tiers-list-table.php:433
+#: controller/controller-shortcodes.php:92
+msgid "No items found."
+msgstr "Aucun élément trouvé."
+
+#: class/class-patrons-list-table.php:513 class/class-tiers-list-table.php:555
+msgid "Published"
+msgstr "Publié"
+
+#: class/class-patrons-list-table.php:514 class/class-tiers-list-table.php:556
+msgctxt "noun"
+msgid "Trash"
+msgstr "Corbeille"
+
+#: class/class-tiers-list-table.php:53
+#: class/widgets/class-widget-patron-number.php:85
+#: class/widgets/class-widget-period-income.php:91
+#: class/widgets/class-widget-period-media.php:89
+#: class/widgets/class-widget-tier-form.php:92 view/view-tier-editor.php:124
+#: view/view-tier-list-table.php:79
+msgid "Title"
+msgstr "Titre"
+
+#: class/class-tiers-list-table.php:54 functions/functions-patrons.php:1161
+#: view/view-tier-editor.php:140
+msgid "Price"
+msgstr "Prix"
+
+#: class/class-tiers-list-table.php:55
+msgid "Restricted categories"
+msgstr "Catégories restreintes"
+
+#: class/class-tiers-list-table.php:56 blocks/patron-list/index.js:1
+msgid "Current patrons"
+msgstr "Mécènes actuels"
+
+#: class/class-tiers-list-table.php:57
+msgid "All-time patrons"
+msgstr "Mécènes de tout temps"
+
+#: class/class-tiers-list-table.php:58
+msgid "Author"
+msgstr "Auteur ou autrice"
+
+#: class/class-tiers-list-table.php:59
+msgid "Date"
+msgstr "Date"
+
+#. translators: %s = term ID
+#: class/class-tiers-list-table.php:304
+msgid "Term #%s"
+msgstr "Terme n°%s"
+
+#: class/class-tiers-list-table.php:312
+msgid "For current patrons:"
+msgstr "Pour les mécènes actuels :"
+
+#. translators: %s = a number.
+#: class/class-tiers-list-table.php:321 class/class-tiers-list-table.php:323
+#: controller/controller-shortcodes.php:297
+#: controller/controller-shortcodes.php:467 blocks/period-results/index.js:1
+msgid "%s patron"
+msgid_plural "%s patrons"
+msgstr[0] "%s mécène"
+msgstr[1] "%s mécènes"
+
+#: class/widgets/class-widget-patron-number.php:22
+#: class/widgets/class-widget-patron-number.php:49
+#: class/widgets/class-widget-patron-number.php:86
+#: blocks/period-results/index.js:1
+msgid "Number of patrons"
+msgstr "Nombre de mécènes"
+
+#: class/widgets/class-widget-patron-number.php:24
+msgid "Display the current number of patrons."
+msgstr "Affiche le nombre de mécènes actuels."
+
+#: class/widgets/class-widget-patron-number.php:82
+#: class/widgets/class-widget-period-income.php:88
+#: class/widgets/class-widget-period-media.php:86
+#: class/widgets/class-widget-tier-form.php:89
+msgid "General options"
+msgstr "Options générales"
+
+#: class/widgets/class-widget-patron-number.php:90
+msgid "Text when there are no patrons"
+msgstr "Texte lorsqu’il n’y a aucun mécène"
+
+#: class/widgets/class-widget-patron-number.php:95
+#: class/widgets/class-widget-period-income.php:111
+msgid "Show only number"
+msgstr "Montrer uniquement le nombre"
+
+#: class/widgets/class-widget-patron-number.php:97
+#: class/widgets/class-widget-period-income.php:113
+#: class/widgets/class-widget-period-income.php:125
+#: class/widgets/class-widget-period-income.php:133
+#: class/widgets/class-widget-period-income.php:142
+#: class/widgets/class-widget-period-income.php:151
+#: controller/controller-patron-editor.php:400
+msgid "No"
+msgstr "Non"
+
+#: class/widgets/class-widget-patron-number.php:98
+#: class/widgets/class-widget-period-income.php:114
+#: class/widgets/class-widget-period-income.php:126
+#: class/widgets/class-widget-period-income.php:134
+#: class/widgets/class-widget-period-income.php:143
+#: class/widgets/class-widget-period-income.php:152
+#: controller/controller-patron-editor.php:400
+msgid "Yes"
+msgstr "Oui"
+
+#: class/widgets/class-widget-period-income.php:22
+msgid "Period income"
+msgstr "Revenus de la période"
+
+#: class/widgets/class-widget-period-income.php:24
+msgid "Display the current period income from patronage products."
+msgstr ""
+"Affiche les revenus de la période actuelle provenant des produits de mécénat."
+
+#: class/widgets/class-widget-period-income.php:55
+#: class/widgets/class-widget-period-income.php:92
+msgid "Collected this month"
+msgstr "Collectés ce mois"
+
+#: class/widgets/class-widget-period-income.php:96
+#: class/widgets/class-widget-tier-form.php:97
+msgid "Decimals"
+msgstr "Décimales"
+
+#: class/widgets/class-widget-period-income.php:106
+msgid "Text when there are no income"
+msgstr "Texte lorsqu’il n’y a aucun revenu"
+
+#: class/widgets/class-widget-period-income.php:120
+msgid "Calculation options"
+msgstr "Options de calcul"
+
+#: class/widgets/class-widget-period-income.php:123
+#: blocks/period-results/index.js:1
+msgid "Include tax"
+msgstr "Inclure la TVA"
+
+#: class/widgets/class-widget-period-income.php:131
+#: blocks/period-results/index.js:1
+msgid "Include discounts"
+msgstr "Inclure les remises"
+
+#: class/widgets/class-widget-period-income.php:140
+#: blocks/period-results/index.js:1
+msgid "Include scheduled payments"
+msgstr "Inclure les paiements planifiés"
+
+#: class/widgets/class-widget-period-income.php:149
+#: blocks/period-results/index.js:1
+msgid "Include patronage without payments"
+msgstr "Inclure les mécénats sans paiements"
+
+#: class/widgets/class-widget-period-media.php:22
+#: view/templates/sales-page-template.php:70
+msgid "Image of the month"
+msgstr "Image du mois"
+
+#: class/widgets/class-widget-period-media.php:24
+msgid "Display the highlighted media for the current period."
+msgstr "Affiche le média mis en avant pour la période actuelle."
+
+#. translators: %s = the period name (e.g. "November 2024")
+#: class/widgets/class-widget-period-media.php:49
+#: class/widgets/class-widget-period-media.php:90
+msgid "Month illustration - %s"
+msgstr "Illustration du mois - %s"
+
+#: class/widgets/class-widget-period-media.php:94
+msgid "Size"
+msgstr "Taille"
+
+#: class/widgets/class-widget-period-media.php:96
+#: blocks/patron-post-list/index.js:1 blocks/period-media/index.js:1
+msgid "Full Size"
+msgstr "Taille réelle"
+
+#: class/widgets/class-widget-period-media.php:97
+#: blocks/patron-post-list/index.js:1 blocks/period-media/index.js:1
+msgid "Large"
+msgstr "Large"
+
+#: class/widgets/class-widget-period-media.php:98
+#: blocks/patron-post-list/index.js:1 blocks/period-media/index.js:1
+msgid "Medium"
+msgstr "Moyenne"
+
+#: class/widgets/class-widget-period-media.php:99
+#: blocks/patron-post-list/index.js:1 blocks/period-media/index.js:1
+msgid "Thumbnail"
+msgstr "Miniature"
+
+#: class/widgets/class-widget-tier-form.php:19
+#: view/templates/sales-page.php:104 view/view-tier-list-table.php:138
+msgid "Patronage form"
+msgstr "Formulaire de mécénat"
+
+#: class/widgets/class-widget-tier-form.php:21
+msgid "Form to subscribe to a patronage tier."
+msgstr "Formulaire pour adhérer à un niveau de mécénat."
+
+#: class/widgets/class-widget-tier-form.php:35
+#: class/widgets/class-widget-tier-form.php:93
+msgid "Choose your tier!"
+msgstr "Choisissez votre niveau !"
+
+#: class/widgets/class-widget-tier-form.php:107 blocks/tier-form/index.js:5
+msgid "Submit button label"
+msgstr "Libellé du bouton d’envoi"
+
+#: class/widgets/class-widget-tier-form.php:113
+msgid "Tiers options"
+msgstr "Options des niveaux"
+
+#: class/widgets/class-widget-tier-form.php:116 patrons-tips.php:386
+#: view/view-patron-list-table.php:115 view/view-tier-list-table.php:15
+#: blocks/patron-history/index.js:1 blocks/patron-list/index.js:1
+#: blocks/tier-form/index.js:3
+msgid "Tiers"
+msgstr "Niveaux"
+
+#: class/widgets/class-widget-tier-form.php:131 blocks/tier-form/index.js:3
+msgid "Default tier"
+msgstr "Niveau par défaut"
+
+#: class/widgets/class-widget-tier-form.php:133
+#: class/widgets/class-widget-tier-form.php:162
+#: blocks/patron-post-list/index.js:1 blocks/tier-form/index.js:1
+#: blocks/tier-form/index.js:3
+msgid "Auto"
+msgstr "Auto"
+
+#: class/widgets/class-widget-tier-form.php:148
+msgid "Frequency options"
+msgstr "Options de fréquence"
+
+#: class/widgets/class-widget-tier-form.php:151 blocks/tier-form/index.js:3
+msgid "Frequencies"
+msgstr "Fréquences"
+
+#: class/widgets/class-widget-tier-form.php:160
+msgid "Default frequency"
+msgstr "Fréquence par défaut"
+
+#: controller/controller-backend.php:17 controller/controller-settings.php:34
+msgid "Patronage sales page"
+msgstr "Page de vente du mécénat"
+
+#: controller/controller-backend.php:21
+#: controller/controller-woocommerce-backend.php:364
+#: controller/controller-woocommerce-frontend.php:944
+#: controller/controller-woocommerce-frontend.php:966
+#: functions/functions-templates.php:40
+msgid "Patron area"
+msgstr "Espace mécène"
+
+#: controller/controller-backend.php:54
+msgid "Patronage"
+msgstr "Mécénat"
+
+#: controller/controller-backend.php:70
+msgid "Edit date and time"
+msgstr "Modifier la date et l’heure"
+
+#: controller/controller-backend.php:73
+msgid "Date and time"
+msgstr "Date et heure"
+
+#: controller/controller-backend.php:99
+msgid "Public preview"
+msgstr "Aperçu public"
+
+#: controller/controller-backend.php:100
+msgid ""
+"Low quality, watermarked image displayed publicly for advertising purposes."
+msgstr ""
+"Image de faible qualité, filigranée, affichée publiquement à but "
+"promotionnel."
+
+#: controller/controller-backend.php:108
+msgid "Post thumbnail"
+msgstr "Miniature de publication"
+
+#: controller/controller-backend.php:109
+msgid "Post thumbnail used in post lists."
+msgstr "Miniature de publication utilisé dans les listes de publications."
+
+#: controller/controller-backend.php:325 view/view-tier-list-table.php:149
+msgid ""
+"The patronage sales page is not published yet. You need to publish it to "
+"allow customers to subscribe to a tier."
+msgstr ""
+"La page de vente du mécénat n’est pas encore publiée. Vous devez la publier "
+"pour permettre aux clients d’adhérer à un niveau."
+
+#: controller/controller-backend.php:328 controller/controller-backend.php:370
+#: controller/controller-settings.php:291
+#: controller/controller-settings.php:339 view/view-patron-list-table.php:322
+#: view/view-patron-list-table.php:329 view/view-tier-list-table.php:144
+#: view/view-tier-list-table.php:151
+msgid "Edit page"
+msgstr "Modifier la page"
+
+#: controller/controller-backend.php:328 controller/controller-backend.php:370
+#: controller/controller-settings.php:292
+#: controller/controller-settings.php:340 view/view-patron-list-table.php:322
+#: view/view-patron-list-table.php:329 view/view-tier-list-table.php:144
+#: view/view-tier-list-table.php:151
+msgid "Create page"
+msgstr "Créer la page"
+
+#: controller/controller-backend.php:367 view/view-patron-list-table.php:327
+msgid ""
+"The patron area page is not published yet. You need to publish it to allow "
+"your patrons to manage their patronage."
+msgstr ""
+"La page de l’espace mécène n’est pas encore publiée. Vous devez la publier "
+"pour permettre à vos mécènes de gérer leur mécénat."
+
+#. translators: %s: Plugin name
+#: controller/controller-backend.php:405
+msgid "%s has been helping you for two months now."
+msgstr "%s vous aide depuis deux mois maintenant."
+
+#. translators: %s: five stars
+#: controller/controller-backend.php:410
+msgid "Would you help us back leaving a %s rating? We need you too."
+msgstr ""
+"Pourriez-vous nous aider en retour en laissant une note de %s ? Nous aussi, "
+"nous avons besoin de vous."
+
+#: controller/controller-backend.php:414
+msgid "Ok, I'll rate you five stars!"
+msgstr "Ok, je vous note cinq étoiles !"
+
+#. translators: %1$s = "Patrons Tips", %2$s: five stars
+#: controller/controller-backend.php:437
+msgid ""
+"Does %1$s help you? Help us back leaving a %2$s rating. We need you too."
+msgstr ""
+"%1$s vous aide-t-il ? Aidez-nous en retour en laissant une note de %2$s. "
+"Nous aussi, nous avons besoin de vous."
+
+#. translators: %s = Plugin name (Patrons Tips)
+#: controller/controller-backend.php:476
+msgid "%s is experiencing major compatibility issues."
+msgstr "%s rencontre des problèmes de compatibilité majeurs."
+
+#: controller/controller-backend.php:477
+msgid "You need to update the following plugins now."
+msgstr "Vous devez mettre à jour les extensions suivantes maintenant."
+
+#. translators: %s = a version number (e.g.: 1.2.6)
+#: controller/controller-backend.php:488
+msgid "version %s or later required."
+msgstr "version %s ou ultérieure requise."
+
+#. translators: %s = Link to the "documentation".
+#: controller/controller-backend.php:502
+msgid "If the add-ons update doesn't work, follow the instructions here: %s."
+msgstr ""
+"Si la mise à jour des modules ne fonctionne pas, suivez les instructions "
+"ici : %s."
+
+#: controller/controller-backend.php:505
+#: controller/controller-woocommerce-backend.php:189
+#: view/view-tier-editor.php:107
+msgid "documentation"
+msgstr "documentation"
+
+#: controller/controller-frontend.php:70
+msgid "Free subscriptions are not allowed."
+msgstr "Les adhésions gratuites ne sont pas autorisées."
+
+#: controller/controller-frontend.php:80
+msgid "Please select a tier."
+msgstr "Veuillez sélectionner un niveau d’adhésion."
+
+#: controller/controller-frontend.php:91
+msgid "The selected tier was not found."
+msgstr "Le niveau sélectionné n’a pas été trouvé."
+
+#: controller/controller-frontend.php:104
+msgid "The email address is not valid."
+msgstr "L’adresse e-mail n’est pas valide."
+
+#. translators: %s = "Log in" link
+#: controller/controller-frontend.php:114
+msgid ""
+"The email address is already associated with an account. Please %s first."
+msgstr "L’adresse e-mail est déjà associée à un compte. %s d’abord."
+
+#: controller/controller-frontend.php:125
+msgid "The patron account could not be retrieved or created."
+msgstr "Le compte du mécène n’a pas pu être récupéré ni créé."
+
+#: controller/controller-frontend.php:144
+msgid "You are already patron."
+msgstr "Vous êtes déjà mécène."
+
+#. translators: %1$s = the Tier name. %2$s = formatted date (e.g. "September 30th 2024")
+#: controller/controller-frontend.php:147
+#: controller/controller-frontend.php:196
+#: controller/controller-shortcodes.php:160
+msgid "You are a \"%1$s\" patron until %2$s."
+msgstr "Vous êtes mécène « %1$s », jusqu’au %2$s."
+
+#: controller/controller-frontend.php:179
+msgid "An error occurred while trying to subscribe."
+msgstr "Une erreur s’est produite lors de la tentative d’adhésion."
+
+#: controller/controller-frontend.php:193
+msgid "Your subscription has been processed successfully."
+msgstr "Votre adhésion a été traitée avec succès."
+
+#: controller/controller-frontend.php:248
+msgid "All items are displayed."
+msgstr "Tous les éléments sont affichés."
+
+#: controller/controller-i18n.php:220
+msgid "Translation"
+msgstr "Traduction"
+
+#: controller/controller-i18n.php:232
+msgid "Search translatable texts"
+msgstr "Rechercher les textes traduisibles"
+
+#. translators: %s = external link to "WPML String Translation"
+#: controller/controller-i18n.php:263
+msgid "You need the %s add-on to translate user generated content."
+msgstr ""
+"Il vous faut le module %s pour traduire les contenus générés par les "
+"utilisateurs."
+
+#. translators: This is the path to translate strings from the backend with WPML.
+#: controller/controller-i18n.php:272
+msgid "WPML > String Translation"
+msgstr "WPML > Traduction de chaînes"
+
+#. translators: This is the path to translate strings from the backend with Polylang.
+#: controller/controller-i18n.php:278
+msgid "Languages > Translations"
+msgstr "Langues > Traductions"
+
+#: controller/controller-i18n.php:286
+msgid "Find and translate"
+msgstr "Trouver et traduire"
+
+#. translators: %s = a navigation path the user must follow (e.g. "Languages > Translations")
+#: controller/controller-i18n.php:290
+msgid ""
+"Search all the translatable settings values that you have manually input. "
+"Then, you will be able to translate them in %s. This process can last "
+"several minutes and can be ressource intensive, depending on your amount of "
+"data."
+msgstr ""
+"Recherchez toutes les valeurs que vous avez saisies manuellement dans les "
+"réglages traduisibles. Vous pourrez ensuite les traduire dans %s. Ce "
+"processus peut prendre plusieurs minutes et être gourmand en ressources, "
+"selon la quantité de données."
+
+#: controller/controller-patron-editor.php:17
+msgid "Patron info"
+msgstr "Info mécène"
+
+#: controller/controller-patron-editor.php:18
+msgid "Patronage history"
+msgstr "Historique de mécénat"
+
+#: controller/controller-patron-editor.php:19
+msgid "Loyalty"
+msgstr "Fidélité"
+
+#: controller/controller-patron-editor.php:22
+#: controller/controller-tier-editor.php:20 view/view-patron-editor.php:386
+#: view/view-tier-editor.php:288
+msgid "Publish"
+msgstr "Publier"
+
+#: controller/controller-patron-editor.php:64
+#: controller/controller-patron-editor.php:117
+#: controller/controller-patron-editor.php:151
+#: controller/controller-patron-editor.php:185
+#: controller/controller-patron-export.php:171
+#: controller/controller-tier-editor.php:62
+#: controller/controller-tier-editor.php:101
+#: controller/controller-tier-editor.php:146
+#: controller/controller-tier-editor.php:180
+#: controller/controller-tier-editor.php:214
+#: functions/functions-global.php:1028 view/view-patron-editor.php:19
+#: view/view-tier-editor.php:19
+msgid "You are not allowed to do that."
+msgstr "Vous n’êtes pas autorisé(e) à faire cela."
+
+#: controller/controller-patron-editor.php:215
+msgid "The patron has been created."
+msgstr "Le mécène a été créé."
+
+#: controller/controller-patron-editor.php:218
+msgid "An error occurred while trying to create the patron."
+msgstr "Une erreur s’est produite lors de la tentative de création du mécène."
+
+#: controller/controller-patron-editor.php:226
+msgid "The patron has been updated."
+msgstr "Le mécène a été mis à jour."
+
+#: controller/controller-patron-editor.php:229
+msgid "An error occurred while trying to update the patron."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de modification du mécène."
+
+#: controller/controller-patron-editor.php:237
+msgid "The patron has been removed."
+msgstr "Le mécène a été supprimé."
+
+#: controller/controller-patron-editor.php:240
+msgid "An error occurred while trying to remove the patron."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de suppression du mécène."
+
+#: controller/controller-patron-editor.php:248
+msgid "The patron has been restored."
+msgstr "Le mécène a été restauré."
+
+#: controller/controller-patron-editor.php:251
+msgid "An error occurred while trying to restore the patron."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de restauration du mécène."
+
+#. translators: This is a plugin name.
+#: controller/controller-patron-editor.php:422
+#: functions/functions-global.php:205 view/view-landing.php:54
+#: view/view-tier-editor.php:106
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: controller/controller-patron-editor.php:425 view/view-patron-editor.php:292
+msgid "Manual"
+msgstr "Manuel"
+
+#: controller/controller-patron-editor.php:447 view/view-patron-editor.php:298
+msgid "Delete"
+msgstr "Supprimer"
+
+#: controller/controller-patron-export.php:60
+msgid ""
+"The link has been correctly generated. Use the link above to export your "
+"patrons."
+msgstr ""
+"Le lien a été correctement généré. Utilisez le lien ci-dessus pour exporter "
+"vos mécènes."
+
+#: controller/controller-patron-export.php:80
+msgid ""
+"Your secret key has been changed. The old links that you have generated "
+"won't work anymore."
+msgstr ""
+"Votre clé secrète a été modifiée. Les anciens liens que vous aviez généré ne "
+"fonctionneront plus."
+
+#: controller/controller-patron-export.php:132
+msgid "An error occurred while trying to save export data."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de sauvegarde des données "
+"d’export."
+
+#: controller/controller-patron-export.php:163
+msgid "Missing secret key."
+msgstr "Clé secrète manquante."
+
+#: controller/controller-patron-export.php:167
+msgid "Invalid secret key."
+msgstr "Clé secrète non valide."
+
+#: controller/controller-patron-export.php:177
+msgid "Invalid or expired export ID."
+msgstr "ID d’export non valide ou expiré."
+
+#: controller/controller-patron-export.php:181
+msgid "The secret key doesn't match the user who has generated the export."
+msgstr ""
+"La clé secrète ne correspond pas à l’utilisateur qui a généré l’export."
+
+#: controller/controller-patron-export.php:209
+msgid "Invalid filename."
+msgstr "Nom de fichier non valide."
+
+#. translators: %s = order ID
+#: controller/controller-patron-history-sync.php:34
+#: controller/controller-woocommerce-frontend.php:274
+#: blocks/patron-history/index.js:9
+msgid "View order #%s"
+msgstr "Voir la commande n°%s"
+
+#. translators: %s = subscription ID
+#: controller/controller-patron-history-sync.php:51
+#: controller/controller-woocommerce-frontend.php:276
+#: blocks/patron-history/index.js:11
+msgid "View subscription #%s"
+msgstr "Voir l’abonnement n°%s"
+
+#: controller/controller-patron-history-sync.php:80
+msgid "Patron data not found."
+msgstr "Données du mécène non trouvées."
+
+#: controller/controller-patron-history-sync.php:97
+msgid ""
+"The patronage history has been successfully synced with WooCommerce orders."
+msgstr ""
+"L’historique de mécénat a été synchronisé avec les commandes WooCommerce "
+"avec succès."
+
+#. translators: %s = link to "Patrons Tips - Pro" sales page
+#: controller/controller-patron-history-sync.php:114
+msgid ""
+"%s can automatically search for new patrons through all your WooCommerce "
+"orders, and add them to the list with their patronage history (according to "
+"your tiers' settings), in a single click."
+msgstr ""
+"%s peut rechercher automatiquement les nouveaux mécènes parmi toutes vos "
+"commandes WooCommerce et les ajouter à la liste avec leur historique de "
+"mécènat (selon les réglages de vos niveaux), en un seul clic."
+
+#: controller/controller-patron-history-sync.php:119
+msgid "Sync New Patrons"
+msgstr "Synchroniser Nouveaux Mécènes"
+
+#: controller/controller-settings.php:14
+msgid "General settings"
+msgstr "Réglages généraux"
+
+#: controller/controller-settings.php:26
+msgid "Patronage launch date"
+msgstr "Date de lancement du mécènat"
+
+#: controller/controller-settings.php:42
+msgid "Patron area page"
+msgstr "Page de l’espace mécène"
+
+#: controller/controller-settings.php:50
+msgid "Display patron list in posts with category"
+msgstr "Afficher la liste des mécènes dans les articles ayant la catégorie"
+
+#: controller/controller-settings.php:58 controller/controller-settings.php:408
+msgid "Restricted post image"
+msgstr "Image des articles restreints"
+
+#: controller/controller-settings.php:66
+msgid "Gray out locked posts"
+msgstr "Griser les articles verrouillés"
+
+#: controller/controller-settings.php:74
+msgid "Delete data on uninstall"
+msgstr "Supprimer les données lors de la désinstallation"
+
+#: controller/controller-settings.php:84
+msgid "Price format"
+msgstr "Format du prix"
+
+#: controller/controller-settings.php:96
+msgid "Currency"
+msgstr "Devise"
+
+#: controller/controller-settings.php:105
+msgid "Currency position"
+msgstr "Position de la devise"
+
+#: controller/controller-settings.php:113
+msgid "Thousand separator"
+msgstr "Séparateur des millers"
+
+#: controller/controller-settings.php:121
+msgid "Decimal separator"
+msgstr "Séparateur des décimales"
+
+#: controller/controller-settings.php:129 blocks/period-results/index.js:1
+#: blocks/tier-form/index.js:3
+msgid "Number of decimals"
+msgstr "Nombre de décimales"
+
+#: controller/controller-settings.php:139
+msgid "Licenses settings"
+msgstr "Réglages des licences"
+
+#. translators: %s = Add-on name ("Patrons Tips - Pro")
+#: controller/controller-settings.php:191
+msgid "Here you will be able to activate your %s license key."
+msgstr "Ici vous pourrez activer votre clé de licence de %s."
+
+#. translators: %s is a link to "Patrons Tips - Pro" (link label) sales page
+#: controller/controller-settings.php:198
+msgid "Take a look at %s features."
+msgstr "Jetez un œil aux fonctionnalités de %s."
+
+#: controller/controller-settings.php:215
+msgid "The following add-ons are installed on your site:"
+msgstr "Les modules suivants sont installés sur votre site :"
+
+#. translators: %s is a link to download "Patrons Tips - Pro" (link label) add-on
+#: controller/controller-settings.php:225
+msgid "Please install \"%s\" in order to activate your license key."
+msgstr "Veuillez installer \"%s\" pour pouvoir activer votre clé de licence."
+
+#: controller/controller-settings.php:246
+msgid ""
+"The launch date of your patronage system. Restricted content and patron "
+"history will be taken into account from this date."
+msgstr ""
+"La date de lancement de votre système de mécénat. Le contenu restreint et "
+"l’historique de mécénat seront pris en compte à partir de cette date."
+
+#: controller/controller-settings.php:258 view/view-tier-editor.php:215
+msgid "None"
+msgstr "Aucun"
+
+#: controller/controller-settings.php:289
+msgid "Select the page on which you sell your patronage offer."
+msgstr "Sélectionnez la page sur laquelle vous vendez votre offre de mécénat."
+
+#: controller/controller-settings.php:305
+msgid "Disabled"
+msgstr "Désactivé"
+
+#: controller/controller-settings.php:306
+msgid "Default content"
+msgstr "Contenu par défaut"
+
+#: controller/controller-settings.php:337
+msgid ""
+"Select the page to display in the \"Patronage\" tab of the \"My account\" "
+"area. You can also display the default content, or completely disable this "
+"tab."
+msgstr ""
+"Sélectionnez la page à afficher dans l’onglet « Mécénat » de la section "
+"« Mon compte ». Vous pouvez également afficher le contenu par défaut ou "
+"désactiver complètement cet onglet."
+
+#: controller/controller-settings.php:357 view/view-patron-list-table.php:101
+msgid "All"
+msgstr "Tous"
+
+#: controller/controller-settings.php:358
+msgid "All restricted categories"
+msgstr "Toutes les catégories restreintes"
+
+#: controller/controller-settings.php:382
+msgid ""
+"Select the desired categories / tags. The patron list will be display at the "
+"end of the posts of these categories, only if it contains at least one "
+"patron."
+msgstr ""
+"Sélectionnez les catégories / étiquettes souhaitées. La liste des mécènes "
+"s’affichera à la fin des articles de ces catégories, uniquement si elle "
+"contient au moins un contributeur."
+
+#: controller/controller-settings.php:389
+msgid ""
+"The patron list will be displayed only if it contains at least one patron."
+msgstr ""
+"La liste des mécènes sera affichée uniquement si elle contient au moins un "
+"contributeur."
+
+#: controller/controller-settings.php:409
+msgid "Image displayed in the restricted posts message."
+msgstr "Image affichée dans le message des publications restreintes."
+
+#: controller/controller-settings.php:428 blocks/patron-post-list/index.js:1
+msgid "Gray Out locked posts"
+msgstr "Griser les articles verrouillé"
+
+#: controller/controller-settings.php:429
+msgid "Locked posts' image and title will be grayed out in post lists."
+msgstr ""
+"L’image et le titre des articles verrouillés seront grisés dans les listes "
+"d’articles."
+
+#: controller/controller-settings.php:447
+msgid ""
+"Delete all Patrons Tips data (patrons, history, tiers, settings...) when you "
+"uninstall the plugin."
+msgstr ""
+"Supprimer toutes les données de Patrons Tips (mécènes, historique, niveaux, "
+"réglages...) lorsque vous désinstallez le plugin."
+
+#: controller/controller-settings.php:476
+msgid "The currency symbol used for displaying prices (e.g.: $ € £ ¥ etc.)."
+msgstr ""
+"Le symbole de la devise utilisée pour l’affichage des prix (ex. : $ € £ ¥ "
+"etc.)."
+
+#: controller/controller-settings.php:492
+msgid "Left"
+msgstr "Gauche"
+
+#: controller/controller-settings.php:493
+msgid "Right"
+msgstr "Droite"
+
+#: controller/controller-settings.php:494
+msgid "Left with space"
+msgstr "Gauche avec espace"
+
+#: controller/controller-settings.php:495
+msgid "Right with space"
+msgstr "Droite avec espace"
+
+#: controller/controller-settings.php:498
+msgid "Position of the currency symbol in prices (e.g.: $50; 50€)."
+msgstr "Position du symbole de la devise dans les prix (ex. : $50 ; 50€)."
+
+#: controller/controller-settings.php:514
+msgid "Thousand separator used for displaying prices (e.g.: $9,999; 9 999€)."
+msgstr ""
+"Séparateur des milliers utilisé dans l’affichage des prix (ex. : $9,999 ; "
+"9 999€)."
+
+#: controller/controller-settings.php:530
+msgid "Decimal separator used for displaying prices (e.g.: $9.99; 9,99€)."
+msgstr ""
+"Séparateur des décimales utilisé dans l’affichage des prix (ex. : $9.99 ; "
+"9,99€)."
+
+#: controller/controller-settings.php:548
+msgid "Number of decimals in prices (e.g.: 9,999KD; $9.99; ¥9)."
+msgstr "Nombre de décimales dans les prix (ex. : 9,999KD ; $9.99 ; ¥9)."
+
+#: controller/controller-settings.php:625
+msgid "Manage Patrons Tips settings"
+msgstr "Gérer les réglages de Patrons Tips"
+
+#: controller/controller-settings.php:626
+#: controller/controller-tier-editor.php:17 patrons-tips.php:391
+#: view/view-settings.php:12
+msgid "Settings"
+msgstr "Réglages"
+
+#: controller/controller-settings.php:645
+msgid "View documentation"
+msgstr "Voir la documentation"
+
+#: controller/controller-settings.php:645
+msgid "Docs"
+msgstr "Docs"
+
+#: controller/controller-settings.php:646
+msgid "Report a bug or request a feature"
+msgstr "Signaler un bug ou demander une fonctionnalité"
+
+#: controller/controller-settings.php:646
+msgid "Report & Request"
+msgstr "Signalement & Demande"
+
+#: controller/controller-settings.php:647
+msgid "Contact us directly"
+msgstr "Contactez-nous directement"
+
+#: controller/controller-settings.php:647
+msgid "Contact us"
+msgstr "Contactez-nous"
+
+#: controller/controller-shortcodes.php:242
+msgid "No patronage history."
+msgstr "Aucun historique de mécénat."
+
+#: controller/controller-shortcodes.php:636
+msgid "No media for this period."
+msgstr "Aucun média pour cette période."
+
+#: controller/controller-shortcodes.php:662
+msgid "No tiers available."
+msgstr "Aucun niveau d’adhésion disponible."
+
+#. translators: This is a plugin name.
+#: controller/controller-subscriptions-fsb.php:251
+#: functions/functions-global.php:219
+msgid "Flexible Subscriptions"
+msgstr "Flexible Subscriptions"
+
+#. translators: This is a plugin name.
+#: controller/controller-subscriptions-sfw.php:244
+msgid "WP Swings Subscriptions"
+msgstr "WP Swings Subscriptions"
+
+#: controller/controller-subscriptions-sfw.php:427
+#: controller/controller-subscriptions-wcs.php:382
+msgid "Upgrade my subscription"
+msgstr "Mettre à niveau mon abonnement"
+
+#. translators: This is a plugin name.
+#: controller/controller-subscriptions-wcs.php:255
+#: functions/functions-global.php:203
+msgid "WooCommerce Subscriptions"
+msgstr "WooCommerce Subscriptions"
+
+#: controller/controller-templates.php:21
+msgid "Patronage Sales Sidebar"
+msgstr "Barre latérale de vente de mécénat"
+
+#: controller/controller-templates.php:23
+msgid "Sidebar to be displayed on the patronage sales page."
+msgstr "Barre latérale à afficher sur la page de vente du mécénat."
+
+#. translators: %s = Template title "Page: Patronage sales"
+#: controller/controller-templates.php:50
+#: controller/controller-templates.php:66 view/templates/sales-page.php:123
+msgid "Page: Patronage sales"
+msgstr "Page : Vente du mécénat"
+
+#: controller/controller-templates.php:51
+msgid "Introduce the patronage system and sell patronage tiers."
+msgstr ""
+"Présenter le système de mécénat et vendre des adhésions à des niveaux de "
+"mécénat."
+
+#: controller/controller-templates.php:86
+msgid "Month goals"
+msgstr "Objectifs du mois"
+
+#. translators: %s = link to 'Patrons Tips - Pro' sales page
+#: controller/controller-templates.php:94
+msgid "%s lets you to set monthly goals to encourage patrons to contribute."
+msgstr ""
+"%s vous permet de paramétrer des objectifs mensuel pour inciter les mécènes "
+"à contribuer."
+
+#: controller/controller-templates.php:98
+msgid "Patronage period goals"
+msgstr "Objectif périodique de mécénat"
+
+#: controller/controller-templates.php:102
+msgid "Goals can be a number of patrons or an amount of money."
+msgstr "Les objectifs peuvent être un nombre de mécènes ou une somme d’argent."
+
+#: controller/controller-tier-editor.php:244
+msgid "The tier has been created."
+msgstr "Le niveau a été créé."
+
+#: controller/controller-tier-editor.php:247
+msgid "An error occurred while trying to create the tier."
+msgstr "Une erreur s’est produite lors de la tentative de création du niveau."
+
+#: controller/controller-tier-editor.php:255
+msgid "The tier has been updated."
+msgstr "Le niveau a été mis à jour."
+
+#: controller/controller-tier-editor.php:258
+msgid "An error occurred while trying to update the tier."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de modification du niveau."
+
+#: controller/controller-tier-editor.php:266
+msgid "The tier has been removed."
+msgstr "Le niveau a été supprimé."
+
+#: controller/controller-tier-editor.php:269
+msgid "An error occurred while trying to remove the tier."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de suppression du niveau."
+
+#: controller/controller-tier-editor.php:277
+msgid "The tier has been restored."
+msgstr "Le niveau a été restauré."
+
+#: controller/controller-tier-editor.php:280
+msgid "An error occurred while trying to restore the tier."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de restauration du niveau."
+
+#: controller/controller-woocommerce-backend.php:113
+#: controller/controller-woocommerce-backend.php:120
+msgid "The price is determined automatically based on the associated products."
+msgstr ""
+"Le prix est déterminé automatiquement en fonction des produits associés."
+
+#: controller/controller-woocommerce-backend.php:120
+msgid "The tier price."
+msgstr "Le prix du niveau."
+
+#: controller/controller-woocommerce-backend.php:136
+#: blocks/patron-post-list/index.js:1
+msgid "Products"
+msgstr "Produits"
+
+#: controller/controller-woocommerce-backend.php:149
+#: controller/controller-woocommerce-backend.php:164
+msgid "Select a product"
+msgstr "Sélectionnez un produit"
+
+#: controller/controller-woocommerce-backend.php:150
+msgid "One-off"
+msgstr "Ponctuel"
+
+#: controller/controller-woocommerce-backend.php:157
+msgid ""
+"Select a non-recurring payment product. Purchasing this product will grant "
+"access to this tier for one month."
+msgstr ""
+"Sélectionnez un produit à paiement non récurrent. Acheter ce produit donnera "
+"accès à ce niveau pour un mois."
+
+#: controller/controller-woocommerce-backend.php:165
+msgid "Monthly"
+msgstr "Mensuel"
+
+#: controller/controller-woocommerce-backend.php:172
+msgid ""
+"Select a monthly recurring payment product. Purchasing this product will "
+"grant access to this tier for one month."
+msgstr ""
+"Sélectionnez un produit à paiement récurrent mensuel. Acheter ce produit "
+"donnera accès à ce niveau pour un mois."
+
+#. translators: %s = link to the "documentation"
+#: controller/controller-woocommerce-backend.php:188
+msgid ""
+"In order to subscribe to a tier on a recurring basis and make automatic "
+"renewal payments, you need to install a supported recurring payment plugin "
+"(see this %s):"
+msgstr ""
+"Pour s’abonner à un niveau de manière récurrente et effectuer des paiements "
+"de renouvellement automatiques, vous devez installer un plugin de paiement "
+"récurrent pris en charge (voir cette %s) :"
+
+#: controller/controller-woocommerce-backend.php:264
+msgid "Sync history"
+msgstr "Synchroniser l’historique"
+
+#: controller/controller-woocommerce-backend.php:267
+msgid "Update patronage history based on WooCommerce orders."
+msgstr ""
+"Mettre à jour l‘historique de mécénat en fonction des commandes WooCommerce."
+
+#: controller/controller-woocommerce-backend.php:288
+msgid "Notifications"
+msgstr "Notifications"
+
+#: controller/controller-woocommerce-backend.php:311
+msgid "Automatic email reminders"
+msgstr "E-mail de rappel automatique"
+
+#. translators: %s = link to "Patrons Tips - Pro" sales page
+#: controller/controller-woocommerce-backend.php:318
+msgid ""
+"%s automatically sends an email reminder to your patrons few days before "
+"their patronage expires. You will no longer lose a patron because they "
+"forgot to renew."
+msgstr ""
+"%s envoie automatiquement un e-mail de rappel à vos mécènes quelques jours "
+"avant l’expiration de leur abonnement. Vous ne perdrez plus de mécènes qui "
+"auraient oublié de renouveler leur abonnement."
+
+#. translators: %s = link to "WooCommerce currency options"
+#: controller/controller-woocommerce-backend.php:343
+msgid "Please configure the price format in %s"
+msgstr "Veuillez configurer les options de prix dans %s"
+
+#: controller/controller-woocommerce-backend.php:345
+msgid "WooCommerce currency options"
+msgstr "Options de devise de WooCommerce"
+
+#: controller/controller-woocommerce-backend.php:365
+msgid "Endpoint for the \"My account &rarr; Patron area\" page."
+msgstr "Point de terminaison pour la page « Mon compte &rarr; Espace mécène »."
+
+#: controller/controller-woocommerce-backend.php:538
+msgid ""
+"You must associate a product with your tiers, otherwise, customers will not "
+"be able to select them and become a patron."
+msgstr ""
+"Vous devez associer un produit à vos niveaux, sinon les clients ne pourront "
+"pas les sélectionner et devenir mécènes."
+
+#. translators: %s = comma separated list of tier titles
+#: controller/controller-woocommerce-backend.php:542
+msgid "The following tier is not associated with any product: %s."
+msgid_plural "The following tiers are not associated with any product: %s."
+msgstr[0] "Le niveau suivant n’est associé à aucun produit : %s."
+msgstr[1] "Les niveaux suivants ne sont associés à aucun produit : %s."
+
+#. translators: %s = Tier title (with a link to the tier edit page).
+#: controller/controller-woocommerce-backend.php:583
+msgid ""
+"A product may not be correctly configured according to \"%s\" tier settings."
+msgstr ""
+"Un produit n’est peut-être pas correctement configuré d’après les paramètres "
+"du niveau « %s »."
+
+#. translators: %s = path to WC account creation settings "WooCommerce > Settings > Accounts & Privacy" (with a link).
+#: controller/controller-woocommerce-backend.php:676
+msgid ""
+"Patrons may not be able to access their patron area. Indeed, customers can "
+"purchase a patronage without account, but they cannot create an account "
+"afterwards. However, an account is required to access patron area. You "
+"should disable guest checkout, or allow customers creating an account after "
+"checkout in %s."
+msgstr ""
+"Les mécènes peuvent ne pas avoir accès à leur espace mécène. En effet, ils "
+"peuvent acheter un mécénat sans compte, mais ne peuvent pas créer de compte "
+"par la suite. Cependant, un compte est requis pour accéder à l’espace "
+"mécène. Vous devez interdire la validation de la commande en tant qu’invité "
+"ou autoriser les clients à créer un compte après validation de la commande "
+"dans %s."
+
+#: controller/controller-woocommerce-backend.php:678
+msgid "WooCommerce > Settings > Accounts & Privacy"
+msgstr "WooCommerce > Réglages > Comptes et confidentialité"
+
+#: controller/controller-woocommerce-frontend.php:20
+msgid "There are no products associated with this tier."
+msgstr "Il n’y a aucun produit associé à ce niveau."
+
+#: controller/controller-woocommerce-frontend.php:21
+msgid "There are no tiers, or no products associated with the tiers."
+msgstr "Il n’y a aucun niveau, ou aucun produit associé aux niveaux."
+
+#: controller/controller-woocommerce-frontend.php:22
+msgid "There are no products associated with the tiers for this frequency."
+msgstr "Il n’y a aucun produit associé aux niveaux pour cette fréquence."
+
+#: controller/controller-woocommerce-frontend.php:122
+#: functions/functions-global.php:169
+msgid "Log in"
+msgstr "Se connecter"
+
+#: controller/controller-woocommerce-frontend.php:146
+msgid "Back to shop"
+msgstr "Retourner à la boutique"
+
+#. translators: %1$s = "product" or "content". %2$s = Price (e.g. 5€)
+#: controller/controller-woocommerce-frontend.php:165
+#: functions/functions-posts.php:427
+msgid "This %1$s is available for patrons from %2$s."
+msgstr "Ce %1$s n’est disponible que pour les mécènes à partir de %2$s."
+
+#: controller/controller-woocommerce-frontend.php:166
+#: controller/controller-woocommerce-frontend.php:173
+#: controller/controller-woocommerce-frontend.php:184
+msgid "product"
+msgstr "produit"
+
+#: controller/controller-woocommerce-frontend.php:166
+#: controller/controller-woocommerce-frontend.php:173
+#: functions/functions-posts.php:405 functions/functions-posts.php:428
+#: functions/functions-posts.php:435
+msgid "content"
+msgstr "contenu"
+
+#. translators: %1$s = "product" or "content". %2$s = Slash separated list of tier titles (e.g.: "Tier 1 / Tier 2").
+#: controller/controller-woocommerce-frontend.php:172
+#: functions/functions-posts.php:434
+msgid "This %1$s is restricted to \"%2$s\" patrons."
+msgstr "Ce %1$s est réservé aux mécènes « %2$s »."
+
+#. translators: %s = "product" or "content".
+#: controller/controller-woocommerce-frontend.php:183
+#: functions/functions-posts.php:404
+msgid ""
+"This %s is restricted to patrons at the time it was posted, it is no longer "
+"available for newcomers."
+msgstr ""
+"Ce %s est réservé aux mécènes au moment de sa publication, il n’est plus "
+"disponible pour les nouveaux arrivants."
+
+#: controller/controller-woocommerce-frontend.php:188
+#: functions/functions-posts.php:409
+msgid "Become a patron to never miss exclusive content anymore!"
+msgstr "Devient mécène pour ne plus jamais manquer de contenu exclusif !"
+
+#: controller/controller-woocommerce-frontend.php:210
+#: functions/functions-woocommerce.php:819 blocks/tier-form/index.js:3
+msgid "Add to cart"
+msgstr "Ajouter au panier"
+
+#. translators: %1$s = the Tier name.  %2$s = Formatted price (e.g. $20.00). %3$s = Link to "Manage your subcription".
+#: controller/controller-woocommerce-frontend.php:246
+msgid "You are a recurring \"%1$s\" (%2$s) patron (%3$s)."
+msgstr "Vous êtes mécène « %1$s » (%2$s) récurrent (%3$s)."
+
+#. translators: %1$s = the Tier name.  %2$s = Formatted price (e.g. $20.00). %3$s = Link to "Manage your subcription".
+#: controller/controller-woocommerce-frontend.php:246
+#: blocks/patron-status/index.js:7
+msgid "Manage your subcription"
+msgstr "Gérer votre abonnement"
+
+#. translators: %1$s = the Tier name. %2$s = Formatted price (e.g. $20.00). %3$s = formatted date (e.g. "September 30th 2024")
+#: controller/controller-woocommerce-frontend.php:249
+msgid "You are a \"%1$s\" (%2$s) patron until %3$s."
+msgstr "Vous êtes mécène « %1$s » (%2$s) jusqu’au %3$s."
+
+#: controller/controller-woocommerce-frontend.php:640
+msgid ""
+"This product could not be added to the cart because there is already a "
+"patronage product in your cart."
+msgstr ""
+"Ce produit n’a pas pu être ajouté au panier car il y a déjà un produit de "
+"mécénat dans votre panier."
+
+#: controller/controller-woocommerce-frontend.php:663
+msgid ""
+"Sorry, this product is restricted to patrons, you cannot add it to your cart."
+msgstr ""
+"Désolé, ce produit est réservé aux mécènes, vous ne pouvez pas l’ajouter à "
+"votre panier."
+
+#: controller/controller-woocommerce-frontend.php:669
+#: functions/functions-patrons.php:1349 functions/functions-posts.php:374
+#: functions/functions-tiers.php:365 blocks/patron-status/index.js:5
+#: blocks/tier-form/index.js:5
+msgid "Become patron"
+msgstr "Devenir mécène"
+
+#: controller/controller-woocommerce-frontend.php:722
+#: controller/controller-woocommerce-frontend.php:822
+#: controller/controller-woocommerce-frontend.php:857
+msgid "patron area"
+msgstr "espace mécène"
+
+#. translators: %1$s = Tier title. %2$s = period name (e.g. February 2024)
+#: controller/controller-woocommerce-frontend.php:726
+msgid "Oh! You are already a \"%1$s\" patron of %2$s."
+msgstr "Oh ! Vous êtes déjà mécène « %1$s » de %2$s."
+
+#. translators: %s = Link to "patron area"
+#: controller/controller-woocommerce-frontend.php:728
+msgid "See your current tier and rewards in your %s."
+msgstr "Retrouvez votre niveau actuel et vos récompenses dans votre %s."
+
+#: controller/controller-woocommerce-frontend.php:729
+msgid ""
+"Be careful, if you place this order, you will have participated twice for "
+"the same period."
+msgstr ""
+"Attention, si vous passez cette commande, vous aurez participé deux fois "
+"pour la même période."
+
+#. translators: %s = link to "patron area"
+#: controller/controller-woocommerce-frontend.php:830
+#: controller/controller-woocommerce-frontend.php:867
+msgid "You are now patron! See your rewards in your %s."
+msgstr "Vous êtes maintenant mécène ! Retrouvez vos récompenses dans votre %s."
+
+#. translators: %s = link to "patron area"
+#: controller/controller-woocommerce-frontend.php:833
+#: controller/controller-woocommerce-frontend.php:870
+msgid ""
+"You are almost a patron! This order has not been paid yet. Once the order "
+"will be completed by an administrator, you will see your rewards in your %s."
+msgstr ""
+"Vous êtes presque mécène ! Cette commande n’a pas encore été payée. Une fois "
+"la commande finalisée par un administrateur, vous verrez vos récompenses "
+"dans votre %s."
+
+#: controller/controller-woocommerce-frontend.php:876
+#: controller/controller-woocommerce-frontend.php:886
+msgid "Patronage info"
+msgstr "Info mécénat"
+
+#: controller/controller-woocommerce-frontend.php:1047
+msgid "Unlocked products"
+msgstr "Produits dévérouillés"
+
+#: functions/functions-forms.php:306 blocks/patron-post-list/index.js:1
+msgid "Media"
+msgstr "Média"
+
+#: functions/functions-forms.php:441 functions/functions-woocommerce.php:45
+#: view/dialogs/dialog-patron-export.php:63
+msgid "Search..."
+msgstr "Rechercher..."
+
+#: functions/functions-forms.php:528
+msgid "Current user"
+msgstr "Compte actuel"
+
+#: functions/functions-global.php:26
+msgid "Please enter {nb} or more characters."
+msgstr "Veuillez entrer {nb} caractères ou plus."
+
+#: functions/functions-global.php:27
+msgid "Generate export link"
+msgstr "Générer lien d’export"
+
+#: functions/functions-global.php:28
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: functions/functions-global.php:29
+msgid "Loading"
+msgstr "Chargement"
+
+#: functions/functions-global.php:30
+msgid "An error has occured."
+msgstr "Une erreur s’est produite."
+
+#: functions/functions-global.php:38 functions/functions-patron-editor.php:110
+msgid "No history."
+msgstr "Aucun historique."
+
+#. translators: This is a plugin name.
+#: functions/functions-global.php:211
+msgid "Subscriptions for WooCommerce"
+msgstr "Subscriptions for WooCommerce"
+
+#: functions/functions-global.php:213
+msgid "WP Swings"
+msgstr "WP Swings"
+
+#: functions/functions-global.php:221
+msgid "WP Desk"
+msgstr "WP Desk"
+
+#. translators: %s = plugin author.
+#: functions/functions-global.php:254
+msgid "by %s"
+msgstr "par %s"
+
+#: functions/functions-global.php:258
+msgctxt "opposite of paid"
+msgid "free"
+msgstr "gratuit"
+
+#: functions/functions-global.php:258
+msgctxt "opposite of free"
+msgid "paid"
+msgstr "payant"
+
+#: functions/functions-global.php:647 blocks/tier-form/index.js:3
+msgid "one-off"
+msgstr "ponctuel"
+
+#: functions/functions-global.php:648 blocks/tier-form/index.js:3
+msgid "daily"
+msgstr "journalier"
+
+#. translators: %s = a number.
+#: functions/functions-global.php:648 blocks/tier-form/index.js:3
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s jour"
+msgstr[1] "%s jours"
+
+#. translators: %s = a number.
+#: functions/functions-global.php:649 blocks/tier-form/index.js:3
+msgid "weekly"
+msgstr "hebdomadaire"
+
+#. translators: %s = a number.
+#: functions/functions-global.php:649 blocks/tier-form/index.js:3
+msgid "%s week"
+msgid_plural "%s weeks"
+msgstr[0] "%s semaine"
+msgstr[1] "%s semaines"
+
+#. translators: %s = a number.
+#: functions/functions-global.php:650 blocks/tier-form/index.js:3
+msgid "monthly"
+msgstr "mensuel"
+
+#. translators: %s = a number.
+#: functions/functions-global.php:650 blocks/tier-form/index.js:3
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "%s mois"
+msgstr[1] "%s mois"
+
+#. translators: %s = a number.
+#: functions/functions-global.php:651 blocks/tier-form/index.js:3
+msgid "yearly"
+msgstr "annuel"
+
+#. translators: %s = a number.
+#: functions/functions-global.php:651 blocks/tier-form/index.js:3
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "%s an"
+msgstr[1] "%s ans"
+
+#. translators: %s = number + period (e.g. "2 months", "4 weeks", "3 years", etc.)
+#: functions/functions-global.php:658 blocks/tier-form/index.js:5
+msgid "every %s"
+msgstr "tous les %s"
+
+#. translators: %s = Year
+#: functions/functions-global.php:712
+msgid "First quarter %s"
+msgstr "Premier trimestre %s"
+
+#. translators: %s = Year
+#: functions/functions-global.php:715
+msgid "Second quarter %s"
+msgstr "Deuxième trimestre %s"
+
+#. translators: %s = Year
+#: functions/functions-global.php:718
+msgid "Third quarter %s"
+msgstr "Troisième trimestre %s"
+
+#. translators: %s = Year
+#: functions/functions-global.php:721
+msgid "Fourth quarter %s"
+msgstr "Quatrième trimestre %s"
+
+#. translators: %s = Year
+#: functions/functions-global.php:727
+msgid "First half %s"
+msgstr "Première moitié %s"
+
+#. translators: %s = Year
+#: functions/functions-global.php:730
+msgid "Second half %s"
+msgstr "Deuxième moitié %s"
+
+#. translators: %1$s = Month name, %2$s = Month name and year. E.g. January to February 2024.
+#: functions/functions-global.php:740
+msgid "%1$s to %2$s"
+msgstr "%1$s à %2$s"
+
+#: functions/functions-global.php:1012
+msgid "Invalid nonce."
+msgstr "Nonce non valide."
+
+#: functions/functions-global.php:1012
+msgid "Please reload the page and try again."
+msgstr "Veuillez recharger la page et essayer à nouveau."
+
+#: functions/functions-patron-editor.php:25
+msgid "Patrons per page:"
+msgstr "Mécènes par page :"
+
+#: functions/functions-patron-editor.php:129 view/view-patron-editor.php:180
+msgid "Select a tier"
+msgstr "Sélectionnez un niveau"
+
+#: functions/functions-patron-editor.php:138
+#: functions/functions-patrons.php:1157 view/view-patron-editor.php:207
+#: view/view-patron-editor.php:236
+msgid "Start"
+msgstr "Début"
+
+#: functions/functions-patron-editor.php:141
+#: functions/functions-patrons.php:1158 view/view-patron-editor.php:211
+#: view/view-patron-editor.php:248
+msgid "End"
+msgstr "Fin"
+
+#: functions/functions-patron-editor.php:144
+#: functions/functions-patrons.php:1159 view/view-patron-editor.php:215
+#: view/view-patron-editor.php:257 blocks/patron-list/index.js:1
+#: blocks/period-media/index.js:1 blocks/period-results/index.js:1
+msgid "Period"
+msgstr "Période"
+
+#: functions/functions-patron-editor.php:148
+#: functions/functions-patrons.php:1160 view/view-patron-editor.php:219
+#: view/view-patron-editor.php:266
+msgid "Tier"
+msgstr "Niveau"
+
+#: functions/functions-patron-editor.php:151 view/view-patron-editor.php:227
+#: view/view-patron-editor.php:290
+msgid "Origin"
+msgstr "Origine"
+
+#: functions/functions-patron-editor.php:154
+#: functions/functions-patron-export.php:337
+#: functions/functions-patron-export.php:373
+#: functions/functions-patron-export.php:386
+#: functions/functions-settings.php:216 view/view-patron-editor.php:113
+#: view/view-patron-editor.php:223 view/view-patron-editor.php:278
+msgid "Active"
+msgstr "Actif"
+
+#: functions/functions-patron-export.php:22
+msgid "Patron ID"
+msgstr "ID du mécène"
+
+#: functions/functions-patron-export.php:23
+msgid "Patron status"
+msgstr "État du mécène"
+
+#: functions/functions-patron-export.php:24
+msgid "Patron creation date"
+msgstr "Date de création du mécène"
+
+#: functions/functions-patron-export.php:25
+msgid "Patron nickname"
+msgstr "Pseudo du mécène"
+
+#: functions/functions-patron-export.php:27
+msgid "User ID"
+msgstr "ID du compte"
+
+#: functions/functions-patron-export.php:28
+msgid "First name"
+msgstr "Prénom"
+
+#: functions/functions-patron-export.php:29
+msgid "Last name"
+msgstr "Nom"
+
+#: functions/functions-patron-export.php:30 functions/functions-tiers.php:599
+#: view/view-patron-editor.php:106
+msgid "Email"
+msgstr "E-mail"
+
+#: functions/functions-patron-export.php:31
+msgid "User roles"
+msgstr "Rôles du compte"
+
+#: functions/functions-patron-export.php:33
+msgid "Tier title"
+msgstr "Titre du niveau"
+
+#: functions/functions-patron-export.php:34
+msgid "Tier description"
+msgstr "Description du niveau"
+
+#: functions/functions-patron-export.php:35
+msgid "Tier icon URL"
+msgstr "URL de l’icône du niveau"
+
+#: functions/functions-patron-export.php:36
+msgid "Tier status"
+msgstr "État du niveau"
+
+#: functions/functions-patron-export.php:38
+msgid "Tier ID"
+msgstr "ID du niveau"
+
+#: functions/functions-patron-export.php:39
+msgid "Order ID"
+msgstr "ID de la commande"
+
+#: functions/functions-patron-export.php:40
+msgid "Subscription ID"
+msgstr "ID de l’abonnement"
+
+#: functions/functions-patron-export.php:41
+msgid "Subscription plugin"
+msgstr "Extension d’abonnement"
+
+#: functions/functions-patron-export.php:42
+msgid "Patronage date start"
+msgstr "Date de début du mécénat"
+
+#: functions/functions-patron-export.php:43
+msgid "Patronage date end"
+msgstr "Date de fin du mécénat"
+
+#: functions/functions-patron-export.php:44
+msgid "Patronage period(s)"
+msgstr "Période(s) du mécénat"
+
+#: functions/functions-patron-export.php:45
+msgid "Patronage period start"
+msgstr "Début de la période du mécénat"
+
+#: functions/functions-patron-export.php:46
+msgid "Patronage period end"
+msgstr "Fin de la période du mécénat"
+
+#: functions/functions-patron-export.php:47
+msgid "Patronage period number"
+msgstr "Nombre de périodes du mécénat"
+
+#: functions/functions-patron-export.php:48
+msgid "Patronage period duration"
+msgstr "Durée de la période du mécénat"
+
+#: functions/functions-patron-export.php:49
+msgid "Patronage status"
+msgstr "État du mécénat"
+
+#: functions/functions-patron-export.php:337
+#: functions/functions-patron-export.php:373
+#: functions/functions-patron-export.php:386
+msgid "Inactive"
+msgstr "Inactif"
+
+#: functions/functions-patrons.php:59
+msgid "patrons"
+msgstr "mécènes"
+
+#. translators: %s = link to "patrons" page
+#: functions/functions-patrons.php:69
+msgid ""
+"This content was published with the support of my %s, thank you very much!"
+msgstr "Ce contenu a été publié avec le soutient de mes %s, merci beaucoup !"
+
+#: functions/functions-patrons.php:74 functions/functions-settings.php:237
+#: patrons-tips.php:387 view/dialogs/dialog-patron-export.php:74
+#: view/dialogs/dialog-patron-export.php:81 view/view-patron-list-table.php:17
+msgid "Patrons"
+msgstr "Mécènes"
+
+#. translators: %s is the patron ID
+#: functions/functions-patrons.php:1077 blocks/patron-status/index.js:3
+msgid "Patron #%s"
+msgstr "Mécène n°%s"
+
+#: functions/functions-patrons.php:1081
+msgid "Anonymous patron"
+msgstr "Mécène anonyme"
+
+#: functions/functions-patrons.php:1162 view/view-patron-list-table.php:284
+#: view/view-tier-list-table.php:98
+msgid "Actions"
+msgstr "Actions"
+
+#: functions/functions-patrons.php:1241 functions/functions-posts.php:524
+#: blocks/patron-history/index.js:13
+msgid "See more"
+msgstr "Voir plus"
+
+#: functions/functions-patrons.php:1343
+msgid ""
+"Oh! It seems that you have never been a patron before. Patrons financially "
+"support my work and get amazing rewards in return!"
+msgstr ""
+"Oh ! Il semble que vous n’avez jamais été mécène. Les mécènes soutiennent "
+"financièrement mon travail et reçoivent de super récompenses en retour !"
+
+#. translators: %s = "Log in" link
+#: functions/functions-patrons.php:1359 functions/functions-posts.php:381
+msgid "Already a patron? %s."
+msgstr "Déjà mécène ? %s."
+
+#: functions/functions-posts.php:397
+msgid "This content is restricted to patrons."
+msgstr "Ce contenu est réservé aux mécènes."
+
+#: functions/functions-posts.php:607
+msgid "No images."
+msgstr "Aucune image."
+
+#: functions/functions-settings.php:214 view/view-patron-editor.php:125
+msgid "Nickname"
+msgstr "Pseudo"
+
+#: functions/functions-settings.php:287
+msgid "Some patron personal metadata may have not be deleted."
+msgstr ""
+"Certaines données personnelles des mécènes n’ont peut-être pas été "
+"supprimées."
+
+#: functions/functions-settings.php:292
+msgid "Personal data attached to the patrons have been successfully deleted."
+msgstr ""
+"Les données personnelles liées aux mécènes ont été supprimées avec succès."
+
+#: functions/functions-settings.php:306
+msgid "The patrons made without account have been successfully anonymized."
+msgstr "Les mécènes sans compte ont été anonymisés avec succès."
+
+#: functions/functions-settings.php:311
+msgid "The patrons made without account may have not been anonymized."
+msgstr "Les mécènes sans compte n’ont peut-être pas été anonymisés."
+
+#. translators: %s = Product ID.
+#: functions/functions-subscriptions.php:169
+#: functions/functions-woocommerce.php:144
+msgid "Product #%s"
+msgstr "Produit n°%s"
+
+#. translators: %1$s = Product title and link to the product page. %2$s = Frequency name like "every 2 months", "yearly"...
+#: functions/functions-subscriptions.php:185
+msgid ""
+"The product \"%1$s\" should not be recurring, however it is configured to "
+"renew %2$s."
+msgstr ""
+"Le produit « %1$s » ne devrait pas être récurrent, cependant il est "
+"configuré pour se renouveler %2$s."
+
+#. translators: %1$s = Product title and link to the product page. %2$s = Frequency name like "every 2 months", "yearly"...
+#: functions/functions-subscriptions.php:188
+msgid ""
+"The product \"%1$s\" should renew \"%2$s\", however it is configured as not "
+"recurring."
+msgstr ""
+"Le renouvellement du produit « %1$s » devrait être « %2$s », cependant il "
+"est configuré comme non récurrent."
+
+#. translators: %1$s = Product title and link to the product page. %2$s and %3$s = Frequency name like "every 2 months", "yearly"...
+#: functions/functions-subscriptions.php:191
+msgid ""
+"The product \"%1$s\" should renew \"%2$s\", however it is configured to "
+"renew \"%3$s\"."
+msgstr ""
+"Le renouvellement du produit « %1$s » devrait être « %2$s », cependant son "
+"renouvellement est configuré sur « %3$s »."
+
+#. translators: %s = Product title and link to the product page.
+#: functions/functions-subscriptions.php:198
+msgid ""
+"The product \"%s\" is not configured as \"Virtual\", the order will not be "
+"automatically completed."
+msgstr ""
+"Le produit « %s » n’est pas configuré comme « Virtuel », la commande ne sera "
+"pas automatiquement terminée."
+
+#: functions/functions-templates.php:71
+msgid "Become my patron"
+msgstr "Devient mécène"
+
+#: functions/functions-tier-editor.php:25
+msgid "Tiers per page:"
+msgstr "Niveaux par page :"
+
+#. translators: %s = "Log in" link
+#: functions/functions-tiers.php:606
+msgid "Already have an account? %s."
+msgstr "Vous avez déjà un compte ? %s."
+
+#: functions/functions-tiers.php:617
+msgid "Subscribe"
+msgstr "S’abonner"
+
+#: functions/functions-tiers.php:638
+msgid "Welcome to Patrons Tips! Let's start by creating your first tier."
+msgstr ""
+"Bienvenue sur Patrons Tips ! Commençons par créer votre premier niveau "
+"d’adhésion."
+
+#: functions/functions-tiers.php:638
+msgid "There are no tiers available, and you are not allowed to create one."
+msgstr ""
+"Il n’y a aucun niveaux d’adhésion disponibles, et vous n’êtes pas "
+"autorisé(e) à en créer un."
+
+#: functions/functions-tiers.php:643
+msgid "Create your first tier"
+msgstr "Créer votre premier niveau"
+
+#. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00").
+#: functions/functions-woocommerce.php:823
+msgid ""
+"The selected tier \"{title}\" ({price}) will be debited as soon as the order "
+"is completed. The corresponding rewards will be unlocked for one month."
+msgstr ""
+"Le niveau sélectionné « {title} » ({price}) sera débité aussitôt la commande "
+"terminée. Les récompenses correspondantes seront débloquées durant un mois."
+
+#. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00"). {frequency} = Frequency name like "every 2 months", "yearly"...
+#: functions/functions-woocommerce.php:824
+msgid ""
+"The selected tier \"{title}\" ({price}) will be debited recurringly "
+"({frequency}). You can cancel your subscription at any time."
+msgstr ""
+"Le niveau sélectionné « {title} » ({price}) sera débité de manière "
+"récurrente ({frequency}). Vous pouvez annuler votre abonnement à tout moment."
+
+#: patrons-tips.php:385 view/templates/patron-area.php:24
+msgid "Home"
+msgstr "Accueil"
+
+#: view/dialogs/dialog-patron-export.php:12
+msgid "Patron export"
+msgstr "Export des mécènes"
+
+#: view/dialogs/dialog-patron-export.php:17
+msgid "This will export all the patrons of the current list (filters applied)."
+msgstr ""
+"Cela exportera tous les mécènes de la liste actuelle (filtres appliqués)."
+
+#: view/dialogs/dialog-patron-export.php:22
+#: view/dialogs/dialog-patron-export.php:24
+msgctxt "verb"
+msgid "import"
+msgstr "importer"
+
+#: view/dialogs/dialog-patron-export.php:23
+#: view/dialogs/dialog-patron-export.php:25
+msgctxt "verb"
+msgid "sync"
+msgstr "synchroniser"
+
+#: view/dialogs/dialog-patron-export.php:30
+msgid "How to use:"
+msgstr "Comment utiliser :"
+
+#: view/dialogs/dialog-patron-export.php:62
+msgid "Columns to export (ordered)"
+msgstr "Colonnes à exporter (ordonnées)"
+
+#: view/dialogs/dialog-patron-export.php:66
+msgid "Add the columns you want to export in the order they will be displayed."
+msgstr ""
+"Ajoutez les colonnes que vous souhaitez exporter dans l’ordre dans lequel "
+"elles apparaitront."
+
+#: view/dialogs/dialog-patron-export.php:71
+msgid "Data to export"
+msgstr "Données à exporter"
+
+#: view/dialogs/dialog-patron-export.php:75
+#: view/dialogs/dialog-patron-export.php:85
+msgid "Patrons' patronage history"
+msgstr "Historique de mécénat des mécènes"
+
+#. translators: %s = "Patrons".
+#: view/dialogs/dialog-patron-export.php:80
+msgid ""
+"\"%s\": Export one row per patron. Only their most recent patronage period "
+"will be visible in the export."
+msgstr ""
+"« %s » : Exporte une ligne par mécène. Seule leur période de mécénat la plus "
+"récente sera visible dans l’export."
+
+#. translators: %s = "Patrons\' patronage history".
+#: view/dialogs/dialog-patron-export.php:84
+msgid ""
+"\"%s\": Export one row per patronage period per patron. For example, if a "
+"patron contributed in March, April and September, three rows will be "
+"exported for this patron, one for each period."
+msgstr ""
+"« %s » : Exporte une ligne par période de mécénat par mécène. Par exemple, "
+"si un mécène a contribué en mars, avril et septembre, trois lignes seront "
+"exportées pour ce mécène, une pour chaque période."
+
+#: view/dialogs/dialog-patron-export.php:91
+msgid "Raw data"
+msgstr "Données brutes"
+
+#: view/dialogs/dialog-patron-export.php:94
+msgid ""
+"Display raw data (easy to manipulate), as opposed to formatted data (user-"
+"friendly). E.g.: A date will be displayed \"1992-12-26 02:00:00\" instead of "
+"\"December 26th, 1992 2:00 AM\"."
+msgstr ""
+"Affiche des données brutes (facile à manipuler), contrairement aux données "
+"formattées (conviviales). Ex. : Une date sera affichée « 1992-12-26 "
+"02:00:00 » au lieu de « 26 décembre 1992, 2h00 »."
+
+#: view/dialogs/dialog-patron-export.php:108
+msgid "Limit"
+msgstr "Limite"
+
+#: view/dialogs/dialog-patron-export.php:111
+msgid ""
+"Maximum number of patrons to export. You may need to increase your PHP max "
+"execution time if this number is too high."
+msgstr ""
+"Nombre maximum de mécènes à exporter. Vous devrez peut-être augmenter le "
+"temps maximum d’exécution de PHP si ce nombre est trop élevé."
+
+#: view/dialogs/dialog-patron-export.php:119
+msgid "Secret link"
+msgstr "Lien secret"
+
+#: view/dialogs/dialog-patron-export.php:122
+msgctxt "action"
+msgid "Export"
+msgstr "Exporter"
+
+#: view/dialogs/dialog-patron-export.php:125
+msgid ""
+"Visit this link to get a file export of your patrons (according to filters "
+"and settings above), or use it as a dynamic URL feed to synchronize with "
+"other apps."
+msgstr ""
+"Visitez ce lien pour obtenir un fichier d’export de vos mécènes "
+"(conformément aux filtres et réglages ci-dessus), ou bien utilisez-la comme "
+"URL de flux dynamique à synchroniser avec d’autres applications."
+
+#: view/dialogs/dialog-patron-export.php:129
+msgid ""
+"This link provides real-time data. However, some apps may synchronize only "
+"every 24h, or more."
+msgstr ""
+"Ce lien fournit des données en temps réel. Cependant, certaines applications "
+"ne se synchronisent que toutes les 24h, ou plus."
+
+#: view/dialogs/dialog-patron-export.php:130
+msgid ""
+"That's why your changes won't be applied in real time on your synched apps."
+msgstr ""
+"C’est pourquoi vos modifications ne seront pas appliquées en temps réel sur "
+"vos applications synchronisées."
+
+#: view/dialogs/dialog-patron-export.php:136
+msgid ""
+"Only share this address with those you trust to see all your patrons' "
+"details."
+msgstr ""
+"Ne partagez cette adresse qu’avec les personnes en qui vous avez confiance "
+"pour voir tous les détails de vos mécènes."
+
+#: view/dialogs/dialog-patron-export.php:137
+msgid ""
+"You can reset your secret key with the \"Reset\" button below. This will "
+"nullify the previously generated export links."
+msgstr ""
+"Vous pouvez réinitialiser votre clé privée avec le bouton « Réinitialiser » "
+"ci-dessous. Cela annulera les liens d’export précédemment générés."
+
+#: view/templates/patron-area.php:32
+msgid "Rewards"
+msgstr "Récompenses"
+
+#: view/templates/patron-area.php:40
+msgid "History"
+msgstr "Historique"
+
+#: view/templates/patron-area.php:57
+msgid "Welcome to the patron area!"
+msgstr "Bienvenue dans l’espace mécène !"
+
+#: view/templates/patron-area.php:82
+msgid "Unlocked content"
+msgstr "Contenu dévérouillé"
+
+#: view/templates/patron-area.php:98
+msgid "Unlocked media"
+msgstr "Média dévérouillé"
+
+#: view/templates/patron-area.php:123
+msgid "Patronage History"
+msgstr "Historique de Mécénat"
+
+#: view/templates/sales-page-template.php:46
+msgid "This month"
+msgstr "Ce mois"
+
+#: view/templates/sales-page-template.php:58
+msgid "Select your tier"
+msgstr "Sélectionnez votre niveau"
+
+#: view/templates/sales-page.php:15
+msgid "Here is my dream"
+msgstr "Voici mon rêve"
+
+#: view/templates/sales-page.php:19
+msgid ""
+"Say <strong>hello</strong> and <strong>introduce yourself</strong> in one "
+"concise sentence."
+msgstr ""
+"Dites <strong>bonjour</strong> et <strong>présentez-vous</strong> en une "
+"phrase concise."
+
+#: view/templates/sales-page.php:23
+msgid "Describe <strong>what you do</strong> in another concise sentence."
+msgstr "Décrivez <strong>votre activité</strong> en une autre phrase concise."
+
+#: view/templates/sales-page.php:27
+msgid ""
+"<strong>Show</strong> your <strong>biggest achievement</strong> if you have "
+"one, but don't worry if you don't have any yet :)"
+msgstr ""
+"<strong>Montrez</strong> votre <strong>plus grande réalisation</strong> si "
+"vous en avez une, mais ne vous inquiétez pas si vous n’en avez pas encore :)"
+
+#: view/templates/sales-page.php:31
+msgid ""
+"Explain <strong>your long term project</strong>, straight to the point, with "
+"simple words and <strong>illustrations</strong>."
+msgstr ""
+"Expliquez <strong>votre projet à long terme</strong>, droit au but, avec des "
+"mots simples et des <strong>illustrations</strong>."
+
+#: view/templates/sales-page.php:35
+msgid ""
+"Conclude: you need <strong>financial support</strong> to carry it out, hence "
+"the patronage system."
+msgstr ""
+"Concluez : vous avez besoin d’un <strong>soutien financier</strong> pour le "
+"réaliser, d’où le système de mécénat."
+
+#: view/templates/sales-page.php:39
+msgid "It will come true thanks to you"
+msgstr "Il se réalisera grâce à vous"
+
+#: view/templates/sales-page.php:43
+msgid ""
+"Explain the <strong>patronage system</strong> with your own words, in a "
+"concise way."
+msgstr ""
+"Expliquez le <strong>système de mécénat</strong> avec vos propres mots, de "
+"manière concise."
+
+#: view/templates/sales-page.php:47
+msgid ""
+"Emphasize that even small one-off contributions are worth it, and the bigger "
+"the contribution, the bigger the reward."
+msgstr ""
+"Soulignez que même les petites contributions ponctuelles en valent la peine "
+"et que plus la contribution est importante, plus la récompense est grande."
+
+#: view/templates/sales-page.php:51
+msgid "You will be pampered in the process"
+msgstr "Vous serez choyé tout du long"
+
+#: view/templates/sales-page.php:55
+msgid ""
+"Make a beautiful <strong>infographic</strong> to show the <strong>tiers</"
+"strong> and their corresponding <strong>rewards</strong>."
+msgstr ""
+"Créez une belle <strong>infographie</strong> pour montrer les "
+"<strong>niveaux</strong> et leurs <strong>récompenses</strong> "
+"correspondantes."
+
+#: view/templates/sales-page.php:59
+msgid ""
+"It must be very clear what the tiers' name are and what their rewards are. "
+"Use both images and keywords to describe them."
+msgstr ""
+"Le nom des niveaux et leurs récompenses doivent être clairement définis. "
+"Utilisez des images et des mots-clés pour les décrire."
+
+#: view/templates/sales-page.php:63
+msgid "Looks great, right? Then, let's go!"
+msgstr "Ça a l'air génial, non ? Alors, c'est parti !"
+
+#: view/templates/sales-page.php:67
+msgid ""
+"Briefly explain <strong>when</strong> the rewards will be unlocked / sent, "
+"and <strong>where</strong> to find them."
+msgstr ""
+"Expliquez brièvement <strong>quand</strong> les récompenses seront "
+"débloquées / envoyées et <strong>où</strong> les trouver."
+
+#: view/templates/sales-page.php:71
+msgid "You can illustrate it with a screenshot of the patron area for example."
+msgstr ""
+"Vous pouvez illustrer cela avec une capture d’écran de l’espace mécène, par "
+"exemple."
+
+#. translators: %1$s = "Patron post list". %2$s = "[patronstips_patron_posts]"
+#: view/templates/sales-page.php:77
+msgid ""
+"You can also show a list of locked content to make customers' mouths water "
+"with the \"%1$s\" block or the %2$s shortcode, as below:"
+msgstr ""
+"Vous pouvez également afficher la liste des contenus verrouillés pour mettre "
+"l’eau à la bouche des clients, grâce au bloc « %1$s » ou au code court %2$s, "
+"comme suit :"
+
+#: view/templates/sales-page.php:78
+msgid "Patron post list"
+msgstr "Liste des articles mécènes"
+
+#. translators: %s = link to 'Patrons Tips - Pro' sales page
+#: view/templates/sales-page.php:92
+msgid ""
+"If you are using %s, you can unlock content related to the month of the "
+"contribution. Let your customers know they need to contribute before the "
+"last day of the month to unlock it."
+msgstr ""
+"Si vous utilisez %s, vous pouvez débloquer du contenu lié au mois de "
+"contribution. Informez vos clients qu’ils doivent contribuer avant le "
+"dernier jour du mois pour le débloquer."
+
+#: view/templates/sales-page.php:96
+msgid "Encourage customers to choose a tier and <strong>get started</strong>!"
+msgstr "Encouragez les clients à choisir un niveau et à se lancer !"
+
+#. translators: %1$s = "Patronage form". %2$s = "[patronstips_tier_form]"
+#: view/templates/sales-page.php:103
+msgid ""
+"Add the \"%1$s\" block or the %2$s shortcode in this page or in its sidebar "
+"to allow customers to purchase a tier, as below:"
+msgstr ""
+"Ajoutez le bloc « %1$s » ou le code court %2$s sur cette page ou dans sa "
+"barre latérale pour permettre aux clients d’acheter un niveau, comme suit :"
+
+#. translators: %s = Path to sales page template in Full Site Editor: "Appearence > Editor > Templates > Patrons Tips > Page: Patronage sales" (with a link).
+#: view/templates/sales-page.php:120
+msgid ""
+"The subscription form is located in the sidebar, along with other useful "
+"blocks, you can customize them in %s."
+msgstr ""
+"Le formulaire d’abonnement se trouve dans la barre latérale, avec d’autres "
+"blocs utiles, vous pouvez les personnaliser dans %s."
+
+#. translators: %s = Template title "Page: Patronage sales"
+#: view/templates/sales-page.php:123
+msgid "Appearence > Editor > Templates > Patrons Tips > %s"
+msgstr "Apparence > Éditeur > Modèles > Patrons Tips > %s"
+
+#: view/view-landing.php:29
+msgid "Make the most of Patrons Tips"
+msgstr "Profitez au maximum de Patrons Tips"
+
+#. translators: %s = link to "Patrons Tips - Pro" sales page
+#: view/view-landing.php:34
+msgid ""
+"Value your work and give it every opportunity with %s. Just give it a try, "
+"you have a 30-day money back guarantee."
+msgstr ""
+"Valorisez votre travail et donnez-lui toutes ses chances avec %s. N’hésitez "
+"pas à l’essayer, vous bénéficiez d'une garantie de remboursement de 30 jours."
+
+#: view/view-landing.php:45
+msgid "Create an unlimited number of tiers"
+msgstr "Créer un nombre illimité de niveaux d’adhésion"
+
+#: view/view-landing.php:46
+msgid ""
+"Create as many tiers as you want, with their own characteristics (title, "
+"description, icon, price, restricted content...)."
+msgstr ""
+"Créez autant de niveaux que vous le souhaitez, avec leurs propres "
+"caractéristiques (titre, description, icône, prix, contenu restreint...)."
+
+#. translators: %s = link to "WooCommerce" download page
+#: view/view-landing.php:51
+msgid "Sell one-off access to your tiers and receive online payments with %s"
+msgstr ""
+"Vendez un accès ponctuel à vos niveaux et recevez des paiements en ligne "
+"avec %s"
+
+#: view/view-landing.php:56 view/view-landing.php:72
+msgid "free"
+msgstr "gratuit"
+
+#: view/view-landing.php:59
+msgid "Your patrons purchase the desired tier directly on your website."
+msgstr "Vos mécènes achètent le niveau désiré directement sur votre site."
+
+#: view/view-landing.php:62
+msgid ""
+"Sell monthly subscriptions to your tiers and receive automatic recurring "
+"payments with:"
+msgstr ""
+"Vendez des abonnements mensuels à vos niveaux et recevez des paiements "
+"récurrents automatiques avec :"
+
+#: view/view-landing.php:63
+msgid ""
+"Your patrons purchase a subscription to the desired tier and it is "
+"automatically renewed every month, the renewal payment is automatically "
+"triggered by the subscription plugin."
+msgstr ""
+"Vos mécènes achètent un abonnement au niveau souhaité et il est "
+"automatiquement renouvelé chaque mois, le paiement du renouvellement est "
+"automatiquement déclenché par le plugin d’abonnement."
+
+#. translators: %1$s = link to "WPML" download page. %2$s = link to "Polylang" download page.
+#: view/view-landing.php:70
+msgid "Support multilanguage sites with %1$s and %2$s"
+msgstr "Prend en charge les sites multilingues avec %1$s et %2$s"
+
+#: view/view-landing.php:71
+msgid "WPML"
+msgstr "WPML"
+
+#: view/view-landing.php:71
+msgid "paid"
+msgstr "payant"
+
+#: view/view-landing.php:72
+msgid "Polylang"
+msgstr "Polylang"
+
+#: view/view-landing.php:74
+msgid ""
+"Patrons Tips can be natively translated to all languages without additional "
+"plugins. WPML or Polylang only allow you to translate texts that you have "
+"manually entered like your tiers' title and description."
+msgstr ""
+"Patrons Tips peut être traduit nativement dans toutes les langues sans "
+"plugin supplémentaire. WPML et Polylang permettent seulement de traduire les "
+"textes saisis manuellement, comme le titre et la description de vos niveaux."
+
+#: view/view-landing.php:77
+msgid "Restrict posts, media, and products by tier to current patrons"
+msgstr ""
+"Restreindre les articles, médias et produits par niveau aux mécènes actuels"
+
+#: view/view-landing.php:78
+msgid ""
+"Hide certain categories of posts, media or products to visitors, only your "
+"current patrons will be able to see them."
+msgstr ""
+"Masquer certaines catégories d’articles, média ou produits aux visiteurs, "
+"seuls vos mécènes actuels pourront les voir."
+
+#: view/view-landing.php:78 view/view-landing.php:82
+msgid "You can define which tier can see which content categories."
+msgstr "Vous pouvez définir quel niveau peut voir quel catégories de contenu."
+
+#: view/view-landing.php:81
+msgid ""
+"Restrict posts, media, and products by tier to patrons of the publication "
+"month"
+msgstr ""
+"Restreindre les articles, médias et produits par niveau aux mécènes du mois "
+"de publication"
+
+#: view/view-landing.php:82
+msgid ""
+"Finally, a fair system for your patrons and you! E.g.: if you publish your "
+"work in October, then only the patrons of October can access it, for life. "
+"Starting November, new patrons won't be able to access it."
+msgstr ""
+"Enfin, un système équitable pour vos mécènes et vous ! Ex. : si vous publiez "
+"votre travail en , alors seuls les mécènes d’octobre pourront y accéder, à "
+"vie. Dès novembre, les nouveaux mécènes ne pourront plus y accéder."
+
+#: view/view-landing.php:83
+msgid "Restrict content per period"
+msgstr "Restreindre le contenu par période"
+
+#: view/view-landing.php:87
+msgid "Limit the number of patrons per tier per month"
+msgstr "Limiter le nombre de mécènes par niveau par mois"
+
+#: view/view-landing.php:88
+msgid ""
+"You can set a maximum number of contributors per tier per month. This is "
+"useful if a tier unlocks a limited reward (like a handmade item)."
+msgstr ""
+"Vous pouvez définir un nombre maximum de contributeurs par niveau par mois. "
+"Cela est utile si un niveau débloque une récompense limitée (telle qu’un "
+"objet fait main)."
+
+#: view/view-landing.php:89
+msgid "Limited tier"
+msgstr "Niveau limité"
+
+#: view/view-landing.php:93
+msgid "Display monthly stretch goals (number of patrons or amount of money)"
+msgstr "Afficher des objectifs mensuels (nombre de mécènes ou somme d’argent)"
+
+#: view/view-landing.php:94
+msgid ""
+"Encourage more customers to contribute by unlocking rewards if a certain "
+"amount of money or a certain number of patrons is reached each month."
+msgstr ""
+"Encouragez davantage de clients à contribuer en débloquant des récompenses "
+"si une certaine somme d’argent ou un certain nombre de clients est atteint "
+"chaque mois."
+
+#: view/view-landing.php:95
+msgid "Monthly stretch goals"
+msgstr "Objectifs mensuels"
+
+#: view/view-landing.php:99
+msgid "Add and edit patrons' patronage history from the backend"
+msgstr ""
+"Ajouter et modifier l’historique de mécénat des mécènes depuis le back office"
+
+#: view/view-landing.php:100
+msgid ""
+"Manually change / revoke / subscribe a patron to any tier for the desired "
+"periods."
+msgstr ""
+"Modifiez / révoquez / abonnez manuellement un mécène à un niveau pour les "
+"périodes désirées."
+
+#: view/view-landing.php:101
+msgid "Edit patronage history"
+msgstr "Modifier l’historique de mécénat"
+
+#: view/view-landing.php:105
+msgid "Patrons can choose a nickname"
+msgstr "Les mécènes peuvent choisir un pseudo"
+
+#: view/view-landing.php:106
+msgid ""
+"Patrons can set their nickname from their account, it is instantly displayed "
+"in the thank you lists."
+msgstr ""
+"Les mécènes peuvent définir leur pseudo depuis leur compte, il est "
+"immédiatement affiché dans les listes de remerciements."
+
+#: view/view-landing.php:107 view/view-landing.php:113
+msgid "Patron nickname and loyalty badges"
+msgstr "Pseudo des mécènes et badges de fidélité"
+
+#: view/view-landing.php:111
+msgid "Automatically reward your patrons loyalty every year with a badge"
+msgstr ""
+"Récompenser automatiquement la fidélité de vos mécènes chaque année avec un "
+"badge"
+
+#: view/view-landing.php:112
+msgid ""
+"A badge showing the patrons' patronage number of years is automatically "
+"displayed next to their name in the thank you lists."
+msgstr ""
+"Un badge montrant le nombre d’années de mécénat de vos mécènes est "
+"automatiquement affiché près de leur nom dans les listes de remerciements."
+
+#: view/view-landing.php:117
+msgid "Monitor the sending of personalized loyalty rewards"
+msgstr "Surveiller l’envoi de récompenses de fidélité personnalisées"
+
+#: view/view-landing.php:118
+msgid ""
+"If you send loyalty rewards to your patrons every year, you can know who you "
+"should send them to and when."
+msgstr ""
+"Si vous envoyez des récompenses de fidélité à vos mécènes chaque année, vous "
+"pouvez savoir à qui vous devez les envoyez et quand."
+
+#: view/view-landing.php:119
+msgid "Loyalty reward tracking"
+msgstr "Suivi des récompenses de fidélité"
+
+#: view/view-landing.php:123
+msgid "Send automatic email reminders (with WooCommerce)"
+msgstr "Envoyer des e-mails de rappel automatiques (avec WooCommerce)"
+
+#: view/view-landing.php:124
+msgid ""
+"An email reminder is sent a few days before the patronage expires, so your "
+"patrons cannot forget to renew it."
+msgstr ""
+"Un e-mail de rappel est envoyé quelques jours avant que le mécénat n’expire, "
+"de sorte à ce que vos mécènes ne puissent pas oublier de les renouveler."
+
+#: view/view-landing.php:125
+msgid "Email reminder"
+msgstr "Rappel e-mail"
+
+#: view/view-landing.php:129
+msgid "Automatically sync all patrons (with WooCommerce)"
+msgstr "Synchroniser automatiquement tous les mécènes (avec WooCommerce)"
+
+#: view/view-landing.php:130
+msgid ""
+"Automatically add patrons to the list based on your WooCommerce orders and "
+"your tiers' settings."
+msgstr ""
+"Ajouter automatiquement les patrons à la liste en fonction de vos commandes "
+"WooCommerce et des réglages de vos niveaux."
+
+#: view/view-landing.php:131 view/view-landing.php:137
+msgid "Add or sync new patrons"
+msgstr "Ajouter ou synchroniser les nouveaux mécènes"
+
+#: view/view-landing.php:135
+msgid "Manually add a patron from the backend"
+msgstr "Ajouter un mécène manuellement depuis le back office"
+
+#: view/view-landing.php:136
+msgid "Add a patron to the list with a click."
+msgstr "Ajouter un mécène à la liste en un clic."
+
+#: view/view-landing.php:146 view/view-landing.php:155
+msgid "Features"
+msgstr "Fonctionnalités"
+
+#: view/view-landing.php:147 view/view-landing.php:168
+msgid "Free"
+msgstr "Gratuit"
+
+#: view/view-landing.php:148 view/view-landing.php:171
+msgid "Pro"
+msgstr "Pro"
+
+#: view/view-landing.php:184
+msgctxt "verb"
+msgid "Purchase"
+msgstr "Acheter"
+
+#: view/view-landing.php:189
+msgid "Benefit from the best guarantees"
+msgstr "Bénéficiez des meilleurs garanties"
+
+#: view/view-landing.php:190
+msgid ""
+"We are artists and content creators just like you. Your needs are ours, we "
+"created Patrons Tips to meet them, and we improve it with your feedback."
+msgstr ""
+"Nous sommes des artistes et des créateurs de contenu, tout comme vous. Vos "
+"besoins sont les nôtres ; nous avons créé Patrons Tips pour y répondre et "
+"nous l’améliorons grâce à vos retours."
+
+#. translators: %s = link to "Patrons Tips - Pro" sales page
+#: view/view-landing.php:195
+msgid ""
+"%s protects and values your work, and encourage patrons to contribute. So "
+"give it a try, if it doesn't meet your expectations, just let us know. "
+"That's why Patrons Tips is completely free and we offer a 30-day money back "
+"guarantee on the Pro version."
+msgstr ""
+"%s protège et valorise votre travail, et encourage les mécènes à contribuer. "
+"Alors n’hésitez pas à l’essayer, s’il ne répond pas à vos attentes, dîtes le "
+"nous simplement. C’est pour cette raison que Patrons Tips est entièrement "
+"gratuit et que nous offrons une garantie de remboursement de 30 jours sur la "
+"version Pro."
+
+#: view/view-landing.php:204
+msgid "Secure Payments"
+msgstr "Paiements sécurisés"
+
+#: view/view-landing.php:205
+msgid "Online payments are secured by PayPal and Stripe"
+msgstr "Les paiements en ligne sont sécurisés par Paypal et Stripe"
+
+#: view/view-landing.php:209
+msgid "30-Day money back guarantee"
+msgstr "Garantie de remboursement de 30 jours"
+
+#: view/view-landing.php:210
+msgid "If you are not satisfied you will be 100% refunded"
+msgstr "Si vous n'êtes pas satisfait(e), vous serez 100% remboursé(e)"
+
+#: view/view-landing.php:214
+msgid "Ready to help"
+msgstr "À votre écoute"
+
+#. translators: %s = support email address)
+#: view/view-landing.php:215
+msgid "Contact us at %s, we answer within 48h"
+msgstr "Contactez-nous à %s, nous répondons dans les 48h"
+
+#: view/view-patron-editor.php:37
+msgid "Create Patron"
+msgstr "Créer Mécène"
+
+#. translators: %s is the patron ID
+#: view/view-patron-editor.php:37
+msgid "Edit Patron #%s"
+msgstr "Modifier Mécène n°%s"
+
+#: view/view-patron-editor.php:99
+msgid "Link a user account to that patron."
+msgstr "Lier un compte à ce mécène."
+
+#: view/view-patron-editor.php:107
+msgid ""
+"If the patron is not linked to any account, enter their email address here."
+msgstr ""
+"Si le mécène n’est lié à aucun compte, saisissez son adresse e-mail ici."
+
+#: view/view-patron-editor.php:114
+msgid ""
+"If the patron is deactivated, they will no longer be able to access "
+"restricted content."
+msgstr ""
+"Si le mécène est désactivé, il ne pourra plus accéder au contenu restreint."
+
+#: view/view-patron-editor.php:126
+msgid ""
+"Your patrons can set their nickname from their account, it is displayed in "
+"the thank you lists. You can change it here if necessary."
+msgstr ""
+"Vos contributeurs peuvent définir leur pseudo depuis leur compte ; il "
+"apparaît dans les listes de remerciements. Vous pouvez le modifier ici si "
+"nécessaire."
+
+#: view/view-patron-editor.php:191
+msgid "Manually add, edit and delete entries from patron history"
+msgstr ""
+"Ajouter, modifier et supprimer manuellement des entrées de l’historique du "
+"mécène"
+
+#. translators: %s = link to 'Patrons Tips - Pro' sales page
+#: view/view-patron-editor.php:198
+msgid ""
+"With %s, you can easily assign a tier to a patron for the desired month, "
+"change it, or revoke it."
+msgstr ""
+"Avec %s, vous pouvez facilement attribuer un niveau à un client pour le mois "
+"souhaité, le modifier ou le révoquer."
+
+#: view/view-patron-editor.php:208
+msgid "Choose the start date of the patronage."
+msgstr "Choisissez la date de début du mécénat."
+
+#: view/view-patron-editor.php:212 view/view-patron-editor.php:216
+msgid "It is automatically computed based on the period start date."
+msgstr ""
+"Cela est automatiquement calculé à partir de la date de début de la période."
+
+#: view/view-patron-editor.php:220
+msgid "Select the patronage tier unlocked for this period."
+msgstr "Sélectionnez le niveau de mécénat débloqué pour cette période."
+
+#: view/view-patron-editor.php:224
+msgid "Deactivate a patronage period to ignore it."
+msgstr "Désactiver une période de mécénat pour l’ignorer."
+
+#: view/view-patron-editor.php:297
+msgid "You can delete the lines you added."
+msgstr "Vous pouvez supprimer les lignes que vous avez ajoutés."
+
+#: view/view-patron-editor.php:306
+msgid "Add as many lines as you want."
+msgstr "Ajouter autant de lignes que vous le souhaitez."
+
+#: view/view-patron-editor.php:307
+msgid "Add New Entry"
+msgstr "Ajouter une nouvelle entrée"
+
+#: view/view-patron-editor.php:329
+msgid "Reward your patrons loyalty"
+msgstr "Récompenser la fidélité de vos mécènes"
+
+#. translators: %s = link to 'Patrons Tips - Pro' sales page
+#: view/view-patron-editor.php:336
+msgid ""
+"%s automatically generates <strong>a badge</strong> every twelve months of "
+"contribution."
+msgstr ""
+"%s génère automatiquement <strong>un badge</strong> tous les douze mois de "
+"contribution."
+
+#: view/view-patron-editor.php:341
+msgid "Loyalty badges"
+msgstr "Badges de fidélité"
+
+#: view/view-patron-editor.php:344
+msgid ""
+"This badge is proudly displayed next to the patron's name in thank you lists."
+msgstr ""
+"Ce badge est affiché fièrement près du nom du patron dans les listes de "
+"remerciements."
+
+#: view/view-patron-editor.php:348
+msgid ""
+"Moreover, if you want to send your patron another reward, a <strong>tracking "
+"system</strong> lets you know when to send what to whom."
+msgstr ""
+"De plus, si vous souhaitez envoyer à vos mécènes une autre récompense, un "
+"<strong>système de suivi</strong> vous informe quand envoyer quoi à qui."
+
+#: view/view-patron-editor.php:386 view/view-tier-editor.php:288
+msgid "Update"
+msgstr "Mettre à jour"
+
+#. translators: %s = link to "Patrons Tips - Pro" sales page
+#: view/view-patron-list-table.php:26
+msgid "Manually add a patron thanks to %s."
+msgstr "Ajouter un mécène manuellement grâce à %s."
+
+#: view/view-patron-list-table.php:31
+msgid "Add New Patron"
+msgstr "Ajouter Nouveau Mécène"
+
+#: view/view-patron-list-table.php:142
+msgid "Currently"
+msgstr "Actuellement"
+
+#: view/view-patron-list-table.php:152
+msgid "Currently patron"
+msgstr "Actuellement mécène"
+
+#: view/view-patron-list-table.php:153
+msgid "No longer a patron"
+msgstr "N’est plus mécène"
+
+#: view/view-patron-list-table.php:163
+msgid "Periods"
+msgstr "Périodes"
+
+#: view/view-patron-list-table.php:227
+msgctxt "date"
+msgid "From"
+msgstr "Du"
+
+#: view/view-patron-list-table.php:253
+msgctxt "date"
+msgid "To"
+msgstr "Au"
+
+#: view/view-patron-list-table.php:287 view/view-tier-list-table.php:101
+msgid "Filter the list"
+msgstr "Filtrer la liste"
+
+#: view/view-patron-list-table.php:288
+msgid "Export patrons"
+msgstr "Exporter les mécènes"
+
+#: view/view-patron-list-table.php:320
+msgid "Patrons can manage their patronage from the patron area page."
+msgstr "Les mécènes peuvent gérer leur mécénat depuis la page espace mécène."
+
+#: view/view-settings.php:33
+msgid "General"
+msgstr "Général"
+
+#: view/view-settings.php:34
+msgid "Licenses"
+msgstr "Licences"
+
+#: view/view-tier-editor.php:32
+msgid "Create Tier"
+msgstr "Créer un niveau"
+
+#. translators: %s is the tier ID
+#: view/view-tier-editor.php:32
+msgid "Edit Tier #%s"
+msgstr "Modifier Niveau n°%s"
+
+#: view/view-tier-editor.php:87
+msgid "Presentation"
+msgstr "Présentation"
+
+#: view/view-tier-editor.php:98
+msgid "The price is for information purposes only, no payments will be made."
+msgstr ""
+"Le prix est à titre indicatif uniquement, aucun paiement ne sera effectué."
+
+#. translators: %1$s = link to "WooCommerce" download page. %2$s = link to the "documentation"
+#: view/view-tier-editor.php:104
+msgid ""
+"In order to make online payments, you need to install %1$s (see this %2$s)."
+msgstr ""
+"Pour faire des paiements en ligne, vous devez installer %1$s (voir cette "
+"%2$s)."
+
+#: view/view-tier-editor.php:123
+msgid "Enter tier title here"
+msgstr "Entrer le titre du niveau ici"
+
+#: view/view-tier-editor.php:125
+msgid "Concise title to clearly identify the tier in a list."
+msgstr "Titre concis pour identifier clairement le niveau dans une liste."
+
+#: view/view-tier-editor.php:132
+msgid "Icon"
+msgstr "Icône"
+
+#: view/view-tier-editor.php:133
+msgid "Small image illustrating the tier."
+msgstr "Petite image illustrant le niveau."
+
+#: view/view-tier-editor.php:141
+msgid "The tier price, for information purposes only."
+msgstr "Le prix par niveau, à titre indicatif seulement."
+
+#: view/view-tier-editor.php:149
+msgid "Description"
+msgstr "Description"
+
+#: view/view-tier-editor.php:150
+msgid "Short description of the tier."
+msgstr "Description courte du niveau."
+
+#: view/view-tier-editor.php:159
+msgid "Availability per period"
+msgstr "Disponibilité par période"
+
+#: view/view-tier-editor.php:160
+msgid "Limit the number of patrons who can subscribe to this tier per period."
+msgstr "Limiter le nombre de mécènes pouvant adhérer à ce niveau par période."
+
+#: view/view-tier-editor.php:176
+msgid "Content restricted to current patrons"
+msgstr "Contenu restreint aux mécènes actuels"
+
+#. translators: %s = post type label (e.g. "Post", "Product", "Attachment", etc.)
+#: view/view-tier-editor.php:218
+msgid ""
+"Patrons of this tier will be allowed to see \"%s\" with these categories or "
+"tags."
+msgstr ""
+"Les mécènes de ce niveau seront autorisés à voir les « %s » ayant ces "
+"catégories ou étiquettes."
+
+#: view/view-tier-editor.php:225
+msgid "Select the categories or tags to restrict:"
+msgstr "Sélectionnez les catégories ou les étiquettes à restreindre :"
+
+#: view/view-tier-editor.php:229
+msgid ""
+"The content of these articles will be hidden. Only logged in users who are "
+"currently patrons will be able to view them."
+msgstr ""
+"Le contenu de ces articles sera masqué. Seuls les utilisateurs et "
+"utilisatrices connectés étant actuellement mécènes pourront le voir."
+
+#: view/view-tier-editor.php:236
+msgid "Content restricted to patrons of the corresponding period"
+msgstr "Contenu restreint aux mécènes de la période correspondante"
+
+#. translators: %s = link to "Patrons Tips - Pro" sales page
+#: view/view-tier-editor.php:241
+msgid ""
+"With %s, you can restrict your content to the users who were patrons "
+"<strong>at the time it was posted</strong>."
+msgstr ""
+"Avec %s, vous pouvez restreindre votre contenu aux utilisateurs et "
+"utilisatrices qui étaient mécènes <strong>au moment où il a été publié</"
+"strong>."
+
+#: view/view-tier-editor.php:246
+msgid ""
+"March 2025 patrons will always be able to access the restricted content "
+"published in March 2025."
+msgstr ""
+"Les mécènes de mars 2025 pourront toujours accéder au contenu restreint "
+"publié en mars 2025."
+
+#: view/view-tier-editor.php:247
+msgid "Past restricted content will never be available to newcomers."
+msgstr ""
+"Le contenu restreint passé ne sera plus jamais disponible aux nouveaux "
+"arrivants."
+
+#: view/view-tier-editor.php:250
+msgid ""
+"This feature <strong>protects and values your work</strong>. You will no "
+"longer give away all the content you have ever created to the first comer."
+msgstr ""
+"Cette fonctionnalité <strong>protège et valorise votre travail</strong>. "
+"Vous ne donnerez plus l’intégralité du contenu que vous avez créé au premier "
+"venu."
+
+#: view/view-tier-list-table.php:23
+msgid "Add New Tier"
+msgstr "Ajouter un niveau"
+
+#. translators: %1$s = "Patronage form". %2$s = "[patronstips_tier_form]"
+#: view/view-tier-list-table.php:137
+msgid ""
+"Customers can subscribe to a tier and become a patron thanks to the \"%1$s\" "
+"block or the %2$s shortcode on the patronage sales page."
+msgstr ""
+"Les clients et clientes peuvent adhérer à un niveau et devenir mécène grâce "
+"au bloc « %1$s » ou au code court %2$s sur la page de vente du mécénat."
+
+#: blocks/patron-history/index.js:1 blocks/patron-list/index.js:1
+#: blocks/patron-post-list/index.js:1 blocks/period-media/index.js:1
+msgid "Filters"
+msgstr "Filtres"
+
+#: blocks/patron-history/index.js:3 blocks/patron-post-list/index.js:1
+#: blocks/period-media/index.js:1
+msgid "Per page"
+msgstr "Par page"
+
+#: blocks/patron-history/index.js:3 blocks/patron-list/index.js:3
+#: blocks/patron-post-list/index.js:1 blocks/period-results/index.js:1
+msgid "Display"
+msgstr "Affichage"
+
+#: blocks/patron-history/index.js:3
+msgid "Columns"
+msgstr "Colonnes"
+
+#: blocks/patron-list/index.js:1
+msgid "Patrons as of post publication date"
+msgstr "Mécènes à la date de publication de l’article"
+
+#: blocks/patron-list/index.js:1
+msgid "Current period patrons"
+msgstr "Mécènes de la période actuelles"
+
+#: blocks/patron-list/index.js:1
+msgid "Post period patrons"
+msgstr "Mécènes de la période de l’article"
+
+#: blocks/patron-list/index.js:3
+msgid "Show thanks"
+msgstr "Afficher les remerciements"
+
+#: blocks/patron-list/index.js:3 blocks/patron-post-list/index.js:1
+#: blocks/period-media/index.js:1
+msgid "No results."
+msgstr "Aucun résultat."
+
+#: blocks/patron-post-list/index.js:1
+msgid "Types"
+msgstr "Types"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Posts"
+msgstr "Articles"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Pages"
+msgstr "Pages"
+
+#: blocks/patron-post-list/index.js:1 blocks/period-media/index.js:1
+msgid "Categories"
+msgstr "Catégories"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Tags"
+msgstr "Étiquettes"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Cumulate categories and tags"
+msgstr "Cumuler catégories et étiquettes"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Restricted"
+msgstr "Restreint"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Show both restricted and not restricted posts"
+msgstr "Afficher les articles restreints et non restreints"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Show only not restricted posts"
+msgstr "Afficher uniquement les articles non restreints"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Show only restricted posts"
+msgstr "Afficher uniquement les articles restreints"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Unlocked"
+msgstr "Dévérouillé"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Show both locked and unlocked posts"
+msgstr "Afficher les articles verrouillés et déverrouillés"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Show only locked posts"
+msgstr "Afficher uniquement les articles verrouillés"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Show only unlocked posts"
+msgstr "Afficher uniquement les articles déverrouillés"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Show image only"
+msgstr "Afficher uniquement les images"
+
+#: blocks/patron-post-list/index.js:1 blocks/period-media/index.js:1
+msgid "Image size"
+msgstr "Taille des images"
+
+#: blocks/patron-post-list/index.js:1
+msgid "Remove links"
+msgstr "Supprimer les liens"
+
+#. translators: %s = the period name (e.g.: "September 2024", "First quarter 2024", etc.)
+#: blocks/patron-status/index.js:4
+msgid "You are a patron for this period (%s), thank you!"
+msgstr "Vous êtes mécène pour cette période (%s), merci !"
+
+#. translators: %s = the period name (e.g.: "September 2024", "First quarter 2024", etc.).
+#: blocks/patron-status/index.js:5
+msgid "You are not a patron for this period (%s)."
+msgstr "Vous n’êtes pas mécène pour cette période (%s)."
+
+#. translators: %1$s = the Tier name.  %2$s = Formatted price (e.g. $20.00). %3$s = Link to "Manage your subcription".
+#: blocks/patron-status/index.js:6
+msgid "You are a recurring \"%1$s\" (%2$s) patron (%3$s)"
+msgstr "Vous êtes mécène « %1$s » (%2$s) (%3$s)"
+
+#. translators: %1$s = the Tier name. %2$s = Formatted price (e.g. $20.00). %3$s = the period name (e.g.: "September 2024", "First quarter 2024", etc.). %4$s = formatted date (e.g. "September 30th 2024")
+#: blocks/patron-status/index.js:8
+msgid "You are a \"%1$s\" (%2$s) patron for %3$s, until %4$s."
+msgstr "Vous êtes mécène « %1$s » (%2$s) pour %3$s, jusqu’au %4$s."
+
+#: blocks/period-media/index.js:1 blocks/period-results/index.js:1
+msgid "Current period"
+msgstr "Période actuelle"
+
+#. translators: %s = a number.
+#: blocks/period-media/index.js:1 blocks/period-results/index.js:1
+msgid "%s period before"
+msgid_plural "%s periods before"
+msgstr[0] "%s période avant"
+msgstr[1] "%s périodes avant"
+
+#: blocks/period-media/index.js:1
+msgid "Image settings"
+msgstr "Réglages des images"
+
+#: blocks/period-results/index.js:1
+msgid "Data to display"
+msgstr "Données à afficher"
+
+#: blocks/period-results/index.js:1
+msgid "Number of patrons and income"
+msgstr "Nombre de mécènes et revenus"
+
+#: blocks/period-results/index.js:1
+msgid "Income"
+msgstr "Revenus"
+
+#: blocks/period-results/index.js:1
+msgid "Text when value is zero"
+msgstr "Texte lorsque la valeur est zéro"
+
+#: blocks/period-results/index.js:1
+msgid "Show value without formatting"
+msgstr "Afficher la valeur sans formattage"
+
+#: blocks/period-results/index.js:1
+msgid "Calculation"
+msgstr "Calcul"
+
+#: blocks/tier-form/index.js:3
+msgid "Patronage form options"
+msgstr "Options du formulaire de mécénat"
+
+#: blocks/tier-form/index.js:3
+msgid "Default Frequency"
+msgstr "Fréquence par défaut"
+
+#: blocks/patron-history/block.json
+msgctxt "block title"
+msgid "Patron history"
+msgstr "Historique de mécénat"
+
+#: blocks/patron-history/block.json
+msgctxt "block description"
+msgid "Show the list of patronage tier(s) subscribed per period."
+msgstr "Affiche la liste des niveaux de mécénat souscris par période."
+
+#: blocks/patron-history/block.json blocks/patron-list/block.json
+#: blocks/patron-post-list/block.json blocks/patron-status/block.json
+#: blocks/period-media/block.json blocks/period-results/block.json
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "patronage"
+msgstr "mécénat"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "history"
+msgstr "historique"
+
+#: blocks/patron-history/block.json blocks/patron-status/block.json
+msgctxt "block keyword"
+msgid "level"
+msgstr "niveau"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "old"
+msgstr "ancien"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "past"
+msgstr "passé"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "previous"
+msgstr "précédent"
+
+#: blocks/patron-history/block.json blocks/patron-list/block.json
+#: blocks/patron-post-list/block.json blocks/patron-status/block.json
+msgctxt "block keyword"
+msgid "list"
+msgstr "liste"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "summary"
+msgstr "résumé"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "orders"
+msgstr "commandes"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "record"
+msgstr "enregistrement"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "archive"
+msgstr "archive"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "timeline"
+msgstr "chronologie"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "periods"
+msgstr "périodes"
+
+#: blocks/patron-history/block.json
+msgctxt "block keyword"
+msgid "monthly"
+msgstr "mensuel"
+
+#: blocks/patron-list/block.json
+msgctxt "block title"
+msgid "Patron list"
+msgstr "Liste des mécènes"
+
+#: blocks/patron-list/block.json
+msgctxt "block description"
+msgid "Display the patron list for the post or the period."
+msgstr "Affiche la liste des mécènes pour l’article ou la période."
+
+#: blocks/patron-list/block.json blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "patrons"
+msgstr "mécènes"
+
+#: blocks/patron-list/block.json
+msgctxt "block keyword"
+msgid "credits"
+msgstr "crédits"
+
+#: blocks/patron-list/block.json
+msgctxt "block keyword"
+msgid "special thanks"
+msgstr "remerciements"
+
+#: blocks/patron-list/block.json
+msgctxt "block keyword"
+msgid "post"
+msgstr "article"
+
+#: blocks/patron-list/block.json blocks/patron-status/block.json
+#: blocks/period-media/block.json blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "period"
+msgstr "période"
+
+#: blocks/patron-list/block.json blocks/period-media/block.json
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "month"
+msgstr "mois"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block title"
+msgid "Patron post list"
+msgstr "Liste des articles mécènes"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block description"
+msgid ""
+"Display a list of posts, images or products with patronage restrictions."
+msgstr ""
+"Affiche une liste d’articles, images ou produits restreints pour le mécénat."
+
+#: blocks/patron-post-list/block.json blocks/patron-status/block.json
+msgctxt "block keyword"
+msgid "patron"
+msgstr "mécène"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "posts"
+msgstr "articles"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "images"
+msgstr "images"
+
+#: blocks/patron-post-list/block.json blocks/period-media/block.json
+msgctxt "block keyword"
+msgid "media"
+msgstr "média"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "products"
+msgstr "produits"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "restricted"
+msgstr "restreint"
+
+#: blocks/patron-post-list/block.json blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "tier"
+msgstr "niveau"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "locked"
+msgstr "vérouillé"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "unlocked"
+msgstr "dévérouillé"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "gray out"
+msgstr "grisé"
+
+#: blocks/patron-post-list/block.json
+msgctxt "block keyword"
+msgid "filtered"
+msgstr "filtré"
+
+#: blocks/patron-status/block.json
+msgctxt "block title"
+msgid "Patron status"
+msgstr "État du mécène"
+
+#: blocks/patron-status/block.json
+msgctxt "block description"
+msgid "Show the patronage tier(s) currently subscribed."
+msgstr "Affiche le(s) niveau(x) de mécénat actuellement souscrit."
+
+#: blocks/patron-status/block.json
+msgctxt "block keyword"
+msgid "status"
+msgstr "état"
+
+#: blocks/patron-status/block.json blocks/period-media/block.json
+msgctxt "block keyword"
+msgid "current"
+msgstr "actuel"
+
+#: blocks/patron-status/block.json
+msgctxt "block keyword"
+msgid "actual"
+msgstr "en cours"
+
+#: blocks/patron-status/block.json
+msgctxt "block keyword"
+msgid "now"
+msgstr "maintenant"
+
+#: blocks/period-media/block.json
+msgctxt "block title"
+msgid "Patronage image of the month"
+msgstr "Image de mécénat du mois"
+
+#: blocks/period-media/block.json
+msgctxt "block description"
+msgid "Display the highlighted media preview for the current period."
+msgstr "Affiche l’aperçu du média mis en avant pour la période actuelle."
+
+#: blocks/period-media/block.json
+msgctxt "block keyword"
+msgid "attachment"
+msgstr "fichier joint"
+
+#: blocks/period-media/block.json
+msgctxt "block keyword"
+msgid "image"
+msgstr "image"
+
+#: blocks/period-media/block.json
+msgctxt "block keyword"
+msgid "feature"
+msgstr "en avant"
+
+#: blocks/period-media/block.json
+msgctxt "block keyword"
+msgid "reward"
+msgstr "récompense"
+
+#: blocks/period-media/block.json
+msgctxt "block keyword"
+msgid "preview"
+msgstr "aperçu"
+
+#: blocks/period-results/block.json
+msgctxt "block title"
+msgid "Number of patrons / Income"
+msgstr "Nombre de mécènes / Revenus"
+
+#: blocks/period-results/block.json
+msgctxt "block description"
+msgid "Display number of patrons and income for the period."
+msgstr "Affiche le nombre de mécènes et les revenus de la période."
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "number"
+msgstr "nombre"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "amount"
+msgstr "somme"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "figure"
+msgstr "chiffre"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "quantity"
+msgstr "quantité"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "income"
+msgstr "recette"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "earnings"
+msgstr "salaire"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "revenus"
+msgstr "revenus"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "gains"
+msgstr "gains"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "profit"
+msgstr "profit"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "gain"
+msgstr "gain"
+
+#: blocks/period-results/block.json
+msgctxt "block keyword"
+msgid "money"
+msgstr "argent"
+
+#: blocks/tier-form/block.json
+msgctxt "block title"
+msgid "Patronage form"
+msgstr "Formulaire de mécénat"
+
+#: blocks/tier-form/block.json
+msgctxt "block description"
+msgid "Display a form to add tier products to cart."
+msgstr ""
+"Affiche un formulaire pour ajouter un produit lié à un niveau d’adhésion au "
+"panier."
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "form"
+msgstr "formulaire"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "product"
+msgstr "produit"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "cart"
+msgstr "panier"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "subscribe"
+msgstr "souscrire"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "pledge"
+msgstr "engager"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "purchase"
+msgstr "acquérir"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "buy"
+msgstr "acheter"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "support"
+msgstr "soutenir"
+
+#: blocks/tier-form/block.json
+msgctxt "block keyword"
+msgid "sign up"
+msgstr "abonner"
+
+#~ msgctxt "block description"
+#~ msgid "Display the highlighted media for the current period."
+#~ msgstr "Affiche le média mis en avant pour la période actuelle."
+
+#~ msgid "Yoan Cutillas"
+#~ msgstr "Yoan Cutillas"
+
+#~ msgid "As of %s"
+#~ msgstr "Au %s"
+
+#~ msgid "Include manually added entries (without related payment)"
+#~ msgstr "Inclure les entrées ajoutées manuellement (sans paiement lié)"
+
+#~ msgid "Export one row per"
+#~ msgstr "Exporter une ligne par"
+
+#~ msgid "Patron history"
+#~ msgstr "Historique de mécénat"
+
+#~ msgid "Tier #"
+#~ msgstr "Niveau n°"
+
+#~ msgid "All current patrons, any periods"
+#~ msgstr "Tous les mécènes actuels, toute période"
+
+#~ msgid "All patrons when the post was published, any periods"
+#~ msgstr "Tous les mécènes lors de la publication de l’article, toute période"
+
+#~ msgid "Multiple selection"
+#~ msgstr "Sélection multiple"
+
+#~ msgid "To select multiple values, click on %s."
+#~ msgstr "Pour sélectionner plusieurs valeurs, cliquez sur %s."
+
+#~ msgid "%s - Restricted categories"
+#~ msgstr "%s - Catégories restreintes"
+
+#~ msgid "Attachments"
+#~ msgstr "Fichiers joints"
+
+#~ msgid "User account"
+#~ msgstr "Compte"
+
+#~ msgid "User email"
+#~ msgstr "E-mail"

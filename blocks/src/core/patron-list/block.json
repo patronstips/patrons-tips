@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "patrons-tips/patron-list",
+	"version": "1.0.2",
+	"category": "patrons-tips",
+	"icon": "groups",
+	"title": "Patron list",
+	"description": "Display the patron list for the post or the period.",
+	"keywords": [ "patronage", "patrons", "list", "credits", "special thanks", "post", "period", "month" ],
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"period": {
+			"type": "string",
+			"default": ""
+		},
+		"date": {
+			"type": "string",
+			"default": ""
+		},
+		"current": {
+			"type": "boolean",
+			"default": true
+		},
+		"tiers": {
+			"type": "array",
+			"default": []
+		},
+		"showThanks": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "patrons-tips",
+	"editorScript": "file:index.js",
+	"editorStyle": "file:index.css",
+	"style": "file:style-index.css",
+	"script": [ "patips-js-global-variables", "patips-js-global-functions" ]
+}

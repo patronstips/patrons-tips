@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "patrons-tips/period-media",
+  "version": "1.0.4",
+  "category": "patrons-tips",
+  "icon": "format-image",
+  "title": "Patronage image of the month",
+  "description": "Display the highlighted media preview for the current period.",
+  "keywords": [
+    "patronage",
+    "attachment",
+    "image",
+    "media",
+    "period",
+    "month",
+    "feature",
+    "reward",
+    "preview",
+    "current"
+  ],
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "period": {
+      "type": "string",
+      "default": "current"
+    },
+    "categories": {
+      "type": "array",
+      "default": []
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "large"
+    },
+    "perPage": {
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "textdomain": "patrons-tips",
+  "editorScript": "file:index.js",
+  "editorStyle": "file:index.css",
+  "style": "file:style-index.css",
+  "script": [
+    "patips-js-global-variables",
+    "patips-js-global-functions"
+  ]
+}
