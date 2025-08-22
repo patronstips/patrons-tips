@@ -176,12 +176,12 @@ function patips_get_login_link( $redirect = true, $url_only = false ) {
 /**
  * Get Patrons Tips Pro link or URL
  * @since 0.25.0
- * @version 0.25.3
+ * @version 1.0.5
  * @param boolean $url_only
  * @return string
  */
 function patips_get_pro_sales_link( $url_only = false ) {
-	$link = 'https://patronstips.com/?utm_source=plugin&utm_medium=plugin&utm_campaign=pro';
+	$link = 'https://patronstips.com/en/downloads/patrons-tips-pro/?utm_source=plugin&utm_medium=plugin&utm_campaign=pro';
 	
 	if( ! $url_only ) {
 		$link = '<a href="' . esc_url( $link ) . '" class="patips-pro-sales-link" target="_blank">Patrons Tips - Pro</a>';

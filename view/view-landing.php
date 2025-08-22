@@ -2,7 +2,7 @@
 /**
  * Landing page
  * @since 0.5.0
- * @version 1.0.2
+ * @version 1.0.5
  */
 
 // Exit if accessed directly
@@ -212,7 +212,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 					<div class='patips-guarantee'>
 						<div class='patips-guarantee-icon'><span class='dashicons dashicons-email-alt'></span></div>
 						<h4><?php esc_html_e( 'Ready to help', 'patrons-tips' ); ?></h4>
-						<div class='patips-guarantee-description' ><?php /* translators: %s = support email address) */ echo sprintf( esc_html__( 'Contact us at %s, we answer within 48h', 'patrons-tips' ), 'contact@patronstips.com' ); ?></div>
+						<div class='patips-guarantee-description' ><?php /* translators: %s = support email address) */ echo sprintf( esc_html__( 'Contact us at %s', 'patrons-tips' ), 'contact@patronstips.com' ); ?></div>
 					</div>
 				</div>
 			</div>

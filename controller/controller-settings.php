@@ -635,16 +635,15 @@ add_filter( 'plugin_action_links_patrons-tips/patrons-tips.php', 'patips_action_
 /** 
  * Add meta links in plugin list table
  * @since 0.23.0
- * @version 1.0.2
+ * @version 1.0.5
  * @param array $links
  * @param string $file
  * @return array
  */
 function patips_meta_links_in_plugin_list_table( $links, $file ) {
 	if( $file == PATIPS_PLUGIN_NAME . '/' . PATIPS_PLUGIN_NAME . '.php' ) {
-		$links[ 'docs' ]    = '<a href="' . esc_url( 'https://patronstips.com/en/?utm_source=plugin&utm_medium=plugin&utm_content=plugin-list' ) . '" title="' . esc_attr( __( 'View documentation', 'patrons-tips' ) ) . '" target="_blank" >' . esc_html__( 'Docs', 'patrons-tips' ) . '</a>';
-		$links[ 'report' ]  = '<a href="' . esc_url( 'https://github.com/patronstips/patrons-tips/issues/' ) . '" title="' . esc_attr( __( 'Report a bug or request a feature', 'patrons-tips' ) ) . '" target="_blank" >' . esc_html__( 'Report & Request', 'patrons-tips' ) . '</a>';
-		$links[ 'contact' ] = '<a href="' . esc_url( 'https://patronstips.com/en/?utm_source=plugin&utm_medium=plugin&utm_content=plugin-list' ) . '" title="' . esc_attr( __( 'Contact us directly', 'patrons-tips' ) ) . '" target="_blank" >' . esc_html__( 'Contact us', 'patrons-tips' ) . '</a>';
+		$links[ 'docs' ]    = '<a href="' . esc_url( 'https://patronstips.com/en/user-documentation/?utm_source=plugin&utm_medium=plugin&utm_content=plugin-list' ) . '" title="' . esc_attr( __( 'View documentation', 'patrons-tips' ) ) . '" target="_blank" >' . esc_html__( 'Docs', 'patrons-tips' ) . '</a>';
+		$links[ 'contact' ] = '<a href="' . esc_attr( 'mailto:contact@patronstips.com' ) . '" title="' . esc_attr( __( 'Contact us directly', 'patrons-tips' ) ) . '" target="_blank" >' . esc_html__( 'Contact us', 'patrons-tips' ) . '</a>';
 	}
 	return $links;
 }

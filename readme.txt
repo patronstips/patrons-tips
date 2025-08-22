@@ -20,7 +20,7 @@ It allows your audience to financially support your work!
 
 Patrons Tips is **fully integrated with WooCommerce** to collect **online payments**. 
 
-Try this patronage tool live on the [demo website](https://demo.patronstips.com/en/become-my-patron/), or [generate a temporary site](https://tastewp.com/new/?pre-installed-plugin-slug=patrons-tips&pre-installed-plugin-slug=woocommerce&pre-installed-plugin-slug=flexible-subscriptions&pre-installed-theme-slug=twentytwentyfive&redirect=admin.php%3Fpage%3Dpatips_tiers&ni=true) to test the backend!
+Try this patronage tool live on the [demo website](https://demo.patronstips.com/en/become-my-patron/), or [generate a temporary site](https://tastewp.com/template/patronstips/?redirect=admin.php%3Fpage%3Dpatips_tiers&ni=true) to test the backend!
 
 
 = Main features =
@@ -177,7 +177,7 @@ We believe that **everyone should pay the same price for the same service**. Thi
 
 **Your patrons want to support you**, not the patronage platform you're using.
 
-Think about it, **what will happen if you succeed?**
+Think about it, **what will happen if you are successful?**
 
 By choosing one of these online platforms, **you will bring them more than they bring you** (advertising, revenue, members), their fees will soar, you will depend on them, you will no longer be able to leave them, **even if their conditions no longer suit you (prices, features, policy, etc.)**, because it is where your entire community will be.
 
@@ -193,7 +193,7 @@ Whereas by using Patrons Tips on your own site, you
 
 = Is WooCommerce mandatory? =
 
-No, it’s not. Patrons Tips works on its own: you can build a *free* or *offline paid* community of supporters. But we recommend to use as it was first designed to work perfectly with WooCommerce to get financial support. Moreover, you can automatize revenue with a subscription plugin.
+No, it’s not. Patrons Tips works on its own: you can build a *free* or *offline paid* community of supporters. But we recommend using it as it was first designed to work perfectly with WooCommerce to get financial support. Moreover, you can automatize revenue with a subscription plugin.
 
 = Can I use Patrons Tips as a donation plugin? =
 
@@ -227,6 +227,9 @@ Sure, you don't have to offer benefits if you just want a tip system that allow 
 
 
 == Changelog ==
+
+= 1.0.5 =
+* Fix - Minor text changes
 
 = 1.0.4 - 2025/07/31 =
 * First release on wordpress.org and github!

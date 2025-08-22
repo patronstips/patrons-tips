@@ -79,7 +79,7 @@ if( $lang_switched ) { patips_restore_locale(); }
 /**
  * Display 'settings' metabox content for tier
  * @since 0.5.0
- * @version 0.26.0
+ * @version 1.0.5
  * @param array $tier
  */
 function patips_display_tier_settings_meta_box( $tier ) {
@@ -104,7 +104,7 @@ function patips_display_tier_settings_meta_box( $tier ) {
 					esc_html__( 'In order to make online payments, you need to install %1$s (see this %2$s).', 'patrons-tips' ),
 					/* translators: This is a plugin name. */
 					'<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">' . esc_html__( 'WooCommerce', 'patrons-tips' ) . '</a>',
-					'<a href="https://patronstips.com/" target="_blank">' . esc_html__( 'documentation', 'patrons-tips' ) . '</a>'
+					'<a href="https://patronstips.com/en/user-documentation/associate-your-tiers-with-woocommerce-products/?utm_source=plugin&utm_medium=plugin&utm_content=tier-settings" target="_blank">' . esc_html__( 'documentation', 'patrons-tips' ) . '</a>'
 				);
 			?>
 			</span>

@@ -127,7 +127,7 @@ add_filter( 'patips_tier_settings_fields_presentation', 'patips_wc_tier_settings
 /**
  * Display product IDs fields in tier settings page
  * @since 0.21.0
- * @version 0.26.3
+ * @version 1.0.5
  * @param array $tier
  */
 function patips_wc_tier_settings_product_ids_fields( $tier ) {
@@ -186,7 +186,7 @@ function patips_wc_tier_settings_product_ids_fields( $tier ) {
 					echo sprintf(
 						/* translators: %s = link to the "documentation" */
 						esc_html__( 'In order to subscribe to a tier on a recurring basis and make automatic renewal payments, you need to install a supported recurring payment plugin (see this %s):', 'patrons-tips' ),
-						'<a href="https://patronstips.com/" target="_blank">' . esc_html__( 'documentation', 'patrons-tips' ) . '</a>'
+						'<a href="https://patronstips.com/en/user-documentation/recurring-tiers/?utm_source=plugin&utm_medium=plugin&utm_content=tier-settings" target="_blank">' . esc_html__( 'documentation', 'patrons-tips' ) . '</a>'
 					);
 				?>
 				<ul>
@@ -638,7 +638,7 @@ add_action( 'admin_notices', 'patips_wc_display_notice_tier_product_misconfigura
 /** 
  * Display a warning notice if orders can be placed without account, but user cannot create account afterwards
  * @since 0.26.0
- * @version 0.26.2
+ * @version 1.0.5
  * @global WP_Post $post
  */
 function patips_wc_display_notice_order_account_creation() {
@@ -673,7 +673,7 @@ function patips_wc_display_notice_order_account_creation() {
 			<?php
 				 echo wp_kses_post( sprintf(
 					/* translators: %s = path to WC account creation settings "WooCommerce > Settings > Accounts & Privacy" (with a link). */
-					esc_html__( 'Patrons may not be able to access their patron area. Indeed, customers can purchase a patronage without account, but they cannot create an account afterwards. However, an account is required to access patron area. You should disable guest checkout, or allow customers creating an account after checkout in %s.', 'patrons-tips' ),
+					esc_html__( 'Patrons may not be able to access their patron area. Indeed, customers can purchase a patronage without account, but they cannot create an account afterwards. However, an account is required to access patron area. You should disable guest checkout, or allow customers to create an account after checkout in %s.', 'patrons-tips' ),
 					'<a href="' . esc_url( admin_url( '/admin.php?page=wc-settings&tab=account' ) ) . '"><strong>'
 						. esc_html__( 'WooCommerce > Settings > Accounts & Privacy', 'patrons-tips' )
 					. '</strong></a>'
