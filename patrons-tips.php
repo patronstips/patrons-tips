@@ -3,7 +3,7 @@
  * Plugin Name: Patrons Tips
  * Plugin URI: https://patronstips.com/en/?utm_source=plugin&utm_medium=plugin&utm_content=header
  * Description: Patronage system. A free Patreon-like tool to monetize your creations and reward your backers with restricted content. Works great with WooCommerce.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Patrons Tips Team
  * Author URI: https://profiles.wordpress.org/patronstips/#content-plugins
  * Text Domain: patrons-tips
@@ -11,7 +11,7 @@
  * Requires at least: 6.7
  * Requires PHP: 7.0
  * WC requires at least: 8.8
- * WC tested up to: 10.0
+ * WC tested up to: 10.2
  * License: GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * 
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
 // GLOBALS AND CONSTANTS
-if( ! defined( 'PATIPS_PLUGIN_VERSION' ) ) { define( 'PATIPS_PLUGIN_VERSION', '1.0.4' ); }
+if( ! defined( 'PATIPS_PLUGIN_VERSION' ) ) { define( 'PATIPS_PLUGIN_VERSION', '1.0.5' ); }
 if( ! defined( 'PATIPS_PLUGIN_NAME' ) )    { define( 'PATIPS_PLUGIN_NAME', 'patrons-tips' ); }
 if( ! defined( 'PATIPS_PLUGIN_DIR' ) )     { define( 'PATIPS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) ); }
 if( ! defined( 'PATIPS_PLUGIN_URL' ) )     { define( 'PATIPS_PLUGIN_URL', plugin_dir_url( __FILE__ ) ); }

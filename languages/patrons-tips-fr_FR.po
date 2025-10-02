@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Patrons Tips 0.25.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/patrons-tips\n"
-"POT-Creation-Date: 2025-07-25T13:30:09+00:00\n"
-"PO-Revision-Date: 2025-07-25 15:32+0200\n"
+"POT-Creation-Date: 2025-10-02T11:33:49+00:00\n"
+"PO-Revision-Date: 2025-10-02 13:36+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -108,9 +108,9 @@ msgstr "Compte n°%s"
 #: controller/controller-woocommerce-backend.php:524
 #: controller/controller-woocommerce-backend.php:578
 #: controller/controller-woocommerce-frontend.php:235
-#: controller/controller-woocommerce-frontend.php:719
+#: controller/controller-woocommerce-frontend.php:720
 #: functions/functions-patron-editor.php:132
-#: functions/functions-patrons.php:1291 functions/functions-tiers.php:543
+#: functions/functions-patrons.php:1301 functions/functions-tiers.php:543
 #: functions/functions-woocommerce.php:696 view/view-patron-editor.php:172
 #: view/view-patron-editor.php:174 view/view-patron-editor.php:176
 #: view/view-patron-editor.php:183 view/view-patron-list-table.php:123
@@ -154,7 +154,7 @@ msgstr "Corbeille"
 msgid "Title"
 msgstr "Titre"
 
-#: class/class-tiers-list-table.php:54 functions/functions-patrons.php:1161
+#: class/class-tiers-list-table.php:54 functions/functions-patrons.php:1171
 #: view/view-tier-editor.php:140
 msgid "Price"
 msgstr "Prix"
@@ -388,8 +388,8 @@ msgstr "Page de vente du mécénat"
 
 #: controller/controller-backend.php:21
 #: controller/controller-woocommerce-backend.php:364
-#: controller/controller-woocommerce-frontend.php:944
-#: controller/controller-woocommerce-frontend.php:966
+#: controller/controller-woocommerce-frontend.php:965
+#: controller/controller-woocommerce-frontend.php:987
 #: functions/functions-templates.php:40
 msgid "Patron area"
 msgstr "Espace mécène"
@@ -435,21 +435,21 @@ msgstr ""
 
 #: controller/controller-backend.php:328 controller/controller-backend.php:370
 #: controller/controller-settings.php:291
-#: controller/controller-settings.php:339 view/view-patron-list-table.php:322
-#: view/view-patron-list-table.php:329 view/view-tier-list-table.php:144
+#: controller/controller-settings.php:339 view/view-patron-list-table.php:321
+#: view/view-patron-list-table.php:328 view/view-tier-list-table.php:144
 #: view/view-tier-list-table.php:151
 msgid "Edit page"
 msgstr "Modifier la page"
 
 #: controller/controller-backend.php:328 controller/controller-backend.php:370
 #: controller/controller-settings.php:292
-#: controller/controller-settings.php:340 view/view-patron-list-table.php:322
-#: view/view-patron-list-table.php:329 view/view-tier-list-table.php:144
+#: controller/controller-settings.php:340 view/view-patron-list-table.php:321
+#: view/view-patron-list-table.php:328 view/view-tier-list-table.php:144
 #: view/view-tier-list-table.php:151
 msgid "Create page"
 msgstr "Créer la page"
 
-#: controller/controller-backend.php:367 view/view-patron-list-table.php:327
+#: controller/controller-backend.php:367 view/view-patron-list-table.php:326
 msgid ""
 "The patron area page is not published yet. You need to publish it to allow "
 "your patrons to manage their patronage."
@@ -983,18 +983,10 @@ msgid "Docs"
 msgstr "Docs"
 
 #: controller/controller-settings.php:646
-msgid "Report a bug or request a feature"
-msgstr "Signaler un bug ou demander une fonctionnalité"
-
-#: controller/controller-settings.php:646
-msgid "Report & Request"
-msgstr "Signalement & Demande"
-
-#: controller/controller-settings.php:647
 msgid "Contact us directly"
 msgstr "Contactez-nous directement"
 
-#: controller/controller-settings.php:647
+#: controller/controller-settings.php:646
 msgid "Contact us"
 msgstr "Contactez-nous"
 
@@ -1231,15 +1223,15 @@ msgid ""
 "Patrons may not be able to access their patron area. Indeed, customers can "
 "purchase a patronage without account, but they cannot create an account "
 "afterwards. However, an account is required to access patron area. You "
-"should disable guest checkout, or allow customers creating an account after "
+"should disable guest checkout, or allow customers to create an account after "
 "checkout in %s."
 msgstr ""
-"Les mécènes peuvent ne pas avoir accès à leur espace mécène. En effet, ils "
-"peuvent acheter un mécénat sans compte, mais ne peuvent pas créer de compte "
-"par la suite. Cependant, un compte est requis pour accéder à l’espace "
-"mécène. Vous devez interdire la validation de la commande en tant qu’invité "
-"ou autoriser les clients à créer un compte après validation de la commande "
-"dans %s."
+"Les mécènes peuvent ne pas avoir accès à leur espace mécène. En effet, les "
+"client(e)s peuvent acheter un mécénat sans compte, mais ne peuvent pas créer "
+"de compte par la suite. Cependant, un compte est requis pour accéder à "
+"l’espace mécène. Vous devez interdire la validation de la commande en tant "
+"qu’invité ou autoriser les clients à créer un compte après validation de la "
+"commande dans %s."
 
 #: controller/controller-woocommerce-backend.php:678
 msgid "WooCommerce > Settings > Accounts & Privacy"
@@ -1327,7 +1319,7 @@ msgstr "Gérer votre abonnement"
 msgid "You are a \"%1$s\" (%2$s) patron until %3$s."
 msgstr "Vous êtes mécène « %1$s » (%2$s) jusqu’au %3$s."
 
-#: controller/controller-woocommerce-frontend.php:640
+#: controller/controller-woocommerce-frontend.php:641
 msgid ""
 "This product could not be added to the cart because there is already a "
 "patronage product in your cart."
@@ -1335,37 +1327,37 @@ msgstr ""
 "Ce produit n’a pas pu être ajouté au panier car il y a déjà un produit de "
 "mécénat dans votre panier."
 
-#: controller/controller-woocommerce-frontend.php:663
+#: controller/controller-woocommerce-frontend.php:664
 msgid ""
 "Sorry, this product is restricted to patrons, you cannot add it to your cart."
 msgstr ""
 "Désolé, ce produit est réservé aux mécènes, vous ne pouvez pas l’ajouter à "
 "votre panier."
 
-#: controller/controller-woocommerce-frontend.php:669
-#: functions/functions-patrons.php:1349 functions/functions-posts.php:374
+#: controller/controller-woocommerce-frontend.php:670
+#: functions/functions-patrons.php:1359 functions/functions-posts.php:374
 #: functions/functions-tiers.php:365 blocks/patron-status/index.js:5
 #: blocks/tier-form/index.js:5
 msgid "Become patron"
 msgstr "Devenir mécène"
 
-#: controller/controller-woocommerce-frontend.php:722
-#: controller/controller-woocommerce-frontend.php:822
-#: controller/controller-woocommerce-frontend.php:857
+#: controller/controller-woocommerce-frontend.php:723
+#: controller/controller-woocommerce-frontend.php:823
+#: controller/controller-woocommerce-frontend.php:858
 msgid "patron area"
 msgstr "espace mécène"
 
 #. translators: %1$s = Tier title. %2$s = period name (e.g. February 2024)
-#: controller/controller-woocommerce-frontend.php:726
+#: controller/controller-woocommerce-frontend.php:727
 msgid "Oh! You are already a \"%1$s\" patron of %2$s."
 msgstr "Oh ! Vous êtes déjà mécène « %1$s » de %2$s."
 
 #. translators: %s = Link to "patron area"
-#: controller/controller-woocommerce-frontend.php:728
+#: controller/controller-woocommerce-frontend.php:729
 msgid "See your current tier and rewards in your %s."
 msgstr "Retrouvez votre niveau actuel et vos récompenses dans votre %s."
 
-#: controller/controller-woocommerce-frontend.php:729
+#: controller/controller-woocommerce-frontend.php:730
 msgid ""
 "Be careful, if you place this order, you will have participated twice for "
 "the same period."
@@ -1374,14 +1366,14 @@ msgstr ""
 "pour la même période."
 
 #. translators: %s = link to "patron area"
-#: controller/controller-woocommerce-frontend.php:830
-#: controller/controller-woocommerce-frontend.php:867
+#: controller/controller-woocommerce-frontend.php:831
+#: controller/controller-woocommerce-frontend.php:868
 msgid "You are now patron! See your rewards in your %s."
 msgstr "Vous êtes maintenant mécène ! Retrouvez vos récompenses dans votre %s."
 
 #. translators: %s = link to "patron area"
-#: controller/controller-woocommerce-frontend.php:833
-#: controller/controller-woocommerce-frontend.php:870
+#: controller/controller-woocommerce-frontend.php:834
+#: controller/controller-woocommerce-frontend.php:871
 msgid ""
 "You are almost a patron! This order has not been paid yet. Once the order "
 "will be completed by an administrator, you will see your rewards in your %s."
@@ -1390,12 +1382,12 @@ msgstr ""
 "la commande finalisée par un administrateur, vous verrez vos récompenses "
 "dans votre %s."
 
-#: controller/controller-woocommerce-frontend.php:876
-#: controller/controller-woocommerce-frontend.php:886
+#: controller/controller-woocommerce-frontend.php:877
+#: controller/controller-woocommerce-frontend.php:887
 msgid "Patronage info"
 msgstr "Info mécénat"
 
-#: controller/controller-woocommerce-frontend.php:1047
+#: controller/controller-woocommerce-frontend.php:1068
 msgid "Unlocked products"
 msgstr "Produits dévérouillés"
 
@@ -1572,26 +1564,26 @@ msgid "Select a tier"
 msgstr "Sélectionnez un niveau"
 
 #: functions/functions-patron-editor.php:138
-#: functions/functions-patrons.php:1157 view/view-patron-editor.php:207
+#: functions/functions-patrons.php:1167 view/view-patron-editor.php:207
 #: view/view-patron-editor.php:236
 msgid "Start"
 msgstr "Début"
 
 #: functions/functions-patron-editor.php:141
-#: functions/functions-patrons.php:1158 view/view-patron-editor.php:211
+#: functions/functions-patrons.php:1168 view/view-patron-editor.php:211
 #: view/view-patron-editor.php:248
 msgid "End"
 msgstr "Fin"
 
 #: functions/functions-patron-editor.php:144
-#: functions/functions-patrons.php:1159 view/view-patron-editor.php:215
+#: functions/functions-patrons.php:1169 view/view-patron-editor.php:215
 #: view/view-patron-editor.php:257 blocks/patron-list/index.js:1
 #: blocks/period-media/index.js:1 blocks/period-results/index.js:1
 msgid "Period"
 msgstr "Période"
 
 #: functions/functions-patron-editor.php:148
-#: functions/functions-patrons.php:1160 view/view-patron-editor.php:219
+#: functions/functions-patrons.php:1170 view/view-patron-editor.php:219
 #: view/view-patron-editor.php:266
 msgid "Tier"
 msgstr "Niveau"
@@ -1734,25 +1726,25 @@ msgid "Patrons"
 msgstr "Mécènes"
 
 #. translators: %s is the patron ID
-#: functions/functions-patrons.php:1077 blocks/patron-status/index.js:3
+#: functions/functions-patrons.php:1087 blocks/patron-status/index.js:3
 msgid "Patron #%s"
 msgstr "Mécène n°%s"
 
-#: functions/functions-patrons.php:1081
+#: functions/functions-patrons.php:1091
 msgid "Anonymous patron"
 msgstr "Mécène anonyme"
 
-#: functions/functions-patrons.php:1162 view/view-patron-list-table.php:284
+#: functions/functions-patrons.php:1172 view/view-patron-list-table.php:283
 #: view/view-tier-list-table.php:98
 msgid "Actions"
 msgstr "Actions"
 
-#: functions/functions-patrons.php:1241 functions/functions-posts.php:524
+#: functions/functions-patrons.php:1251 functions/functions-posts.php:524
 #: blocks/patron-history/index.js:13
 msgid "See more"
 msgstr "Voir plus"
 
-#: functions/functions-patrons.php:1343
+#: functions/functions-patrons.php:1353
 msgid ""
 "Oh! It seems that you have never been a patron before. Patrons financially "
 "support my work and get amazing rewards in return!"
@@ -1761,7 +1753,7 @@ msgstr ""
 "financièrement mon travail et reçoivent de super récompenses en retour !"
 
 #. translators: %s = "Log in" link
-#: functions/functions-patrons.php:1359 functions/functions-posts.php:381
+#: functions/functions-patrons.php:1369 functions/functions-posts.php:381
 msgid "Already a patron? %s."
 msgstr "Déjà mécène ? %s."
 
@@ -2543,8 +2535,8 @@ msgstr "À votre écoute"
 
 #. translators: %s = support email address)
 #: view/view-landing.php:215
-msgid "Contact us at %s, we answer within 48h"
-msgstr "Contactez-nous à %s, nous répondons dans les 48h"
+msgid "Contact us at %s"
+msgstr "Contactez-nous à %s"
 
 #: view/view-patron-editor.php:37
 msgid "Create Patron"
@@ -2678,33 +2670,29 @@ msgstr "Actuellement"
 msgid "Currently patron"
 msgstr "Actuellement mécène"
 
-#: view/view-patron-list-table.php:153
-msgid "No longer a patron"
-msgstr "N’est plus mécène"
-
-#: view/view-patron-list-table.php:163
+#: view/view-patron-list-table.php:162
 msgid "Periods"
 msgstr "Périodes"
 
-#: view/view-patron-list-table.php:227
+#: view/view-patron-list-table.php:226
 msgctxt "date"
 msgid "From"
 msgstr "Du"
 
-#: view/view-patron-list-table.php:253
+#: view/view-patron-list-table.php:252
 msgctxt "date"
 msgid "To"
 msgstr "Au"
 
-#: view/view-patron-list-table.php:287 view/view-tier-list-table.php:101
+#: view/view-patron-list-table.php:286 view/view-tier-list-table.php:101
 msgid "Filter the list"
 msgstr "Filtrer la liste"
 
-#: view/view-patron-list-table.php:288
+#: view/view-patron-list-table.php:287
 msgid "Export patrons"
 msgstr "Exporter les mécènes"
 
-#: view/view-patron-list-table.php:320
+#: view/view-patron-list-table.php:319
 msgid "Patrons can manage their patronage from the patron area page."
 msgstr "Les mécènes peuvent gérer leur mécénat depuis la page espace mécène."
 
@@ -3407,6 +3395,18 @@ msgstr "soutenir"
 msgctxt "block keyword"
 msgid "sign up"
 msgstr "abonner"
+
+#~ msgid "Report a bug or request a feature"
+#~ msgstr "Signaler un bug ou demander une fonctionnalité"
+
+#~ msgid "Report & Request"
+#~ msgstr "Signalement & Demande"
+
+#~ msgid "Contact us at %s, we answer within 48h"
+#~ msgstr "Contactez-nous à %s, nous répondons dans les 48h"
+
+#~ msgid "No longer a patron"
+#~ msgstr "N’est plus mécène"
 
 #~ msgctxt "block description"
 #~ msgid "Display the highlighted media for the current period."
