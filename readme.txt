@@ -1,8 +1,8 @@
 === Patrons Tips ===
 Contributors: patronstips, yoancutillas, karolanebohaer
 Tags: patronage, membership, patreon, tipeee, crowdfunding
-Tested up to: 6.8
-Stable tag: 1.0.5
+Tested up to: 6.9
+Stable tag: 1.0.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -227,6 +227,9 @@ Sure, you don't have to offer benefits if you just want a tip system that allow 
 
 
 == Changelog ==
+
+= 1.0.6 =
+* Tweak - Update WP and WC compatible versions
 
 = 1.0.5 - 2025/10/02 =
 * Tweak - Update links to documentation
