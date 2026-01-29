@@ -406,6 +406,7 @@ add_filter( 'patips_default_tier_data', 'patips_wc_default_tier_data', 10, 2 );
 /**
  * Add WC tier data
  * @since 0.22.0
+ * @version 1.1.0
  * @param array $tier
  * @param array $tier_raw_data
  * @param int $tier_id
@@ -414,8 +415,11 @@ add_filter( 'patips_default_tier_data', 'patips_wc_default_tier_data', 10, 2 );
  */
 function patips_wc_tier_data( $tier, $tier_raw_data, $tier_id, $raw ) {
 	// Get tier product ids
-	$tiers_product_ids     = $tier_id ? patips_wc_get_tiers_product_ids( array( $tier_id ) ) : array();
-	$tier[ 'product_ids' ] = isset( $tiers_product_ids[ $tier_id ] ) ? $tiers_product_ids[ $tier_id ] : array();
+	$tiers_product_ids = $tier_id ? patips_wc_get_tiers_product_ids( array( $tier_id ) ) : array();
+	$tier_product_ids  = isset( $tiers_product_ids[ $tier_id ] ) ? $tiers_product_ids[ $tier_id ] : array();
+	
+	$default_data          = patips_get_default_tier_data();
+	$tier[ 'product_ids' ] = array_replace( $default_data[ 'product_ids' ], $tier_product_ids );
 	
 	return $tier;
 }
@@ -446,7 +450,7 @@ add_filter( 'patips_sanitized_tier_data', 'patips_wc_formatted_tier_data', 10, 2
 /**
  * Get product price instead of tier price
  * @since 0.22.0
- * @version 0.25.5
+ * @version 1.1.0
  * @global wpdb $wpdb
  * @param string $query
  * @param array $filters
@@ -457,8 +461,8 @@ function patips_wc_get_tiers_query( $query, $filters ) {
 	
 	global $wpdb;
 	
-	$old_query = array( ' T.price', ' price' );
-	$new_query = ' TPM.price';
+	$old_query = array( ' T.price', ' price', 'TPM.price as default_price' );
+	$new_query = array( ' TPM.price', ' TPM.price', 'T.price as default_price' );
 	$query     = str_replace( $old_query, $new_query, $query );
 	
 	$JOIN_query = ' LEFT JOIN ( ' 

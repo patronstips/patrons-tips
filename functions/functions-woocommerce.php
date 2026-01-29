@@ -21,7 +21,7 @@ function patips_wc_is_hpos_enabled() {
 /**
  * Display a product selectbox
  * @since 0.5.0
- * @version 1.0.2
+ * @version 1.1.0
  * @param array $raw_args
  * @return string
  */
@@ -91,6 +91,8 @@ function patips_wc_display_product_selectbox( $raw_args = array() ) {
 		$is_selected = false;
 		if( $products_titles ) {
 			foreach( $products_titles as $product_id => $product ) {
+				$product_title = $product[ 'title' ] ? esc_html( apply_filters( 'patips_translate_text_external', $product[ 'title' ], false, true, array( 'domain' => 'woocommerce', 'object_type' => 'product', 'object_id' => $product_id, 'field' => 'post_title' ) ) ) : esc_html( $product[ 'title' ] );
+				
 				// Display simple products options
 				if( empty( $product[ 'variations' ] ) ) {
 					$selected_key = array_search( intval( $product_id ), $remaining_selected_product_ids, true );
@@ -99,7 +101,9 @@ function patips_wc_display_product_selectbox( $raw_args = array() ) {
 					if( $args[ 'sortable' ] && $selected_key !== false ) { ob_start(); }
 				?>
 					<option class='patips-wc-product-option' value='<?php echo esc_attr( $product_id ); ?>' <?php if( $selected_key !== false ) { echo 'selected'; } ?>>
-						<?php echo $product[ 'title' ] ? esc_html( apply_filters( 'patips_translate_text_external', $product[ 'title' ], false, true, array( 'domain' => 'woocommerce', 'object_type' => 'product', 'object_id' => $product_id, 'field' => 'post_title' ) ) ) : esc_html( $product[ 'title' ] ); ?>
+					<?php 
+						echo $product_title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					?>
 					</option>
 				<?php
 					if( $args[ 'sortable' ] && $selected_key !== false ) { $selected_options[ intval( $product_id ) ] = ob_get_clean(); }
@@ -119,7 +123,7 @@ function patips_wc_display_product_selectbox( $raw_args = array() ) {
 							?>
 								<option class='patips-wc-product-variation-option' value='<?php echo esc_attr( $variation_id ); ?>' <?php if( $selected_key !== false ) { echo 'selected'; } ?>>
 								<?php 
-									echo $formatted_variation_title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									echo $product_title ? $product_title . ' - ' . $formatted_variation_title : $formatted_variation_title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								?>
 								</option>
 							<?php
@@ -229,6 +233,7 @@ function patips_wc_get_product_tier( $product_id ) {
 /**
  * Get product ID associated to the tier
  * @since 0.15.0
+ * @version 1.1.0
  * @param int $tier_id
  * @return int
  */
@@ -237,8 +242,8 @@ function patips_wc_get_tier_product_id( $tier_id ) {
 	$product_id = 0;
 
 	if( ! empty( $tier[ 'product_ids' ] ) ) {
-		foreach( $tier[ 'product_ids' ] as $tier_product_ids ) {
-			foreach( $tier_product_ids as $frequency => $tier_product_id ) {
+		foreach( $tier[ 'product_ids' ] as $frequency => $tier_product_ids ) {
+			foreach( $tier_product_ids as $tier_product_id ) {
 				if( $tier_product_id ) {
 					$product_id = $tier_product_id;
 					break;
@@ -372,6 +377,252 @@ function patips_wc_update_tier_product_ids( $tier_id, $new_product_ids_by_freq )
 	if( $inserted === false || $deleted === false ) { return false; }
 	
 	return $inserted + $deleted;
+}
+
+
+/**
+ * Create a product for a tier
+ * @since 1.1.0
+ * @param int $tier_id
+ * @param string $frequency
+ * @param boolean $assign
+ * @param string $product_type "variable" or "simple"
+ * @return WC_Product|false
+ */
+function patips_wc_create_tier_product( $tier_id, $frequency = 'one_off', $assign = true, $product_type = 'variable' ) {
+	// Get tier data
+	$tier = patips_get_tier_data( $tier_id );
+	if( ! $tier ) { return 0; }
+	
+	// Set default parameters value
+	if( ! $frequency )    { $frequency    = 'one_off'; }
+	if( ! $product_type ) { $product_type = 'variable'; }
+	
+	$product_id = 0;
+	$price      = ! empty( $tier[ 'default_price' ] ) ? $tier[ 'default_price' ] : $tier[ 'price' ];
+	
+	$simple_product_class_name    = apply_filters( 'patips_patronage_simple_product_class', 'WC_Product_Simple', $tier_id, $frequency );
+	$variation_product_class_name = apply_filters( 'patips_patronage_variation_product_class', 'WC_Product_Variation', $tier_id, $frequency );
+	$variable_product_class_name  = apply_filters( 'patips_patronage_variable_product_class', 'WC_Product_Variable', $tier_id, $frequency );
+	
+	if( $product_type === 'simple' ) {
+		if( ! empty( $tier[ 'product_ids' ][ $frequency ] ) ) {
+			$product_ids = array_filter( $tier[ 'product_ids' ][ $frequency ] );
+			if( $product_ids ) {
+				$product_id = reset( $product_ids );
+			}
+		}
+		
+		$product = $product_id ? wc_get_product( $product_id ) : null;
+		
+		// Create simple product
+		// Check if it is a variation because WC_Product_Variation extends WC_Product_Simple
+		if( is_a( $product, $variation_product_class_name ) || ! is_a( $product, $simple_product_class_name ) ) {
+			$frequency_adverb = patips_get_frequency_name( $frequency, true );
+
+			// Create the variable product
+			$product = new $simple_product_class_name();
+			$product->set_name( esc_html__( 'Patronage', 'patrons-tips' ) . ' - ' . $tier[ 'title' ] . ' (' . $frequency_adverb . ')' );
+			$product->set_status( 'publish' ); 
+			$product->set_catalog_visibility( 'visible' );
+			$product->set_sold_individually( true );
+			$product->set_regular_price( $price );
+			$product->set_virtual( true );
+			$product->set_image_id( $tier[ 'icon_id' ] );
+
+			$product_id = $product->save();
+			
+		} else {
+			$product->set_status( 'publish' );
+			$product->save();
+		}
+		
+	} else {
+		// Get variable product
+		$variable_product_id = get_option( 'patips_wc_patronage_variable_product_' . $frequency );
+		$variable_product    = $variable_product_id ? wc_get_product( $variable_product_id ) : null;
+
+		// Create variable product
+		if( ! is_a( $variable_product, $variable_product_class_name ) ) {
+			$frequency_adverb = patips_get_frequency_name( $frequency, true );
+
+			// Create the variable product
+			$variable_product = new $variable_product_class_name();
+			$variable_product->set_name( esc_html__( 'Patronage', 'patrons-tips' ) . ' (' . $frequency_adverb . ')' );
+			$variable_product->set_status( 'publish' ); 
+			$variable_product->set_catalog_visibility( 'visible' );
+			$variable_product->set_sold_individually( true );
+
+			$variable_product_id = $variable_product->save();
+
+			if( $variable_product_id ) {
+				update_option( 'patips_wc_patronage_variable_product_' . $frequency, $variable_product_id );
+			}
+		} else {
+			$variable_product->set_status( 'publish' );
+			$variable_product->save();
+		}
+
+		// Failed to retrieve or create the variable product
+		if( ! $variable_product_id ) { return 0; }
+
+		// Get or create the "Tier" attribute
+		$attributes_slugs = wp_list_pluck( wc_get_attribute_taxonomies(), 'attribute_name' );
+		if( ! in_array( 'tier', $attributes_slugs, true ) ) {
+			$attr_created = wc_create_attribute( array( 
+				'slug' => 'tier', 
+				'name' => esc_html__( 'Tier', 'patrons-tips' ) 
+			) );
+
+			if( ! is_wp_error( $attr_created ) && ! taxonomy_exists( 'pa_tier' ) ) {
+				$tax_created = register_taxonomy(
+					'pa_tier', 
+					apply_filters( 'woocommerce_taxonomy_objects_pa_tier', array( 'product' ) ),
+					apply_filters( 'woocommerce_taxonomy_args_pa_tier', array(
+							'labels'       => array(
+								'name' => esc_html__( 'Tier', 'patrons-tips' ),
+							),
+							'hierarchical' => true,
+							'show_ui'      => false,
+							'query_var'    => true,
+							'rewrite'      => false
+						)
+					)
+				);
+			}
+		}
+
+		// Get or create the "Tier" attribute value corresponding to this tier
+		$tier_term_id   = 0;
+		$tier_term_slug = '';
+		$tier_term      = get_term_by( 'slug', sanitize_title( 'tier-' . $tier[ 'id' ] ), 'pa_tier' );
+		if( ! $tier_term ) {
+			$inserted_term_result = wp_insert_term( $tier[ 'title' ], 'pa_tier', array( 'slug' => sanitize_title( 'tier-' . $tier[ 'id' ] ) ) );
+
+			if( ! is_wp_error( $inserted_term_result ) ) {
+				$tier_term_id   = intval( $inserted_term_result[ 'term_id' ] );
+				$tier_term_slug = sanitize_title( 'tier-' . $tier[ 'id' ] );
+			}
+		} else {
+			$tier_term_id   = intval( $tier_term->term_id );
+			$tier_term_slug = sanitize_title( $tier_term->slug );
+
+			// Update term title to tier title
+			if( $tier[ 'title' ] !== $tier_term->name ) {
+				wp_update_term( $tier_term_id, $tier_term->taxonomy, array( 'name' => $tier[ 'title' ] ) );
+			}
+		}
+
+		// Get the product "Tier" attribute
+		$attributes        = $variable_product->get_attributes();
+		$tier_attribute    = isset( $attributes[ 'pa_tier' ] ) ? $attributes[ 'pa_tier' ] : null;
+		$tier_attribute_id = $tier_attribute && $tier_attribute->is_taxonomy() ? $tier_attribute->get_id() : 0;
+		
+		// If the "Tier" attribute is already assigned to the product
+		if( $tier_attribute_id ) {
+			// Get the product "Tier" attribute values
+			$tier_attribute_terms    = $tier_attribute->get_terms();
+			$tier_attribute_term_ids = array();
+			if( $tier_attribute_terms ) {
+				foreach( $tier_attribute_terms as $tier_attribute_term ) {
+					$tier_attribute_term_ids[] = $tier_attribute_term->term_id;
+				}
+			}
+
+			// Add this tier value to the product "Tier" attribute
+			if( $tier_term_id && ! in_array( $tier_term_id, $tier_attribute_term_ids, true ) ) {
+				$attribute_options = $tier_attribute->get_options();
+				if( $tier_term_id ) {
+					$attribute_options[] = $tier_term_id; // Parent product attributes are set by ID, not by slug
+				}
+
+				// We must first delete the old attribute, otherwise, it won't work
+				unset( $attributes[ 'pa_tier' ] );
+				$variable_product->set_attributes( $attributes );
+				$variable_product->save();
+
+				// Now we can set the new attributes again
+				$attributes[ 'pa_tier' ] = $tier_attribute;
+				$tier_attribute->set_options( $attribute_options );
+				$variable_product->set_attributes( $attributes );
+				if( $tier_term_slug ) {
+					$variable_product->set_default_attributes( array( 'pa_tier' => $tier_term_slug ) ); // Default attributes are set by slug, not by ID
+				}
+				$variable_product->save();
+			}
+		}
+
+		// Assign the "Tier" attribute to the product and add this tier value
+		else {
+			$tier_attribute = new WC_Product_Attribute();
+			$tier_attribute->set_id( wc_attribute_taxonomy_id_by_name( 'pa_tier' ) );
+			$tier_attribute->set_name( 'pa_tier' );
+			if( $tier_term_id ) {
+				$tier_attribute->set_options( array( $tier_term_id ) ); // Parent product attributes are set by ID, not by slug
+			}
+			$tier_attribute->set_position( 0 );
+			$tier_attribute->set_visible( true );
+			$tier_attribute->set_variation( true );
+
+			$variable_product->set_attributes( array( $tier_attribute ) );
+			if( $tier_term_slug ) {
+				$variable_product->set_default_attributes( array( 'pa_tier' => $tier_term_slug ) ); // Default attributes are set by slug, not by ID
+			}
+			$variable_product->save();
+		}
+
+		// Get product variation
+		$variation_id = 0;
+		$product_variation_ids = $variable_product->get_children();
+		if( $product_variation_ids ) {
+			foreach( $product_variation_ids as $product_variation_id ) {
+				$variation            = wc_get_product( $product_variation_id );
+				$variation_attributes = $variation->get_variation_attributes();
+
+				// Get the first variation having the corresponding attribute
+				if( isset( $variation_attributes[ 'attribute_pa_tier' ] )
+				&&  sanitize_title( $variation_attributes[ 'attribute_pa_tier' ] ) === $tier_term_slug ) {
+					$variation_id = $product_variation_id;
+
+					// Update the variation
+					if( $price || ! $variation->get_regular_price() ) {
+						$variation->set_regular_price( $price );
+					}
+					$variation->set_virtual( true );
+					$variation->set_image_id( $tier[ 'icon_id' ] );
+					$variation->save();
+
+					break;
+				}
+			}
+		}
+
+		// Create product variation
+		if( ! $variation_id ) { 
+			$variation = new $variation_product_class_name();
+			if( $tier_term_slug ) {
+				$variation->set_attributes( array( 'pa_tier' => $tier_term_slug ) ); // Variation attributes are set by slug, not by ID
+			}
+			$variation->set_parent_id( $variable_product->get_id() );
+			$variation->set_regular_price( $price );
+			$variation->set_virtual( true );
+			$variation->set_image_id( $tier[ 'icon_id' ] );
+			$variation_id = $variation->save();
+		}
+		
+		$product_id = $variation_id;
+	}
+	
+	if( $product_id && $assign ) {
+		$tier[ 'product_ids' ][ $frequency ] = array( $product_id );
+		$updated = patips_wc_update_tier_product_ids( $tier_id, $tier[ 'product_ids' ] );
+		
+		if( $updated ) {
+			wp_cache_delete( 'tiers_data', 'patrons-tips' );
+		}
+	}
+	
+	return $product_id;
 }
 
 

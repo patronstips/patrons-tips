@@ -2,7 +2,7 @@
 /**
  * Tier editor page
  * @since 0.5.0
- * @version 0.26.3
+ * @version 1.1.0
  */
 
 // Exit if accessed directly
@@ -29,9 +29,9 @@ if( $lang_switched ) { patips_restore_locale(); }
 
 ?>
 <div class='wrap'>
-	<h1><?php echo ! $tier_id ? esc_html__( 'Create Tier', 'patrons-tips' ) : /* translators: %s is the tier ID */ sprintf( esc_html__( 'Edit Tier #%s', 'patrons-tips' ), (int) $tier_id ); ?></h1>
-	<hr class='wp-header-end' />
-	<div id='patips-tier-editor-page-container' >
+	<h1 class='wp-heading-inline'><?php echo ! $tier_id ? esc_html__( 'Create Tier', 'patrons-tips' ) : /* translators: %s is the tier ID */ sprintf( esc_html__( 'Edit Tier #%s', 'patrons-tips' ), (int) $tier_id ); ?></h1>
+	<hr class='wp-header-end'/>
+	<div id='patips-tier-editor-page-container'>
 		<?php
 			do_action( 'patips_tier_editor_page_before', $tier );
 			$redirect_url = $tier_id ? 'admin.php?page=patips_tiers&action=edit&tier_id=' . $tier_id : 'admin.php?page=patips_tiers';
@@ -63,7 +63,7 @@ if( $lang_switched ) { patips_restore_locale(); }
 					?>
 					</div>
 				</div>
-				<br class='clear' />
+				<br class='clear'/>
 			</div>
 		</form>
 		<?php
@@ -260,18 +260,18 @@ function patips_display_tier_settings_meta_box( $tier ) {
 /**
  * Display 'publish' metabox content for tier
  * @since 0.5.0
- * @version 0.6.0
+ * @version 1.1.0
  * @param array $tier
  */
 function patips_display_tier_publish_meta_box( $tier ) {
 	$is_new = isset( $_GET[ 'action' ] ) && $_GET[ 'action' ] === 'new';
 ?>
 	<div class='submitbox' id='submitpost'>
-		<div id='major-publishing-actions' >
+		<div id='major-publishing-actions'>
 			<div id='delete-action'>
 			<?php
 				if( ! $is_new && current_user_can( 'patips_delete_tiers' ) ) {
-					echo '<a href="' . esc_url( wp_nonce_url( admin_url( 'admin.php?page=patips_tiers&action=trash&tier_id=' . $tier[ 'id' ] ), 'trash-tier_' . $tier[ 'id' ] ) ) . '" class="submitdelete deletion" >'
+					echo '<a href="' . esc_url( wp_nonce_url( admin_url( 'admin.php?page=patips_tiers&action=trash&tier_id=' . $tier[ 'id' ] ), 'trash-tier_' . $tier[ 'id' ] ) ) . '" class="submitdelete deletion">'
 							. esc_html_x( 'Trash', 'verb', 'patrons-tips' )
 						. '</a>';
 				}

@@ -80,6 +80,103 @@ add_filter( 'patips_fsb_subscription_edit_url', 'patips_fsb_controller_get_subsc
 
 
 /**
+ * Create new subscription product for a tier
+ * @since 1.1.0
+ * @param int $product_id
+ * @param int $tier_id
+ * @param string $frequency
+ * @param boolean $assign
+ * @param string $product_type
+ * @return int
+ */
+function patips_fsb_controller_create_tier_subscription_product( $product_id, $tier_id, $frequency, $assign, $product_type ) {
+	if( ! patips_is_plugin_active( 'flexible-subscriptions/flexible-subscriptions.php' ) || $product_id || $frequency === 'one_off' ) { return $product_id; }
+	
+	$variation_id = patips_wc_create_tier_product( $tier_id, $frequency, $assign, $product_type );
+	$_variation   = $variation_id ? wc_get_product( $variation_id ) : null;
+	
+	// Set interval and period and reset other recurring settings
+	if( is_a( $_variation, 'WPDesk\FlexibleSubscriptions\Product\SubscriptionProduct' ) ) {
+		$_i        = strpos( $frequency, '_' );
+		$interval  = is_int( $_i ) ? substr( $frequency, 0, $_i ) : 1;
+		$period    = is_int( $_i ) ? substr( $frequency, $_i + 1 ) : 'month';
+		$interval  = is_numeric( $interval ) && intval( $interval ) ? intval( $interval ) : 1;
+		$period    = $period === 'year' ? 'Y' : 'M';
+		$parent_id = is_a( $_variation, 'WPDesk\FlexibleSubscriptions\Product\SubscriptionProductVariation' ) && is_callable( array( $_variation, 'get_parent_id' ) ) ? $_variation->get_parent_id() : $_variation->get_id();
+		$parent    = $parent_id && $parent_id !== $variation_id ? wc_get_product( $parent_id ) : null;
+		
+		$variation = new WPDesk\FlexibleSubscriptions\Product\SubscriptionProductWrapper( $_variation );
+		$variation->set_payment_interval( $interval );
+		$variation->set_payment_period( $period );
+		$variation->set_singup_fee( 0 );
+		$variation->set_total_billing_cycles( 0 );
+		$variation->set_trial_length( 0 );
+		$variation->set_trial_period( 0 );
+		$variation->save();
+		
+		if( $parent ) {
+			// Sync parent product data
+			if( is_callable( array( $parent, 'sync' ) ) ) {
+				$parent->sync( $parent, true );
+			} else if( is_callable( array( $parent, 'save' ) ) ) {
+				$parent->save();
+			}
+		}
+		
+		$product_id = $variation_id;
+	}
+	
+	return $product_id;
+}
+add_filter( 'patips_fsb_new_tier_subscription_product', 'patips_fsb_controller_create_tier_subscription_product', 10, 5 );
+
+
+/**
+ * Change patronage simple product class name
+ * @since 1.1.0
+ * @param string $class_name
+ * @param int $tier_id
+ * @param string $frequency
+ * @return string
+ */
+function patips_fsb_patronage_simple_product_class( $class_name, $tier_id, $frequency ) {
+	if( ! patips_is_plugin_active( 'flexible-subscriptions/flexible-subscriptions.php' ) || $frequency === 'one_off' ) { return $class_name; }
+	return 'WPDesk\FlexibleSubscriptions\Product\SimpleSubscriptionProduct';
+}
+add_filter( 'patips_patronage_simple_product_class', 'patips_fsb_patronage_simple_product_class', 10, 3 );
+
+
+/**
+ * Change patronage variable product class name
+ * @since 1.1.0
+ * @param string $class_name
+ * @param int $tier_id
+ * @param string $frequency
+ * @return string
+ */
+function patips_fsb_patronage_variable_product_class( $class_name, $tier_id, $frequency ) {
+	if( ! patips_is_plugin_active( 'flexible-subscriptions/flexible-subscriptions.php' ) || $frequency === 'one_off' ) { return $class_name; }
+	return 'WPDesk\FlexibleSubscriptions\Product\VariableSubscriptionProduct';
+}
+add_filter( 'patips_patronage_variable_product_class', 'patips_fsb_patronage_variable_product_class', 10, 3 );
+
+
+/**
+ * Change patronage variation product class name
+ * @since 1.1.0
+ * @param string $class_name
+ * @param int $tier_id
+ * @param string $frequency
+ * @return string
+ */
+function patips_fsb_patronage_variation_product_class( $class_name, $tier_id, $frequency ) {
+	if( ! patips_is_plugin_active( 'flexible-subscriptions/flexible-subscriptions.php' ) || $frequency === 'one_off' ) { return $class_name; }
+	return 'WPDesk\FlexibleSubscriptions\Product\SubscriptionProductVariation';
+}
+add_filter( 'patips_patronage_variation_product_class', 'patips_fsb_patronage_variation_product_class', 10, 3 );
+
+
+/**
  * Get product FSB Subscription frequency
  * @since 0.23.0
  * @param string $frequency

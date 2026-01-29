@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Get tiers according to filters
  * @since 0.5.0
- * @version 0.25.5
+ * @version 1.1.0
  * @global wpdb $wpdb
  * @param array $filters See patips_format_tier_filters()
  * @return object[]
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 function patips_get_tiers( $filters = array() ) {
 	global $wpdb;
 	
-	$query = ' SELECT T.id, T.title, T.description, T.price, T.icon_id, T.user_id, T.creation_date, T.active ' 
+	$query = ' SELECT T.id, T.title, T.description, T.price, T.price as default_price, T.icon_id, T.user_id, T.creation_date, T.active ' 
 	       . ' FROM ' . PATIPS_TABLE_TIERS . ' as T '
 	       . ' WHERE TRUE ';
 	

@@ -96,13 +96,20 @@ add_action( 'wp_ajax_patipsSelect2Query_wc_products', 'patips_wc_controller_sear
 /**
  * Add WC data to fields in Tier settings, Presentation area
  * @since 0.22.0
- * @version 0.26.0
+ * @version 1.1.0
  * @param array $fields
  * @param array $tier
  * @return array
  */
 function patips_wc_tier_settings_fields_presentation( $fields, $tier ) {
 	if( patips_wc_is_tier_price_manual() ) { return $fields; }
+	
+	// Check if a product is assigned
+	$has_product = array_filter( $tier[ 'product_ids' ] );
+	if( ! $has_product || ! $tier[ 'price' ] ) { 
+		$fields[ 'price' ][ 'value' ] = ! empty( $tier[ 'default_price' ] ) ? $tier[ 'default_price' ] : '';
+		return $fields;
+	}
 	
 	if( ! isset( $fields[ 'price' ][ 'attr' ] ) )  { $fields[ 'price' ][ 'attr' ] = ''; }
 	if( ! isset( $fields[ 'price' ][ 'after' ] ) ) { $fields[ 'price' ][ 'after' ] = ''; }
@@ -115,6 +122,7 @@ function patips_wc_tier_settings_fields_presentation( $fields, $tier ) {
 	<?php
 	$after = ob_get_clean();
 	
+	$fields[ 'price' ][ 'value' ]  = floatval( $tier[ 'price' ] );
 	$fields[ 'price' ][ 'attr' ]  .= ' disabled="disabled"';
 	$fields[ 'price' ][ 'after' ] .= $after;
 	$fields[ 'price' ][ 'tip' ]    = esc_html__( 'The tier price.', 'patrons-tips' ) . ' ' . esc_html__( 'The price is determined automatically based on the associated products.', 'patrons-tips' );
@@ -127,7 +135,7 @@ add_filter( 'patips_tier_settings_fields_presentation', 'patips_wc_tier_settings
 /**
  * Display product IDs fields in tier settings page
  * @since 0.21.0
- * @version 1.0.5
+ * @version 1.1.0
  * @param array $tier
  */
 function patips_wc_tier_settings_product_ids_fields( $tier ) {
@@ -141,6 +149,15 @@ function patips_wc_tier_settings_product_ids_fields( $tier ) {
 	$product_ids_one_off = ! empty( $tier[ 'product_ids' ][ 'one_off' ] ) ? patips_ids_to_array( $tier[ 'product_ids' ][ 'one_off' ] ) : array();
 	$product_ids_1_month = ! empty( $tier[ 'product_ids' ][ '1_month' ] ) ? patips_ids_to_array( $tier[ 'product_ids' ][ '1_month' ] ) : array();
 	
+	ob_start();
+	?>
+		<span class='patips-tier-product-buttons'>
+			<button type='button' class='patips-tier-create-product-button button'><?php esc_html_e( 'Create product', 'patrons-tips' ); ?></button>
+			<button type='button' class='patips-tier-edit-product-button button'><?php esc_html_e( 'Edit product', 'patrons-tips' ); ?></button>
+		</span>
+	<?php
+	$buttons = ob_get_clean();
+	
 	$fields = apply_filters( 'patips_tier_settings_fields_products', array(
 		'one_off' => array( 
 			'name'        => 'product_ids[one_off]',
@@ -153,7 +170,7 @@ function patips_wc_tier_settings_product_ids_fields( $tier ) {
 				'sortable'  => 1
 			),
 			'value'       => $product_ids_one_off,
-			'after'       => patips_wc_get_tier_product_misconfiguration_notice( array( 'one_off' => $product_ids_one_off ) ),
+			'after'       => $buttons . patips_wc_get_tier_product_misconfiguration_notice( array( 'one_off' => $product_ids_one_off ) ),
 			'tip'         => esc_html__( 'Select a non-recurring payment product. Purchasing this product will grant access to this tier for one month.', 'patrons-tips' )
 		),
 		'1_month' => array( 
@@ -168,12 +185,14 @@ function patips_wc_tier_settings_product_ids_fields( $tier ) {
 				'sortable'  => 1
 			),
 			'value'       => $product_ids_1_month,
-			'after'       => patips_wc_get_tier_product_misconfiguration_notice( array( '1_month' => $product_ids_1_month ) ),
+			'after'       => $buttons . patips_wc_get_tier_product_misconfiguration_notice( array( '1_month' => $product_ids_1_month ) ),
 			'tip'         => esc_html__( 'Select a monthly recurring payment product. Purchasing this product will grant access to this tier for one month.', 'patrons-tips' )
 		),
 	), $tier );
 	?>
 	<div id='patips-tier-settings-fields-products' class='patips-settings-fields-container'>
+		<input type='hidden' id='patips-wc-create-tier-product-nonce' value='<?php echo esc_attr( wp_create_nonce( 'patips_wc_create_tier_product' ) ); ?>'/>
+		<input type='hidden' id='patips-wc-edit-tier-product-nonce' value='<?php echo esc_attr( wp_create_nonce( 'patips_wc_edit_tier_product' ) ); ?>'/>
 		<?php patips_display_fields( $fields ); ?>
 	</div>
 	<?php
@@ -222,8 +241,9 @@ add_filter( 'patips_tier_created', 'patips_wc_tier_created', 10, 2 );
 
 
 /**
- * Update tier product ids
+ * Update tier product ids and WC product attributes
  * @since 0.22.0
+ * @version 1.1.0
  * @param int|false $updated
  * @param int $tier_id
  * @param array $tier_data
@@ -236,9 +256,243 @@ function patips_wc_tier_updated( $updated, $tier_id, $tier_data ) {
 	if( $updated === false || $updated4 === false ) { $updated = false; }
 	else { $updated += (int)$updated4; }
 	
+	// Get new tier data
+	$tier = patips_get_tier_data( $tier_id );
+	
+	// Update the corresponding product attribute title
+	if( taxonomy_exists( 'pa_tier' ) ) {
+		// Get the "Tier" attribute value corresponding to this tier
+		$tier_term = get_term_by( 'slug', sanitize_title( 'tier-' . $tier[ 'id' ] ), 'pa_tier' );
+		// Update term title to tier title
+		if( $tier_term && $tier[ 'title' ] !== $tier_term->name ) {
+			wp_update_term( intval( $tier_term->term_id ), $tier_term->taxonomy, array( 'name' => $tier[ 'title' ] ) );
+		}
+	}
+	
 	return $updated;
 }
 add_filter( 'patips_tier_updated', 'patips_wc_tier_updated', 10, 3 );
+
+
+/**
+ * AJAX Controller - Create a tier product
+ * @since 1.1.0
+ */
+function patips_wc_controller_create_tier_product() {
+	// Check nonce
+	$is_nonce_valid = check_ajax_referer( 'patips_wc_create_tier_product', 'nonce', false );
+	if( ! $is_nonce_valid ) {
+		patips_send_json_invalid_nonce( 'create_tier_product' );
+	}
+	
+	// Check if allowed to edit a tier
+	$is_allowed = current_user_can( 'patips_edit_tiers' );
+	if( ! $is_allowed ) { 
+		patips_send_json_not_allowed( 'create_tier_product' );
+	}
+	
+	// Get tier
+	$tier_id = ! empty( $_POST[ 'tier_id' ] ) ? intval( $_POST[ 'tier_id' ] ) : 0;
+	$tier    = $tier_id ? patips_get_tier_data( $tier_id ) : array();
+	if( ! $tier ) {
+		patips_send_json( array( 
+			'status'  => 'failed', 
+			'error'   => 'tier_not_found',
+			'message' => esc_html__( 'The selected tier was not found.', 'patrons-tips' ) . ' ' . esc_html__( 'Please publish the tier first and try again.', 'patrons-tips' )
+		), 'create_tier_product' );
+	}
+	
+	// Get frequency
+	$frequency = ! empty( $_POST[ 'frequency' ] ) ? sanitize_title_with_dashes( $_POST[ 'frequency' ] ) : '';
+	if( ! in_array( $frequency, array_keys( $tier[ 'product_ids' ] ), true ) ) {
+		$frequency = '';
+	}
+	
+	if( ! $frequency ) {
+		patips_send_json( array( 
+			'status'  => 'failed', 
+			'error'   => 'invalid_frequency',
+			'message' => esc_html__( 'Subscription product frequency not valid.', 'patrons-tips' )
+		), 'create_tier_product' );
+	}
+	
+	// Check price
+	$has_product = array_filter( $tier[ 'product_ids' ] );
+	if( ! $tier[ 'price' ] && ! $tier[ 'default_price' ] && ! $has_product ) {
+		patips_send_json( array(
+			'status'  => 'failed', 
+			'error'   => 'price_not_set',
+			'message' => esc_html__( 'Please set a price and update the tier first.', 'patrons-tips' )
+		), 'create_tier_product' );
+	}
+	
+	// Create product
+	$product_id = $frequency === 'one_off' ? patips_wc_create_tier_product( $tier_id, $frequency ) : patips_wc_create_tier_subscription_product( $tier_id, $frequency );
+	$product    = $product_id ? wc_get_product( $product_id ) : null;
+	
+	if( ! $product ) {
+		patips_send_json( array( 
+			'status'  => 'failed', 
+			'error'   => 'product_not_created',
+			'message' => esc_html__( 'An error occurred while trying to create the product.', 'patrons-tips' )
+		), 'create_tier_product' );
+	}
+	
+	patips_send_json( array( 
+		'status'               => 'success',
+		'product_id'           => $product_id,
+		'product_title'        => $product->get_name(),
+		'parent_product_id'    => $product->get_id(),
+		'parent_product_title' => $product->get_title()
+	), 'create_tier_product' );
+}
+add_action( 'wp_ajax_patipsWCCreateTierProduct', 'patips_wc_controller_create_tier_product' );
+
+
+/**
+ * AJAX Controller - Get edit page URL of a tier product 
+ * @since 1.1.0
+ */
+function patips_wc_controller_get_tier_product_edit_url() {
+	// Check nonce
+	$is_nonce_valid = check_ajax_referer( 'patips_wc_edit_tier_product', 'nonce', false );
+	if( ! $is_nonce_valid ) {
+		patips_send_json_invalid_nonce( 'get_tier_product_edit_url' );
+	}
+	
+	// Check if allowed to edit a tier
+	$is_allowed = current_user_can( 'edit_products' );
+	if( ! $is_allowed ) { 
+		patips_send_json_not_allowed( 'get_tier_product_edit_url' );
+	}
+	
+	// Get product ID
+	$product_id = ! empty( $_POST[ 'product_id' ] ) ? intval( $_POST[ 'product_id' ] ) : 0;
+	$product    = $product_id ? wc_get_product( $product_id ) : null;
+	
+	if( ! $product ) {
+		patips_send_json( array( 
+			'status'  => 'failed', 
+			'error'   => 'product_not_found',
+			'message' => esc_html__( 'An error occurred while trying to retrieve the product.', 'patrons-tips' )
+		), 'get_tier_product_edit_url' );
+	}
+	
+	// Get product edit page URL
+	$product_edit_url = is_a( $product, 'WC_Product_Variation' ) ? get_edit_post_link( $product->get_parent_id() ) : get_edit_post_link( $product_id );
+	
+	patips_send_json( array(
+		'status'       => 'success',
+		'redirect_url' => htmlspecialchars_decode( $product_edit_url )
+	), 'get_tier_product_edit_url' );
+}
+add_action( 'wp_ajax_patipsWCGetProductEditURL', 'patips_wc_controller_get_tier_product_edit_url' );
+
+
+
+
+// QUICK START
+
+/**
+ * Create a default restricted product category for patronage
+ * @since 1.1.0
+ * @param array $term_ids_by_type
+ */
+function patips_wc_controller_create_quick_start_tiers_data( $term_ids_by_type ) {
+	// Get restricted category
+	$restricted_product_term_id = ! empty( $term_ids_by_type[ 'product' ] ) ? reset( $term_ids_by_type[ 'product' ] ) : 0;
+	
+	// Create restricted product category
+	if( ! $restricted_product_term_id ) {
+		$restricted_product_term_exists = term_exists( 'patronage-restricted-products', 'product_cat' );
+		if( $restricted_product_term_exists && ! empty( $restricted_product_term_exists[ 'term_id' ] ) ) {
+			$restricted_product_term_id = intval( $restricted_product_term_exists[ 'term_id' ] );
+		}
+		if( ! $restricted_product_term_id ) {
+			wp_insert_term( esc_html__( 'Restricted products', 'patrons-tips' ), 'product_cat', array(
+					'slug' => 'patronage-restricted-products'
+				)
+			);
+		}
+	}
+}
+add_action( 'patips_create_quick_start_tiers_before', 'patips_wc_controller_create_quick_start_tiers_data', 10, 1 );
+
+
+/**
+ * Add WC data to quick start tiers default data
+ * @since 1.1.0
+ * @param array $quick_start_tiers_default_data
+ * @param array $term_ids_by_type
+ * @return array
+ */
+function patips_wc_controller_quick_start_tiers_default_data( $quick_start_tiers_default_data, $term_ids_by_type ) {
+	// Get restricted product category
+	$restricted_product_term_id = ! empty( $term_ids_by_type[ 'product' ] ) ? reset( $term_ids_by_type[ 'product' ] ) : 0;
+	if( ! $restricted_product_term_id ) {
+		$restricted_product_term_exists = term_exists( 'patronage-restricted-products', 'product_cat' );
+		if( $restricted_product_term_exists && ! empty( $restricted_product_term_exists[ 'term_id' ] ) ) {
+			$restricted_product_term_id = intval( $restricted_product_term_exists[ 'term_id' ] );
+		}
+	}
+	
+	// Assign restricted product category to Premium tier
+	if( $restricted_product_term_id ) {
+		if( empty( $quick_start_tiers_default_data[ 'premium' ][ 'term_ids' ][ 'active' ] ) ) {
+			$quick_start_tiers_default_data[ 'premium' ][ 'term_ids' ][ 'active' ] = array();
+		}
+		$quick_start_tiers_default_data[ 'premium' ][ 'term_ids' ][ 'active' ][] = $restricted_product_term_id;
+	}
+	
+	// Multiply price per 100 if currency has no decimals
+	if( ! wc_get_price_decimals() ) {
+		foreach( $quick_start_tiers_default_data as $key => $quick_start_tier_default_data ) {
+			$quick_start_tiers_default_data[ $key ][ 'price' ] *= 100;
+		}
+	}
+	
+	return $quick_start_tiers_default_data;
+}
+add_filter( 'patips_quick_start_tiers_default_data', 'patips_wc_controller_quick_start_tiers_default_data', 10, 2 );
+
+
+/**
+ * Create WC products for quick start tiers
+ * @since 1.1.0
+ * @param array $quick_start_tier_ids
+ */
+function patips_wc_controller_create_quick_start_tiers_products( $quick_start_tier_ids ) {
+	// Get quick start tiers
+	$tiers             = patips_get_tiers_data();
+	$quick_start_tiers = array_intersect_key( $tiers, array_flip( $quick_start_tier_ids ) );
+	
+	$updated = false;
+	foreach( $quick_start_tiers as $tier_id => $tier ) {
+		// Create one-off product
+		$one_off_product_id = patips_wc_create_tier_product( $tier_id, 'one_off', false );
+		
+		// Create subscription product
+		$monthly_product_id = patips_wc_create_tier_subscription_product( $tier_id, '1_month', false );
+		
+		// Link products to tier
+		if( $one_off_product_id ) {
+			$tier[ 'product_ids' ][ 'one_off' ] = array( $one_off_product_id );
+		}
+		if( $monthly_product_id ) {
+			$tier[ 'product_ids' ][ '1_month' ] = array( $monthly_product_id );
+		}
+		if( $one_off_product_id || $monthly_product_id ) {
+			patips_wc_update_tier_product_ids( $tier_id, $tier[ 'product_ids' ] );
+			$updated = true;
+		}
+	}
+	
+	// Clear cache
+	if( $updated ) {
+		wp_cache_delete( 'tiers_data', 'patrons-tips' );
+	}
+}
+add_action( 'patips_quick_start_tiers_created', 'patips_wc_controller_create_quick_start_tiers_products', 10, 1 );
 
 
 
@@ -638,12 +892,12 @@ add_action( 'admin_notices', 'patips_wc_display_notice_tier_product_misconfigura
 /** 
  * Display a warning notice if orders can be placed without account, but user cannot create account afterwards
  * @since 0.26.0
- * @version 1.0.5
+ * @version 1.1.0
  * @global WP_Post $post
  */
 function patips_wc_display_notice_order_account_creation() {
-	if( ! current_user_can( 'patips_manage_patrons_tips' ) ) { return; }
 	if( ! patips_is_own_screen() ) { return; }
+	if( ! current_user_can( 'patips_manage_patrons_tips' ) || ! empty( $_GET[ 'action' ] ) ) { return; }
 	
 	$dismissed = get_option( 'patips_notice_dismissed_wc_order_account_creation' );
 	if( $dismissed ) { return; }

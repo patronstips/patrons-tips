@@ -344,8 +344,11 @@ fieldset.patips-fieldset-no-css { border: none; border-top: 1px solid #bbb; padd
 
 
 /* TUTORIAL */
-#patips-first-tier-notice                   { margin: 40px auto; text-align: center; }
-#patips-first-tier-button-container .button { font-size: 1.75em; padding: 0 1em; margin-top: 0.75em; }
+#patips-quick-start-notice                   { margin: 40px auto; text-align: center; }
+#patips-quick-start-button-container .button { font-size: 1.75em; padding: 0 1em; margin-top: 0.75em; }
+#patips-first-tier-button-container          { margin-top: 15px; }
+#patips-first-tier-button-container a        { text-decoration: none; color: unset; font-style: italic; }
+#patips-first-tier-button-container a:hover  { text-decoration: underline; }
 
 #patips-patron-area-page-tuto-container,
 #patips-patronage-sales-page-tuto-container,

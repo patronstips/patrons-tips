@@ -958,6 +958,81 @@ function patips_get_attachment_public_taxonomies() {
 
 
 /**
+ * Get attachment by filename
+ * @since 1.1.0
+ * @return WP_Post|false
+ */
+function patips_get_attachment_by_filename( $filename ) {
+	$post_name = sanitize_title_with_dashes( preg_replace( '/\.[^.]+$/', '', basename( $filename ) ) );
+	
+	$args = array(
+		'posts_per_page' => 1,
+		'post_type'      => 'attachment',
+		'name'           => trim( $post_name ),
+	);
+
+	$wp_query = new WP_Query( $args );
+
+	if ( ! $wp_query || ! isset( $wp_query->posts, $wp_query->posts[ 0 ] ) ) {
+		return false;
+	}
+
+	return $wp_query->posts[ 0 ];
+}
+
+
+/**
+ * Insert attachment by filename
+ * @since 1.1.0
+ * @return int
+ */
+function patips_insert_attachment_by_filename( $filename ) {
+	// Check if attachment has already been inserted
+	$attachment = patips_get_attachment_by_filename( $filename );
+	if( $attachment ) {
+		return $attachment->ID;
+	}
+	
+	// Copy image from plugin dir to uploads dir
+	$upload_dir = wp_upload_dir();
+	$source     = PATIPS_PLUGIN_DIR . '/img/' . basename( $filename );
+	$filename   = $upload_dir[ 'basedir' ] . '/' . basename( $filename );
+	
+	if( ! file_exists( $filename ) ) {
+		copy( $source, $filename ); // @codingStandardsIgnoreLine.
+	}
+	
+	if( ! file_exists( $filename ) ) {
+		return;
+	}
+	
+	// Insert attachment entry in database
+	$filetype = wp_check_filetype( basename( $filename ), null );
+	$attachment_data = array(
+		'guid'           => $upload_dir[ 'url' ] . '/' . basename( $filename ),
+		'post_mime_type' => $filetype[ 'type' ],
+		'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $filename ) ),
+		'post_name'      => sanitize_title_with_dashes( preg_replace( '/\.[^.]+$/', '', basename( $filename ) ) ),
+		'post_content'   => '',
+		'post_status'    => 'inherit',
+	);
+	$attachment_id = wp_insert_attachment( $attachment_data, $filename );
+	
+	if( ! is_int( $attachment_id ) ) {
+		$attachment_id = 0;
+	}
+	
+	// Update attachment metadata
+	if( $attachment_id ) {
+		$attachment_data = wp_generate_attachment_metadata( $attachment_id, $filename );
+		wp_update_attachment_metadata( $attachment_id, $attachment_data );
+	}
+	
+	return ! is_int( $attachment_id ) ? 0 : $attachment_id;
+}
+
+
+/**
  * Check if a string is valid JSON
  * @since 0.11.0
  * @param string $string

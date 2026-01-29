@@ -2,16 +2,17 @@
 /**
  * Tier list page
  * @since 0.5.0
- * @version 0.26.3
+ * @version 1.1.0
  */
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-$tiers = patips_get_tiers_data();
+// Get all tiers, including trash
+$tiers = patips_get_tiers_data( array( 'active' => false ) );
 ?>
 <div class='wrap'>
-	<h1 class='wp-heading-inline' >
+	<h1 class='wp-heading-inline'>
 		<?php echo esc_html__( 'Tiers', 'patrons-tips' ); ?>
 	</h1>
 	
@@ -34,9 +35,9 @@ $tiers = patips_get_tiers_data();
 	<?php
 	// Check if there are tiers
 	if( ! $tiers ) {
-		patips_display_first_tier_notice();
+		patips_display_quick_start_notice();
 		?></div><!-- end of wp wrap --><?php
-		exit;
+		return;
 	}
 	?>
 	
@@ -61,15 +62,15 @@ $tiers = patips_get_tiers_data();
 						$i=0;
 						foreach( $order_by as $column_name ) {
 							if( $i === 0 ) {
-								echo '<input type="hidden" name="orderby" value="' . esc_attr( $column_name ) . '" />';
+								echo '<input type="hidden" name="orderby" value="' . esc_attr( $column_name ) . '"/>';
 							}
-							echo '<input type="hidden" name="order_by[' . (int) $i . ']" value="' . esc_attr( $column_name ) . '" />';
+							echo '<input type="hidden" name="order_by[' . (int) $i . ']" value="' . esc_attr( $column_name ) . '"/>';
 							++$i;
 						}
 					}
 					$order = ! empty( $_REQUEST[ 'order' ] ) ? sanitize_title_with_dashes( wp_unslash( $_REQUEST[ 'order' ] ) ) : '';
 					if( $order ) {
-						echo '<input type="hidden" name="order" value="' . esc_attr( $order ) . '" />';
+						echo '<input type="hidden" name="order" value="' . esc_attr( $order ) . '"/>';
 					}
 
 					do_action( 'patips_tier_filters_before' );

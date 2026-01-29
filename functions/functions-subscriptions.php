@@ -106,6 +106,27 @@ function patips_wc_is_subscription_renewal_order( $order, $plugin = '' ) {
 
 
 /**
+ * Create a subscription product for a tier
+ * @since 1.1.0
+ * @param int $tier_id
+ * @param string $frequency
+ * @param boolean $assign
+ * @param string $product_type "variable" or "simple"
+ * @param string $plugin
+ * @return WC_Product|false
+ */
+function patips_wc_create_tier_subscription_product( $tier_id, $frequency = '1_month', $assign = true, $product_type = '', $plugin = '' ) {
+	if( $frequency === 'one_off' ) { return false; }
+	
+	if( ! $plugin ) {
+		$plugin = patips_get_subscription_plugin();
+	}
+	
+	return apply_filters( 'patips_' . $plugin . '_new_tier_subscription_product', false, $tier_id, $frequency, $assign, $product_type );
+}
+
+
+/**
  * Get the subscription frequency of a product
  * @since 0.13.0
  * @param int $product_id

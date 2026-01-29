@@ -170,7 +170,7 @@ function patips_get_tier_restricted_term_scopes() {
 /**
  * Get default tier data
  * @since 0.5.0
- * @version 0.22.0
+ * @version 1.1.0
  * @param string $context 'view' or 'edit'
  * @return array
  */
@@ -181,6 +181,7 @@ function patips_get_default_tier_data( $context = 'view' ) {
 		'icon_id'       => 0,
 		'description'   => '',
 		'price'         => 0,
+		'default_price' => 0,
 		'user_id'       => 0,
 		'creation_date' => '',
 		'active'        => 1,
@@ -272,7 +273,7 @@ function patips_get_tier_data( $tier_id, $raw = false ) {
 /**
  * Format tier data
  * @since 0.5.0
- * @version 0.25.3
+ * @version 1.1.0
  * @param array $raw_tier_data
  * @param string $context 'view' or 'edit'
  * @return array
@@ -283,7 +284,7 @@ function patips_format_tier_data( $raw_tier_data = array(), $context = 'view' ) 
 	$default_data = array_merge( patips_get_default_tier_data( $context ), patips_get_default_tier_meta( $context ) );
 	$keys_by_type = array( 
 		'int'       => array( 'id', 'user_id', 'icon_id' ),
-		'absfloat'  => array( 'price' ),
+		'absfloat'  => array( 'price', 'default_price' ),
 		'str'       => array( 'title' ),
 		'str_html'  => array( 'description' ),
 		'datetime'  => array( 'creation_date' ),
@@ -626,24 +627,237 @@ function patips_get_subscription_form( $args = array() ) {
 }
 
 
+
+
+// QUICK START
+
 /**
  * Get notice and action button to create first tier
- * @since 0.25.5 (was patips_get_first_tier_notice)
+ * @since 1.1.0 (was patips_display_first_tier_notice)
  */
-function patips_display_first_tier_notice() {
+function patips_display_quick_start_notice() {
 	$can_create_tier = current_user_can( 'patips_create_tiers' );
 ?>
-	<div id='patips-first-tier-notice'>
+	<div id='patips-quick-start-notice'>
 		<h2>
-			<?php echo $can_create_tier ? esc_html__( 'Welcome to Patrons Tips! Let\'s start by creating your first tier.', 'patrons-tips' ) : esc_html__( 'There are no tiers available, and you are not allowed to create one.', 'patrons-tips' ); ?>
+			<?php echo $can_create_tier ? esc_html__( 'Welcome to Patrons Tips! Let\'s configure everything automatically.', 'patrons-tips' ) : esc_html__( 'There are no tiers available, and you are not allowed to create one.', 'patrons-tips' ); ?>
 		</h2>
 		<?php if( $can_create_tier ) { ?>
-		<div id='patips-first-tier-button-container'>
-			<a href='<?php echo esc_url( admin_url( 'admin.php?page=patips_tiers&action=new' ) ); ?>' class='button button-primary'>
-				<?php esc_html_e( 'Create your first tier', 'patrons-tips' ); ?>
+		<div id='patips-quick-start-button-container'>
+			<a href='<?php echo esc_url( admin_url( 'admin.php?page=patips_tiers&action=quick_start&nonce=' . wp_create_nonce( 'patips_quick_start' ) ) ); ?>' class='button button-primary'>
+				<?php esc_html_e( 'Quick start', 'patrons-tips' ); ?>
 			</a>
+		</div>
+		<div id='patips-first-tier-button-container'>
+			<span id='patips-first-tier-button-before'><?php echo esc_html_x( 'or', 'separator between different options', 'patrons-tips' ); ?></span>
+			<a href='<?php echo esc_url( admin_url( 'admin.php?page=patips_tiers&action=new' ) ); ?>'><?php esc_html_e( 'Manually create your first tier', 'patrons-tips' ); ?></a>
+			<span id='patips-first-tier-button-after'><?php esc_html_e( '(for experienced users)', 'patrons-tips' ); ?></span>
 		</div>
 		<?php } ?>
 	</div>
 <?php
+}
+
+
+/**
+ * Get quick start tiers default data
+ * @since 1.1.0
+ * @return array
+ */
+function patips_get_quick_start_tiers_default_data() {
+	// Get tier icons
+	$tier1_icon_post = patips_get_attachment_by_filename( 'tier1-icon.png' );
+	$tier2_icon_post = patips_get_attachment_by_filename( 'tier2-icon.png' );
+	
+	// Get taxonomies that can be restricted by post type
+	$taxonomies_by_type = patips_get_restrictable_taxonomies_by_post_type();
+	$restricted_terms   = patips_get_restricted_terms();
+	
+	// Get terms by post type
+	$term_ids_by_type = array();
+	foreach( $taxonomies_by_type as $post_type => $taxonomies ) {
+		$taxonomies = array_filter( $taxonomies, 'taxonomy_exists' );
+		$terms = $taxonomies ? get_terms( array( 'taxonomy' => $taxonomies, 'hide_empty' => false ) ) : array();
+		if( ! isset( $term_ids_by_type[ $post_type ] ) ) {
+			$term_ids_by_type[ $post_type ] = array();
+		}
+		foreach( $terms as $term ) {
+			if( isset( $restricted_terms[ $term->term_id ] ) ) {
+				$term_ids_by_type[ $post_type ][] = intval( $term->term_id );
+			}
+		}
+	}
+	
+	// Get restricted categories
+	$restricted_attachment_taxonomy = ! empty( $taxonomies_by_type[ 'attachment' ] ) ? reset( $taxonomies_by_type[ 'attachment' ] ) : '';
+	$restricted_post_term_id        = ! empty( $term_ids_by_type[ 'post' ] ) ? reset( $term_ids_by_type[ 'post' ] ) : 0;
+	$restricted_attachment_term_id  = ! empty( $term_ids_by_type[ 'attachment' ] ) ? reset( $term_ids_by_type[ 'attachment' ] ) : 0;
+	
+	if( ! $restricted_post_term_id ) {
+		$restricted_post_term_exists = term_exists( 'patronage-restricted-posts', 'category' );
+		if( $restricted_post_term_exists && ! empty( $restricted_post_term_exists[ 'term_id' ] ) ) {
+			$restricted_post_term_id = intval( $restricted_post_term_exists[ 'term_id' ] );
+		}
+	}
+	if( ! $restricted_attachment_term_id ) {
+		$restricted_attachment_term_exists = term_exists( 'patronage-restricted-media', $restricted_attachment_taxonomy );
+		if( $restricted_attachment_term_exists && ! empty( $restricted_attachment_term_exists[ 'term_id' ] ) ) {
+			$restricted_attachment_term_id = intval( $restricted_attachment_term_exists[ 'term_id' ] );
+		}
+	}
+	
+	$restricted_term_ids = array();
+	if( $restricted_post_term_id )       { $restricted_term_ids[] = $restricted_post_term_id; }
+	if( $restricted_attachment_term_id ) { $restricted_term_ids[] = $restricted_attachment_term_id; }
+	
+	return apply_filters( 'patips_quick_start_tiers_default_data', array(
+		'basic' => array(
+			'title'       => esc_html__( 'Basic', 'patrons-tips' ),
+			'icon_id'     => $tier1_icon_post ? $tier1_icon_post->ID : 0,
+			'description' => '- ' . esc_html__( 'Your name in credits', 'patrons-tips' ),
+			'price'       => 5,
+			'active'      => 1
+		),
+		'premium' => array(
+			'title'       => esc_html__( 'Premium', 'patrons-tips' ),
+			'icon_id'     => $tier2_icon_post ? $tier2_icon_post->ID : 0,
+			'description' => '- ' . esc_html__( 'Previous rewards', 'patrons-tips' ) 
+			              . PHP_EOL . '- ' . esc_html__( 'Access restricted content', 'patrons-tips' ),
+			'price'       => 15,
+			'term_ids'    => $restricted_term_ids ? array( 'active' => $restricted_term_ids ) : array(),
+			'active'      => 1
+		)
+	), $term_ids_by_type );
+}
+
+
+/**
+ * Create quick start demo tiers
+ * @since 1.1.0
+ * @return array
+ */
+function patips_create_quick_start_tiers() {
+	// Insert the tier icons
+	$tier1_icon_id = patips_insert_attachment_by_filename( 'tier1-icon.png' );
+	$tier2_icon_id = patips_insert_attachment_by_filename( 'tier2-icon.png' );
+	
+	// Get taxonomies that can be restricted by post type
+	$taxonomies_by_type = patips_get_restrictable_taxonomies_by_post_type();
+	$restricted_terms   = patips_get_restricted_terms();
+	
+	// Get terms by post type
+	$term_ids_by_type = array();
+	foreach( $taxonomies_by_type as $post_type => $taxonomies ) {
+		$taxonomies = array_filter( $taxonomies, 'taxonomy_exists' );
+		$terms = $taxonomies ? get_terms( array( 'taxonomy' => $taxonomies, 'hide_empty' => false ) ) : array();
+		if( ! isset( $term_ids_by_type[ $post_type ] ) ) {
+			$term_ids_by_type[ $post_type ] = array();
+		}
+		foreach( $terms as $term ) {
+			if( isset( $restricted_terms[ $term->term_id ] ) ) {
+				$term_ids_by_type[ $post_type ][] = intval( $term->term_id );
+			}
+		}
+	}
+	
+	// Get restricted category
+	$restricted_post_term_id        = ! empty( $term_ids_by_type[ 'post' ] ) ? reset( $term_ids_by_type[ 'post' ] ) : 0;
+	$restricted_attachment_term_id  = ! empty( $term_ids_by_type[ 'attachment' ] ) ? reset( $term_ids_by_type[ 'attachment' ] ) : 0;
+	$restricted_attachment_taxonomy = ! empty( $taxonomies_by_type[ 'attachment' ] ) ? reset( $taxonomies_by_type[ 'attachment' ] ) : '';
+	
+	// Create restricted post category
+	if( ! $restricted_post_term_id ) {
+		$restricted_post_term_exists = term_exists( 'patronage-restricted-posts', 'category' );
+		if( $restricted_post_term_exists && ! empty( $restricted_post_term_exists[ 'term_id' ] ) ) {
+			$restricted_post_term_id = intval( $restricted_post_term_exists[ 'term_id' ] );
+		}
+		if( ! $restricted_post_term_id ) {
+			$restricted_post_term_id = wp_insert_term( esc_html__( 'Restricted posts', 'patrons-tips' ), 'category', array(
+					'slug' => 'patronage-restricted-posts'
+				)
+			);
+		}
+	}
+	
+	// Create restricted media category
+	if( ! $restricted_attachment_term_id && $restricted_attachment_taxonomy ) {
+		$restricted_attachment_term_exists = term_exists( 'patronage-restricted-media', $restricted_attachment_taxonomy );
+		if( $restricted_attachment_term_exists && ! empty( $restricted_attachment_term_exists[ 'term_id' ] ) ) {
+			$restricted_attachment_term_id = intval( $restricted_attachment_term_exists[ 'term_id' ] );
+		}
+		if( ! $restricted_attachment_term_id ) {
+			$restricted_attachment_term_id = wp_insert_term( esc_html__( 'Restricted media', 'patrons-tips' ), $restricted_attachment_taxonomy, array(
+					'slug' => 'patronage-restricted-media'
+				)
+			);
+		}
+	}
+	
+	// Insert the image of the month
+	$month_illustration_preview_id = patips_insert_attachment_by_filename( 'month-illustration-preview.jpg' );
+	$month_illustration_id         = patips_insert_attachment_by_filename( 'month-illustration-VDSX24P9.jpg' );
+	if( $month_illustration_id ) {
+		wp_update_post( array( 
+			'ID'         => $month_illustration_id, 
+			'post_title' => esc_html__( 'Image restricted to patrons of sufficient tier', 'patrons-tips' )
+		) );
+	}
+	if( ! get_post_meta( $month_illustration_id, 'preview', true ) && $month_illustration_preview_id ) {
+		update_post_meta( $month_illustration_id, 'preview', $month_illustration_preview_id );
+	}
+	if( ! get_post_meta( $month_illustration_id, 'thumbnail', true ) && $month_illustration_preview_id ) {
+		update_post_meta( $month_illustration_id, 'thumbnail', $month_illustration_preview_id );
+	}
+	if( $restricted_attachment_term_id && $restricted_attachment_taxonomy ) {
+		wp_set_object_terms( $month_illustration_id, $restricted_attachment_term_id, $restricted_attachment_taxonomy, true );
+	}
+	
+	// Create a restricted post if none exists
+	if( $restricted_post_term_id ) {
+		$restricted_posts = get_posts( array( 'category' => $restricted_post_term_id, 'numberposts' => 1 ) );
+		if( ! $restricted_posts ) {
+			$post_id = wp_insert_post( array(
+				'post_title'    => esc_html__( 'Post restricted to patrons of sufficient tier', 'patrons-tips' ),
+				'post_content'  => esc_html__( 'The content of this post can only be seen by current patrons of sufficient tier.', 'patrons-tips' ),
+				'post_status'   => 'publish'
+			) );
+			wp_set_object_terms( $post_id, $restricted_post_term_id, 'category' );
+		}
+	}
+	
+	do_action( 'patips_create_quick_start_tiers_before', $term_ids_by_type );
+	
+	// Create the demo tiers
+	$quick_start_tiers_default_data = patips_get_quick_start_tiers_default_data();
+	$quick_start_tier_ids           = array();
+	foreach( $quick_start_tiers_default_data as $tier_slug => $quick_start_tier_default_data ) {
+		$tier_id = get_option( 'patips_quick_start_tier_' . $tier_slug );
+		$tier    = $tier_id ? patips_get_tier_data( $tier_id ) : array();
+		
+		// Sanitize data
+		if( $tier ) {
+			$merged_data               = array_replace( $quick_start_tier_default_data, $tier );
+			$merged_data[ 'tier_ids' ] = array_merge_recursive( $quick_start_tier_default_data, $tier );
+			$sanitized_data            = patips_sanitize_tier_data( $merged_data );
+			patips_update_tier_data( $tier_id, $sanitized_data );
+			
+		} else {
+			$sanitized_data = patips_sanitize_tier_data( $quick_start_tier_default_data );
+			$tier_id        = patips_create_tier( $sanitized_data );
+		}
+		
+		if( $tier_id ) {
+			$quick_start_tier_ids[] = $tier_id;
+			update_option( 'patips_quick_start_tier_' . $tier_slug, $tier_id );
+		}
+	}
+	
+	if( $quick_start_tier_ids ) {
+		wp_cache_delete( 'tiers_data', 'patrons-tips' );
+		wp_cache_delete( 'restricted_terms', 'patrons-tips' );
+	}
+	
+	do_action( 'patips_quick_start_tiers_created', $quick_start_tier_ids );
+	
+	return $quick_start_tier_ids;
 }

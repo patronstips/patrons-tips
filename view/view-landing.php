@@ -2,7 +2,7 @@
 /**
  * Landing page
  * @since 0.5.0
- * @version 1.0.5
+ * @version 1.1.0
  */
 
 // Exit if accessed directly
@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 	<?php
 	// Check if there are tiers
-	$tiers = patips_get_tiers_data();
+	$tiers = patips_get_tiers_data( array( 'active' => false ) );
 	if( ! $tiers ) {
-		patips_display_first_tier_notice();
+		patips_display_quick_start_notice();
 		?><hr/><?php
 	}
 	?>
@@ -202,17 +202,17 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 					<div class='patips-guarantee'>
 						<div class='patips-guarantee-icon'><span class='dashicons dashicons-lock'></span></div>
 						<h4><?php esc_html_e( 'Secure Payments', 'patrons-tips' ); ?></h4>
-						<div class='patips-guarantee-description' ><?php esc_html_e( 'Online payments are secured by PayPal and Stripe', 'patrons-tips' ); ?></div>
+						<div class='patips-guarantee-description'><?php esc_html_e( 'Online payments are secured by PayPal and Stripe', 'patrons-tips' ); ?></div>
 					</div>
 					<div class='patips-guarantee'>
 						<div class='patips-guarantee-icon'><span class='dashicons dashicons-money'></span></div>
 						<h4><?php esc_html_e( '30-Day money back guarantee', 'patrons-tips' ); ?></h4>
-						<div class='patips-guarantee-description' ><?php esc_html_e( 'If you are not satisfied you will be 100% refunded', 'patrons-tips' ); ?></div>
+						<div class='patips-guarantee-description'><?php esc_html_e( 'If you are not satisfied you will be 100% refunded', 'patrons-tips' ); ?></div>
 					</div>
 					<div class='patips-guarantee'>
 						<div class='patips-guarantee-icon'><span class='dashicons dashicons-email-alt'></span></div>
 						<h4><?php esc_html_e( 'Ready to help', 'patrons-tips' ); ?></h4>
-						<div class='patips-guarantee-description' ><?php /* translators: %s = support email address) */ echo sprintf( esc_html__( 'Contact us at %s', 'patrons-tips' ), 'contact@patronstips.com' ); ?></div>
+						<div class='patips-guarantee-description'><?php /* translators: %s = support email address) */ echo sprintf( esc_html__( 'Contact us at %s', 'patrons-tips' ), 'contact@patronstips.com' ); ?></div>
 					</div>
 				</div>
 			</div>

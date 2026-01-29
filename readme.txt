@@ -2,7 +2,7 @@
 Contributors: patronstips, yoancutillas, karolanebohaer
 Tags: patronage, membership, patreon, tipeee, crowdfunding
 Tested up to: 6.9
-Stable tag: 1.0.6
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -228,8 +228,12 @@ Sure, you don't have to offer benefits if you just want a tip system that allow 
 
 == Changelog ==
 
-= 1.0.6 =
+= 1.1.0 - 2026/01/29 =
+* Feature - Add a quick start button to automatically create tiers with demo data (when no tiers exist)
+* Feature - Add buttons in tier settings to automatically create product and to go to its edit page
 * Tweak - Update WP and WC compatible versions
+* Tweak - Use attribute for Tiers in variable product, and update attribute title when tier is updated
+* Fix - Cannot dismiss admin notices on Tiers and Patrons pages if no tiers were created
 
 = 1.0.5 - 2025/10/02 =
 * Tweak - Update links to documentation

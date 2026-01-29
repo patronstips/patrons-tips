@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Patrons Tips 0.25.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/patrons-tips\n"
-"POT-Creation-Date: 2025-10-02T11:33:49+00:00\n"
-"PO-Revision-Date: 2025-10-02 13:36+0200\n"
+"POT-Creation-Date: 2026-01-29T13:27:27+00:00\n"
+"PO-Revision-Date: 2026-01-29 14:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -58,7 +58,7 @@ msgid "Patron"
 msgstr "Mécène"
 
 #: class/class-patrons-list-table.php:53 view/view-patron-editor.php:98
-#: view/view-patron-list-table.php:92
+#: view/view-patron-list-table.php:101
 msgid "User"
 msgstr "Compte"
 
@@ -105,15 +105,15 @@ msgstr "Compte n°%s"
 #: controller/controller-frontend.php:133
 #: controller/controller-patron-editor.php:379
 #: controller/controller-shortcodes.php:156
-#: controller/controller-woocommerce-backend.php:524
-#: controller/controller-woocommerce-backend.php:578
+#: controller/controller-woocommerce-backend.php:778
+#: controller/controller-woocommerce-backend.php:832
 #: controller/controller-woocommerce-frontend.php:235
-#: controller/controller-woocommerce-frontend.php:720
+#: controller/controller-woocommerce-frontend.php:724
 #: functions/functions-patron-editor.php:132
-#: functions/functions-patrons.php:1301 functions/functions-tiers.php:543
-#: functions/functions-woocommerce.php:696 view/view-patron-editor.php:172
+#: functions/functions-patrons.php:1301 functions/functions-tiers.php:544
+#: functions/functions-woocommerce.php:979 view/view-patron-editor.php:172
 #: view/view-patron-editor.php:174 view/view-patron-editor.php:176
-#: view/view-patron-editor.php:183 view/view-patron-list-table.php:123
+#: view/view-patron-editor.php:183 view/view-patron-list-table.php:132
 #: blocks/patron-history/index.js:3 blocks/patron-history/index.js:5
 #: blocks/patron-history/index.js:7 blocks/patron-history/index.js:9
 #: blocks/patron-history/index.js:13 blocks/patron-list/index.js:3
@@ -150,7 +150,7 @@ msgstr "Corbeille"
 #: class/widgets/class-widget-period-income.php:91
 #: class/widgets/class-widget-period-media.php:89
 #: class/widgets/class-widget-tier-form.php:92 view/view-tier-editor.php:124
-#: view/view-tier-list-table.php:79
+#: view/view-tier-list-table.php:80
 msgid "Title"
 msgstr "Titre"
 
@@ -331,7 +331,7 @@ msgid "Thumbnail"
 msgstr "Miniature"
 
 #: class/widgets/class-widget-tier-form.php:19
-#: view/templates/sales-page.php:104 view/view-tier-list-table.php:138
+#: view/templates/sales-page.php:104 view/view-tier-list-table.php:139
 msgid "Patronage form"
 msgstr "Formulaire de mécénat"
 
@@ -353,7 +353,7 @@ msgid "Tiers options"
 msgstr "Options des niveaux"
 
 #: class/widgets/class-widget-tier-form.php:116 patrons-tips.php:386
-#: view/view-patron-list-table.php:115 view/view-tier-list-table.php:15
+#: view/view-patron-list-table.php:124 view/view-tier-list-table.php:16
 #: blocks/patron-history/index.js:1 blocks/patron-list/index.js:1
 #: blocks/tier-form/index.js:3
 msgid "Tiers"
@@ -383,18 +383,20 @@ msgid "Default frequency"
 msgstr "Fréquence par défaut"
 
 #: controller/controller-backend.php:17 controller/controller-settings.php:34
+#: controller/controller-tier-editor.php:324
 msgid "Patronage sales page"
 msgstr "Page de vente du mécénat"
 
 #: controller/controller-backend.php:21
-#: controller/controller-woocommerce-backend.php:364
-#: controller/controller-woocommerce-frontend.php:965
-#: controller/controller-woocommerce-frontend.php:987
+#: controller/controller-woocommerce-backend.php:618
+#: controller/controller-woocommerce-frontend.php:969
+#: controller/controller-woocommerce-frontend.php:991
 #: functions/functions-templates.php:40
 msgid "Patron area"
 msgstr "Espace mécène"
 
-#: controller/controller-backend.php:54
+#: controller/controller-backend.php:54 functions/functions-woocommerce.php:434
+#: functions/functions-woocommerce.php:463
 msgid "Patronage"
 msgstr "Mécénat"
 
@@ -425,7 +427,7 @@ msgstr "Miniature de publication"
 msgid "Post thumbnail used in post lists."
 msgstr "Miniature de publication utilisé dans les listes de publications."
 
-#: controller/controller-backend.php:325 view/view-tier-list-table.php:149
+#: controller/controller-backend.php:325 view/view-tier-list-table.php:150
 msgid ""
 "The patronage sales page is not published yet. You need to publish it to "
 "allow customers to subscribe to a tier."
@@ -435,21 +437,21 @@ msgstr ""
 
 #: controller/controller-backend.php:328 controller/controller-backend.php:370
 #: controller/controller-settings.php:291
-#: controller/controller-settings.php:339 view/view-patron-list-table.php:321
-#: view/view-patron-list-table.php:328 view/view-tier-list-table.php:144
-#: view/view-tier-list-table.php:151
+#: controller/controller-settings.php:339 view/view-patron-list-table.php:328
+#: view/view-patron-list-table.php:335 view/view-tier-list-table.php:145
+#: view/view-tier-list-table.php:152
 msgid "Edit page"
 msgstr "Modifier la page"
 
 #: controller/controller-backend.php:328 controller/controller-backend.php:370
 #: controller/controller-settings.php:292
-#: controller/controller-settings.php:340 view/view-patron-list-table.php:321
-#: view/view-patron-list-table.php:328 view/view-tier-list-table.php:144
-#: view/view-tier-list-table.php:151
+#: controller/controller-settings.php:340 view/view-patron-list-table.php:328
+#: view/view-patron-list-table.php:335 view/view-tier-list-table.php:145
+#: view/view-tier-list-table.php:152
 msgid "Create page"
 msgstr "Créer la page"
 
-#: controller/controller-backend.php:367 view/view-patron-list-table.php:326
+#: controller/controller-backend.php:367 view/view-patron-list-table.php:333
 msgid ""
 "The patron area page is not published yet. You need to publish it to allow "
 "your patrons to manage their patronage."
@@ -503,7 +505,7 @@ msgstr ""
 "ici : %s."
 
 #: controller/controller-backend.php:505
-#: controller/controller-woocommerce-backend.php:189
+#: controller/controller-woocommerce-backend.php:208
 #: view/view-tier-editor.php:107
 msgid "documentation"
 msgstr "documentation"
@@ -517,6 +519,7 @@ msgid "Please select a tier."
 msgstr "Veuillez sélectionner un niveau d’adhésion."
 
 #: controller/controller-frontend.php:91
+#: controller/controller-woocommerce-backend.php:301
 msgid "The selected tier was not found."
 msgstr "Le niveau sélectionné n’a pas été trouvé."
 
@@ -626,8 +629,9 @@ msgstr "Publier"
 #: controller/controller-tier-editor.php:101
 #: controller/controller-tier-editor.php:146
 #: controller/controller-tier-editor.php:180
-#: controller/controller-tier-editor.php:214
-#: functions/functions-global.php:1028 view/view-patron-editor.php:19
+#: controller/controller-tier-editor.php:212
+#: controller/controller-tier-editor.php:245
+#: functions/functions-global.php:1103 view/view-patron-editor.php:19
 #: view/view-tier-editor.php:19
 msgid "You are not allowed to do that."
 msgstr "Vous n’êtes pas autorisé(e) à faire cela."
@@ -875,7 +879,7 @@ msgstr ""
 "« Mon compte ». Vous pouvez également afficher le contenu par défaut ou "
 "désactiver complètement cet onglet."
 
-#: controller/controller-settings.php:357 view/view-patron-list-table.php:101
+#: controller/controller-settings.php:357 view/view-patron-list-table.php:110
 msgid "All"
 msgstr "Tous"
 
@@ -1003,23 +1007,23 @@ msgid "No tiers available."
 msgstr "Aucun niveau d’adhésion disponible."
 
 #. translators: This is a plugin name.
-#: controller/controller-subscriptions-fsb.php:251
+#: controller/controller-subscriptions-fsb.php:348
 #: functions/functions-global.php:219
 msgid "Flexible Subscriptions"
 msgstr "Flexible Subscriptions"
 
 #. translators: This is a plugin name.
-#: controller/controller-subscriptions-sfw.php:244
+#: controller/controller-subscriptions-sfw.php:313
 msgid "WP Swings Subscriptions"
 msgstr "WP Swings Subscriptions"
 
-#: controller/controller-subscriptions-sfw.php:427
-#: controller/controller-subscriptions-wcs.php:382
+#: controller/controller-subscriptions-sfw.php:496
+#: controller/controller-subscriptions-wcs.php:502
 msgid "Upgrade my subscription"
 msgstr "Mettre à niveau mon abonnement"
 
 #. translators: This is a plugin name.
-#: controller/controller-subscriptions-wcs.php:255
+#: controller/controller-subscriptions-wcs.php:375
 #: functions/functions-global.php:203
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
@@ -1063,66 +1067,97 @@ msgstr "Objectif périodique de mécénat"
 msgid "Goals can be a number of patrons or an amount of money."
 msgstr "Les objectifs peuvent être un nombre de mécènes ou une somme d’argent."
 
-#: controller/controller-tier-editor.php:244
+#: controller/controller-tier-editor.php:275
 msgid "The tier has been created."
 msgstr "Le niveau a été créé."
 
-#: controller/controller-tier-editor.php:247
+#: controller/controller-tier-editor.php:278
 msgid "An error occurred while trying to create the tier."
 msgstr "Une erreur s’est produite lors de la tentative de création du niveau."
 
-#: controller/controller-tier-editor.php:255
+#: controller/controller-tier-editor.php:286
 msgid "The tier has been updated."
 msgstr "Le niveau a été mis à jour."
 
-#: controller/controller-tier-editor.php:258
+#: controller/controller-tier-editor.php:289
 msgid "An error occurred while trying to update the tier."
 msgstr ""
 "Une erreur s’est produite lors de la tentative de modification du niveau."
 
-#: controller/controller-tier-editor.php:266
+#: controller/controller-tier-editor.php:297
 msgid "The tier has been removed."
 msgstr "Le niveau a été supprimé."
 
-#: controller/controller-tier-editor.php:269
+#: controller/controller-tier-editor.php:300
 msgid "An error occurred while trying to remove the tier."
 msgstr ""
 "Une erreur s’est produite lors de la tentative de suppression du niveau."
 
-#: controller/controller-tier-editor.php:277
+#: controller/controller-tier-editor.php:308
 msgid "The tier has been restored."
 msgstr "Le niveau a été restauré."
 
-#: controller/controller-tier-editor.php:280
+#: controller/controller-tier-editor.php:311
 msgid "An error occurred while trying to restore the tier."
 msgstr ""
 "Une erreur s’est produite lors de la tentative de restauration du niveau."
 
-#: controller/controller-woocommerce-backend.php:113
+#. translators: %1$s and %3$s = Tiers title. %2$s and %4$s = formatted price. $5$s = Link to the "Patronage sales page".
+#: controller/controller-tier-editor.php:330
+msgid ""
+"Two tiers have been created: \"%1$s\" (%2$s) and \"%3$s\" (%4$s). The "
+"\"%3$s\" tier unlocks restricted posts. Customers can subscribe from the "
+"%5$s."
+msgstr ""
+"Deux niveaux ont été créés : « %1$s » (%2$s) et « %3$s » (%4$s). Le niveau "
+"« %3$s » débloque les publications restreintes. Les clients peuvent "
+"s’abonner depuis la %5$s."
+
+#: controller/controller-tier-editor.php:337
+msgid ""
+"Now it is up to you to customize your tiers, restricted content and sales "
+"page!"
+msgstr ""
+"À présent, c’est à vous de personnaliser vos niveaux, votre contenu "
+"restreint et votre page de vente !"
+
+#: controller/controller-tier-editor.php:340
+msgid "An error occurred during the quick start process."
+msgstr "Une erreur s’est produite lors du processus de démarrage rapide."
+
 #: controller/controller-woocommerce-backend.php:120
+#: controller/controller-woocommerce-backend.php:128
 msgid "The price is determined automatically based on the associated products."
 msgstr ""
 "Le prix est déterminé automatiquement en fonction des produits associés."
 
-#: controller/controller-woocommerce-backend.php:120
+#: controller/controller-woocommerce-backend.php:128
 msgid "The tier price."
 msgstr "Le prix du niveau."
 
-#: controller/controller-woocommerce-backend.php:136
+#: controller/controller-woocommerce-backend.php:144
 #: blocks/patron-post-list/index.js:1
 msgid "Products"
 msgstr "Produits"
 
-#: controller/controller-woocommerce-backend.php:149
-#: controller/controller-woocommerce-backend.php:164
+#: controller/controller-woocommerce-backend.php:155
+msgid "Create product"
+msgstr "Créer un produit"
+
+#: controller/controller-woocommerce-backend.php:156
+msgid "Edit product"
+msgstr "Modifier le produit"
+
+#: controller/controller-woocommerce-backend.php:166
+#: controller/controller-woocommerce-backend.php:181
 msgid "Select a product"
 msgstr "Sélectionnez un produit"
 
-#: controller/controller-woocommerce-backend.php:150
+#: controller/controller-woocommerce-backend.php:167
 msgid "One-off"
 msgstr "Ponctuel"
 
-#: controller/controller-woocommerce-backend.php:157
+#: controller/controller-woocommerce-backend.php:174
 msgid ""
 "Select a non-recurring payment product. Purchasing this product will grant "
 "access to this tier for one month."
@@ -1130,11 +1165,11 @@ msgstr ""
 "Sélectionnez un produit à paiement non récurrent. Acheter ce produit donnera "
 "accès à ce niveau pour un mois."
 
-#: controller/controller-woocommerce-backend.php:165
+#: controller/controller-woocommerce-backend.php:182
 msgid "Monthly"
 msgstr "Mensuel"
 
-#: controller/controller-woocommerce-backend.php:172
+#: controller/controller-woocommerce-backend.php:189
 msgid ""
 "Select a monthly recurring payment product. Purchasing this product will "
 "grant access to this tier for one month."
@@ -1143,7 +1178,7 @@ msgstr ""
 "donnera accès à ce niveau pour un mois."
 
 #. translators: %s = link to the "documentation"
-#: controller/controller-woocommerce-backend.php:188
+#: controller/controller-woocommerce-backend.php:207
 msgid ""
 "In order to subscribe to a tier on a recurring basis and make automatic "
 "renewal payments, you need to install a supported recurring payment plugin "
@@ -1153,25 +1188,50 @@ msgstr ""
 "de renouvellement automatiques, vous devez installer un plugin de paiement "
 "récurrent pris en charge (voir cette %s) :"
 
-#: controller/controller-woocommerce-backend.php:264
+#: controller/controller-woocommerce-backend.php:301
+msgid "Please publish the tier first and try again."
+msgstr "Veuillez d’abord publier le niveau et réessayer."
+
+#: controller/controller-woocommerce-backend.php:315
+msgid "Subscription product frequency not valid."
+msgstr "La fréquence du produit d’abonnement n’est pas valide."
+
+#: controller/controller-woocommerce-backend.php:325
+msgid "Please set a price and update the tier first."
+msgstr "Veuillez d’abord définir un prix et mettre à jour le niveau."
+
+#: controller/controller-woocommerce-backend.php:337
+msgid "An error occurred while trying to create the product."
+msgstr "Une erreur s’est produite lors de la création du produit."
+
+#: controller/controller-woocommerce-backend.php:377
+msgid "An error occurred while trying to retrieve the product."
+msgstr ""
+"Une erreur s’est produite lors de la tentative de récupération du produit."
+
+#: controller/controller-woocommerce-backend.php:412
+msgid "Restricted products"
+msgstr "Produits restreints"
+
+#: controller/controller-woocommerce-backend.php:518
 msgid "Sync history"
 msgstr "Synchroniser l’historique"
 
-#: controller/controller-woocommerce-backend.php:267
+#: controller/controller-woocommerce-backend.php:521
 msgid "Update patronage history based on WooCommerce orders."
 msgstr ""
 "Mettre à jour l‘historique de mécénat en fonction des commandes WooCommerce."
 
-#: controller/controller-woocommerce-backend.php:288
+#: controller/controller-woocommerce-backend.php:542
 msgid "Notifications"
 msgstr "Notifications"
 
-#: controller/controller-woocommerce-backend.php:311
+#: controller/controller-woocommerce-backend.php:565
 msgid "Automatic email reminders"
 msgstr "E-mail de rappel automatique"
 
 #. translators: %s = link to "Patrons Tips - Pro" sales page
-#: controller/controller-woocommerce-backend.php:318
+#: controller/controller-woocommerce-backend.php:572
 msgid ""
 "%s automatically sends an email reminder to your patrons few days before "
 "their patronage expires. You will no longer lose a patron because they "
@@ -1182,19 +1242,19 @@ msgstr ""
 "auraient oublié de renouveler leur abonnement."
 
 #. translators: %s = link to "WooCommerce currency options"
-#: controller/controller-woocommerce-backend.php:343
+#: controller/controller-woocommerce-backend.php:597
 msgid "Please configure the price format in %s"
 msgstr "Veuillez configurer les options de prix dans %s"
 
-#: controller/controller-woocommerce-backend.php:345
+#: controller/controller-woocommerce-backend.php:599
 msgid "WooCommerce currency options"
 msgstr "Options de devise de WooCommerce"
 
-#: controller/controller-woocommerce-backend.php:365
+#: controller/controller-woocommerce-backend.php:619
 msgid "Endpoint for the \"My account &rarr; Patron area\" page."
 msgstr "Point de terminaison pour la page « Mon compte &rarr; Espace mécène »."
 
-#: controller/controller-woocommerce-backend.php:538
+#: controller/controller-woocommerce-backend.php:792
 msgid ""
 "You must associate a product with your tiers, otherwise, customers will not "
 "be able to select them and become a patron."
@@ -1203,14 +1263,14 @@ msgstr ""
 "pas les sélectionner et devenir mécènes."
 
 #. translators: %s = comma separated list of tier titles
-#: controller/controller-woocommerce-backend.php:542
+#: controller/controller-woocommerce-backend.php:796
 msgid "The following tier is not associated with any product: %s."
 msgid_plural "The following tiers are not associated with any product: %s."
 msgstr[0] "Le niveau suivant n’est associé à aucun produit : %s."
 msgstr[1] "Les niveaux suivants ne sont associés à aucun produit : %s."
 
 #. translators: %s = Tier title (with a link to the tier edit page).
-#: controller/controller-woocommerce-backend.php:583
+#: controller/controller-woocommerce-backend.php:837
 msgid ""
 "A product may not be correctly configured according to \"%s\" tier settings."
 msgstr ""
@@ -1218,7 +1278,7 @@ msgstr ""
 "du niveau « %s »."
 
 #. translators: %s = path to WC account creation settings "WooCommerce > Settings > Accounts & Privacy" (with a link).
-#: controller/controller-woocommerce-backend.php:676
+#: controller/controller-woocommerce-backend.php:930
 msgid ""
 "Patrons may not be able to access their patron area. Indeed, customers can "
 "purchase a patronage without account, but they cannot create an account "
@@ -1233,7 +1293,7 @@ msgstr ""
 "qu’invité ou autoriser les clients à créer un compte après validation de la "
 "commande dans %s."
 
-#: controller/controller-woocommerce-backend.php:678
+#: controller/controller-woocommerce-backend.php:932
 msgid "WooCommerce > Settings > Accounts & Privacy"
 msgstr "WooCommerce > Réglages > Comptes et confidentialité"
 
@@ -1299,7 +1359,7 @@ msgid "Become a patron to never miss exclusive content anymore!"
 msgstr "Devient mécène pour ne plus jamais manquer de contenu exclusif !"
 
 #: controller/controller-woocommerce-frontend.php:210
-#: functions/functions-woocommerce.php:819 blocks/tier-form/index.js:3
+#: functions/functions-woocommerce.php:1102 blocks/tier-form/index.js:3
 msgid "Add to cart"
 msgstr "Ajouter au panier"
 
@@ -1319,7 +1379,7 @@ msgstr "Gérer votre abonnement"
 msgid "You are a \"%1$s\" (%2$s) patron until %3$s."
 msgstr "Vous êtes mécène « %1$s » (%2$s) jusqu’au %3$s."
 
-#: controller/controller-woocommerce-frontend.php:641
+#: controller/controller-woocommerce-frontend.php:645
 msgid ""
 "This product could not be added to the cart because there is already a "
 "patronage product in your cart."
@@ -1327,37 +1387,37 @@ msgstr ""
 "Ce produit n’a pas pu être ajouté au panier car il y a déjà un produit de "
 "mécénat dans votre panier."
 
-#: controller/controller-woocommerce-frontend.php:664
+#: controller/controller-woocommerce-frontend.php:668
 msgid ""
 "Sorry, this product is restricted to patrons, you cannot add it to your cart."
 msgstr ""
 "Désolé, ce produit est réservé aux mécènes, vous ne pouvez pas l’ajouter à "
 "votre panier."
 
-#: controller/controller-woocommerce-frontend.php:670
+#: controller/controller-woocommerce-frontend.php:674
 #: functions/functions-patrons.php:1359 functions/functions-posts.php:374
-#: functions/functions-tiers.php:365 blocks/patron-status/index.js:5
+#: functions/functions-tiers.php:366 blocks/patron-status/index.js:5
 #: blocks/tier-form/index.js:5
 msgid "Become patron"
 msgstr "Devenir mécène"
 
-#: controller/controller-woocommerce-frontend.php:723
-#: controller/controller-woocommerce-frontend.php:823
-#: controller/controller-woocommerce-frontend.php:858
+#: controller/controller-woocommerce-frontend.php:727
+#: controller/controller-woocommerce-frontend.php:827
+#: controller/controller-woocommerce-frontend.php:862
 msgid "patron area"
 msgstr "espace mécène"
 
 #. translators: %1$s = Tier title. %2$s = period name (e.g. February 2024)
-#: controller/controller-woocommerce-frontend.php:727
+#: controller/controller-woocommerce-frontend.php:731
 msgid "Oh! You are already a \"%1$s\" patron of %2$s."
 msgstr "Oh ! Vous êtes déjà mécène « %1$s » de %2$s."
 
 #. translators: %s = Link to "patron area"
-#: controller/controller-woocommerce-frontend.php:729
+#: controller/controller-woocommerce-frontend.php:733
 msgid "See your current tier and rewards in your %s."
 msgstr "Retrouvez votre niveau actuel et vos récompenses dans votre %s."
 
-#: controller/controller-woocommerce-frontend.php:730
+#: controller/controller-woocommerce-frontend.php:734
 msgid ""
 "Be careful, if you place this order, you will have participated twice for "
 "the same period."
@@ -1366,14 +1426,14 @@ msgstr ""
 "pour la même période."
 
 #. translators: %s = link to "patron area"
-#: controller/controller-woocommerce-frontend.php:831
-#: controller/controller-woocommerce-frontend.php:868
+#: controller/controller-woocommerce-frontend.php:835
+#: controller/controller-woocommerce-frontend.php:872
 msgid "You are now patron! See your rewards in your %s."
 msgstr "Vous êtes maintenant mécène ! Retrouvez vos récompenses dans votre %s."
 
 #. translators: %s = link to "patron area"
-#: controller/controller-woocommerce-frontend.php:834
-#: controller/controller-woocommerce-frontend.php:871
+#: controller/controller-woocommerce-frontend.php:838
+#: controller/controller-woocommerce-frontend.php:875
 msgid ""
 "You are almost a patron! This order has not been paid yet. Once the order "
 "will be completed by an administrator, you will see your rewards in your %s."
@@ -1382,12 +1442,12 @@ msgstr ""
 "la commande finalisée par un administrateur, vous verrez vos récompenses "
 "dans votre %s."
 
-#: controller/controller-woocommerce-frontend.php:877
-#: controller/controller-woocommerce-frontend.php:887
+#: controller/controller-woocommerce-frontend.php:881
+#: controller/controller-woocommerce-frontend.php:891
 msgid "Patronage info"
 msgstr "Info mécénat"
 
-#: controller/controller-woocommerce-frontend.php:1068
+#: controller/controller-woocommerce-frontend.php:1072
 msgid "Unlocked products"
 msgstr "Produits dévérouillés"
 
@@ -1547,11 +1607,11 @@ msgstr "Deuxième moitié %s"
 msgid "%1$s to %2$s"
 msgstr "%1$s à %2$s"
 
-#: functions/functions-global.php:1012
+#: functions/functions-global.php:1087
 msgid "Invalid nonce."
 msgstr "Nonce non valide."
 
-#: functions/functions-global.php:1012
+#: functions/functions-global.php:1087
 msgid "Please reload the page and try again."
 msgstr "Veuillez recharger la page et essayer à nouveau."
 
@@ -1583,7 +1643,8 @@ msgid "Period"
 msgstr "Période"
 
 #: functions/functions-patron-editor.php:148
-#: functions/functions-patrons.php:1170 view/view-patron-editor.php:219
+#: functions/functions-patrons.php:1170 functions/functions-woocommerce.php:486
+#: functions/functions-woocommerce.php:495 view/view-patron-editor.php:219
 #: view/view-patron-editor.php:266
 msgid "Tier"
 msgstr "Niveau"
@@ -1630,7 +1691,7 @@ msgstr "Prénom"
 msgid "Last name"
 msgstr "Nom"
 
-#: functions/functions-patron-export.php:30 functions/functions-tiers.php:599
+#: functions/functions-patron-export.php:30 functions/functions-tiers.php:600
 #: view/view-patron-editor.php:106
 msgid "Email"
 msgstr "E-mail"
@@ -1734,8 +1795,8 @@ msgstr "Mécène n°%s"
 msgid "Anonymous patron"
 msgstr "Mécène anonyme"
 
-#: functions/functions-patrons.php:1172 view/view-patron-list-table.php:283
-#: view/view-tier-list-table.php:98
+#: functions/functions-patrons.php:1172 view/view-patron-list-table.php:292
+#: view/view-tier-list-table.php:99
 msgid "Actions"
 msgstr "Actions"
 
@@ -1789,13 +1850,13 @@ msgid "The patrons made without account may have not been anonymized."
 msgstr "Les mécènes sans compte n’ont peut-être pas été anonymisés."
 
 #. translators: %s = Product ID.
-#: functions/functions-subscriptions.php:169
-#: functions/functions-woocommerce.php:144
+#: functions/functions-subscriptions.php:190
+#: functions/functions-woocommerce.php:148
 msgid "Product #%s"
 msgstr "Produit n°%s"
 
 #. translators: %1$s = Product title and link to the product page. %2$s = Frequency name like "every 2 months", "yearly"...
-#: functions/functions-subscriptions.php:185
+#: functions/functions-subscriptions.php:206
 msgid ""
 "The product \"%1$s\" should not be recurring, however it is configured to "
 "renew %2$s."
@@ -1804,7 +1865,7 @@ msgstr ""
 "configuré pour se renouveler %2$s."
 
 #. translators: %1$s = Product title and link to the product page. %2$s = Frequency name like "every 2 months", "yearly"...
-#: functions/functions-subscriptions.php:188
+#: functions/functions-subscriptions.php:209
 msgid ""
 "The product \"%1$s\" should renew \"%2$s\", however it is configured as not "
 "recurring."
@@ -1813,7 +1874,7 @@ msgstr ""
 "est configuré comme non récurrent."
 
 #. translators: %1$s = Product title and link to the product page. %2$s and %3$s = Frequency name like "every 2 months", "yearly"...
-#: functions/functions-subscriptions.php:191
+#: functions/functions-subscriptions.php:212
 msgid ""
 "The product \"%1$s\" should renew \"%2$s\", however it is configured to "
 "renew \"%3$s\"."
@@ -1822,7 +1883,7 @@ msgstr ""
 "renouvellement est configuré sur « %3$s »."
 
 #. translators: %s = Product title and link to the product page.
-#: functions/functions-subscriptions.php:198
+#: functions/functions-subscriptions.php:219
 msgid ""
 "The product \"%s\" is not configured as \"Virtual\", the order will not be "
 "automatically completed."
@@ -1839,32 +1900,87 @@ msgid "Tiers per page:"
 msgstr "Niveaux par page :"
 
 #. translators: %s = "Log in" link
-#: functions/functions-tiers.php:606
+#: functions/functions-tiers.php:607
 msgid "Already have an account? %s."
 msgstr "Vous avez déjà un compte ? %s."
 
-#: functions/functions-tiers.php:617
+#: functions/functions-tiers.php:618
 msgid "Subscribe"
 msgstr "S’abonner"
 
-#: functions/functions-tiers.php:638
-msgid "Welcome to Patrons Tips! Let's start by creating your first tier."
-msgstr ""
-"Bienvenue sur Patrons Tips ! Commençons par créer votre premier niveau "
-"d’adhésion."
+#: functions/functions-tiers.php:643
+msgid "Welcome to Patrons Tips! Let's configure everything automatically."
+msgstr "Bienvenue sur Patrons Tips ! Configurons tout automatiquement."
 
-#: functions/functions-tiers.php:638
+#: functions/functions-tiers.php:643
 msgid "There are no tiers available, and you are not allowed to create one."
 msgstr ""
 "Il n’y a aucun niveaux d’adhésion disponibles, et vous n’êtes pas "
 "autorisé(e) à en créer un."
 
-#: functions/functions-tiers.php:643
-msgid "Create your first tier"
-msgstr "Créer votre premier niveau"
+#: functions/functions-tiers.php:648
+msgid "Quick start"
+msgstr "Démarrage rapide"
+
+#: functions/functions-tiers.php:652
+msgctxt "separator between different options"
+msgid "or"
+msgstr "ou"
+
+#: functions/functions-tiers.php:653
+msgid "Manually create your first tier"
+msgstr "Créer votre premier niveau manuellement"
+
+#: functions/functions-tiers.php:654
+msgid "(for experienced users)"
+msgstr "(pour les utilisateurs et utilisatrices expérimentés)"
+
+#: functions/functions-tiers.php:715
+msgid "Basic"
+msgstr "Basique"
+
+#: functions/functions-tiers.php:717
+msgid "Your name in credits"
+msgstr "Votre nom dans les crédits"
+
+#: functions/functions-tiers.php:722
+msgid "Premium"
+msgstr "Premium"
+
+#: functions/functions-tiers.php:724
+msgid "Previous rewards"
+msgstr "Récompenses précédentes"
+
+#: functions/functions-tiers.php:725
+msgid "Access restricted content"
+msgstr "Accès au contenu restreint"
+
+#: functions/functions-tiers.php:775
+msgid "Restricted posts"
+msgstr "Articles restreints"
+
+#: functions/functions-tiers.php:789
+msgid "Restricted media"
+msgstr "Médias restreints"
+
+#: functions/functions-tiers.php:802
+msgid "Image restricted to patrons of sufficient tier"
+msgstr "Image réservée aux abonnés d’un niveau suffisant"
+
+#: functions/functions-tiers.php:820
+msgid "Post restricted to patrons of sufficient tier"
+msgstr "Article réservé aux abonnés d’un niveau suffisant"
+
+#: functions/functions-tiers.php:821
+msgid ""
+"The content of this post can only be seen by current patrons of sufficient "
+"tier."
+msgstr ""
+"Le contenu de cet article est réservé aux abonnés actuels d’un niveau "
+"suffisant."
 
 #. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00").
-#: functions/functions-woocommerce.php:823
+#: functions/functions-woocommerce.php:1106
 msgid ""
 "The selected tier \"{title}\" ({price}) will be debited as soon as the order "
 "is completed. The corresponding rewards will be unlocked for one month."
@@ -1873,7 +1989,7 @@ msgstr ""
 "terminée. Les récompenses correspondantes seront débloquées durant un mois."
 
 #. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00"). {frequency} = Frequency name like "every 2 months", "yearly"...
-#: functions/functions-woocommerce.php:824
+#: functions/functions-woocommerce.php:1107
 msgid ""
 "The selected tier \"{title}\" ({price}) will be debited recurringly "
 "({frequency}). You can cancel your subscription at any time."
@@ -2662,37 +2778,37 @@ msgstr "Ajouter un mécène manuellement grâce à %s."
 msgid "Add New Patron"
 msgstr "Ajouter Nouveau Mécène"
 
-#: view/view-patron-list-table.php:142
+#: view/view-patron-list-table.php:151
 msgid "Currently"
 msgstr "Actuellement"
 
-#: view/view-patron-list-table.php:152
+#: view/view-patron-list-table.php:161
 msgid "Currently patron"
 msgstr "Actuellement mécène"
 
-#: view/view-patron-list-table.php:162
+#: view/view-patron-list-table.php:171
 msgid "Periods"
 msgstr "Périodes"
 
-#: view/view-patron-list-table.php:226
+#: view/view-patron-list-table.php:235
 msgctxt "date"
 msgid "From"
 msgstr "Du"
 
-#: view/view-patron-list-table.php:252
+#: view/view-patron-list-table.php:261
 msgctxt "date"
 msgid "To"
 msgstr "Au"
 
-#: view/view-patron-list-table.php:286 view/view-tier-list-table.php:101
+#: view/view-patron-list-table.php:295 view/view-tier-list-table.php:102
 msgid "Filter the list"
 msgstr "Filtrer la liste"
 
-#: view/view-patron-list-table.php:287
+#: view/view-patron-list-table.php:296
 msgid "Export patrons"
 msgstr "Exporter les mécènes"
 
-#: view/view-patron-list-table.php:319
+#: view/view-patron-list-table.php:326
 msgid "Patrons can manage their patronage from the patron area page."
 msgstr "Les mécènes peuvent gérer leur mécénat depuis la page espace mécène."
 
@@ -2828,12 +2944,12 @@ msgstr ""
 "Vous ne donnerez plus l’intégralité du contenu que vous avez créé au premier "
 "venu."
 
-#: view/view-tier-list-table.php:23
+#: view/view-tier-list-table.php:24
 msgid "Add New Tier"
 msgstr "Ajouter un niveau"
 
 #. translators: %1$s = "Patronage form". %2$s = "[patronstips_tier_form]"
-#: view/view-tier-list-table.php:137
+#: view/view-tier-list-table.php:138
 msgid ""
 "Customers can subscribe to a tier and become a patron thanks to the \"%1$s\" "
 "block or the %2$s shortcode on the patronage sales page."

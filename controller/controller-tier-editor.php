@@ -86,7 +86,7 @@ add_action( 'load-patrons-tips_page_patips_tiers', 'patips_controller_create_tie
 /**
  * Update a tier
  * @since 0.5.0
- * @version 1.0.2
+ * @version 1.1.0
  */
 function patips_controller_update_tier_data() {
 	if( empty( $_POST[ 'action' ] ) || empty( $_POST[ 'tier_id' ] ) ) { return; }
@@ -95,7 +95,7 @@ function patips_controller_update_tier_data() {
 	// Exit if wrong nonce
 	check_admin_referer( 'patips_update_tier', 'nonce' );
 	
-	// Exit if not allowed to create a tier
+	// Exit if not allowed to edit a tier
 	$is_allowed = current_user_can( 'patips_edit_tiers' );
 	if( ! $is_allowed ) { 
 		esc_html_e( 'You are not allowed to do that.', 'patrons-tips' ); 
@@ -196,6 +196,37 @@ add_action( 'load-patrons-tips_page_patips_tiers', 'patips_controller_activate_t
 
 
 /**
+ * Controller - Create demo tiers and restricted content
+ * @since 1.1.0
+ */
+function patips_controller_quick_start() {
+	if( empty( $_GET[ 'action' ] ) ) { return; }
+	if( $_GET[ 'action' ] !== 'quick_start' ) { return; }
+	
+	// Exit if wrong nonce
+	check_admin_referer( 'patips_quick_start', 'nonce' );
+	
+	// Exit if not allowed to create a tier
+	$is_allowed = current_user_can( 'patips_create_tiers' );
+	if( ! $is_allowed ) { 
+		esc_html_e( 'You are not allowed to do that.', 'patrons-tips' );
+		exit;
+	}
+	
+	// Create the sales page and the patron area page, if they are not already
+	if( current_user_can( 'publish_pages' ) ) {
+		patips_create_sales_page();
+		patips_create_patron_area_page();
+	}
+	
+	$tiers = patips_create_quick_start_tiers();
+	
+	$GLOBALS[ 'patips_quick_start_tiers_created' ] = count( $tiers );
+}
+add_action( 'load-patrons-tips_page_patips_tiers', 'patips_controller_quick_start', 5 );
+
+
+/**
  * Delete a tier
  * @since 0.5.0
  * @version 1.0.2
@@ -232,7 +263,7 @@ add_action( 'load-patrons-tips_page_patips_tiers', 'patips_controller_delete_tie
 /**
  * Display an admin notice to feedback the result of an action taken on a tier
  * @since 0.5.0
- * @version 1.0.2
+ * @version 1.1.0
  */
 function patips_controller_tier_admin_notices() {
 	$message = '';
@@ -281,10 +312,39 @@ function patips_controller_tier_admin_notices() {
 		}
 	}
 	
+	// Quick start
+	if( isset( $GLOBALS[ 'patips_quick_start_tiers_created' ] ) ) {
+		if( $GLOBALS[ 'patips_quick_start_tiers_created' ] ) {
+			// Get demo tiers data
+			$demo_tiers_data  = patips_get_quick_start_tiers_default_data();
+			
+			// Get patron sales page link
+			$sales_page_id    = patips_get_option( 'patips_settings_general', 'sales_page_id' );
+			$sales_page_url   = $sales_page_id ? get_permalink( $sales_page_id ) : '';
+			$sales_page_label = esc_html__( 'Patronage sales page', 'patrons-tips' );
+			$sales_page_link  = $sales_page_url ? '<a href="' . esc_url( $sales_page_url ) . '">' . $sales_page_label . '</a>' : $sales_page_label;
+			
+			$message_type = 'success';
+			$message = sprintf( 
+				/* translators: %1$s and %3$s = Tiers title. %2$s and %4$s = formatted price. $5$s = Link to the "Patronage sales page". */
+				esc_html__( 'Two tiers have been created: "%1$s" (%2$s) and "%3$s" (%4$s). The "%3$s" tier unlocks restricted posts. Customers can subscribe from the %5$s.', 'patrons-tips' ),
+				$demo_tiers_data[ 'basic' ][ 'title' ],
+				patips_format_price( $demo_tiers_data[ 'basic' ][ 'price' ], array( 'plain_text' => true ) ),
+				$demo_tiers_data[ 'premium' ][ 'title' ],
+				patips_format_price( $demo_tiers_data[ 'premium' ][ 'price' ], array( 'plain_text' => true ) ),
+				$sales_page_link
+			);
+			$message .= '<br/>' . esc_html__( 'Now it is up to you to customize your tiers, restricted content and sales page!', 'patrons-tips' );
+		} else {
+			$message_type = 'error';
+			$message = esc_html__( 'An error occurred during the quick start process.', 'patrons-tips' );
+		}
+	}
+	
 	if( $message ) {
 	?>
 		<div class='notice notice-<?php echo esc_attr( $message_type ); ?> is-dismissible patips-tier-notice'>
-			<p><?php echo esc_html( $message ); ?></p>
+			<p><?php echo wp_kses_post( $message ); ?></p>
 		</div>
 	<?php
 	}

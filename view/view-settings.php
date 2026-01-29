@@ -2,7 +2,7 @@
 /**
  * Settings page
  * @since 0.5.0
- * @version 0.26.3
+ * @version 1.1.0
  */
 
 // Exit if accessed directly
@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 	
 	<?php
 	// Check if there are tiers
-	$tiers = patips_get_tiers_data();
+	$tiers = patips_get_tiers_data( array( 'active' => false ) );
 	if( ! $tiers ) {
-		patips_display_first_tier_notice();
+		patips_display_quick_start_notice();
 		?><hr/><?php
 	}
 	
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 		?>
 	</h2>
 	
-	<form method='post' action='options.php' id='patips-settings' class='patips-settings-tab-<?php echo esc_attr( $active_tab ); ?>' >
+	<form method='post' action='options.php' id='patips-settings' class='patips-settings-tab-<?php echo esc_attr( $active_tab ); ?>'>
 	<?php
 		// Display the tabs content
 		settings_fields( 'patips_settings_' . $active_tab );

@@ -2,7 +2,7 @@
 /**
  * Patron editor page
  * @since 0.6.0
- * @version 0.26.3
+ * @version 1.1.0
  */
 
 // Exit if accessed directly
@@ -34,7 +34,7 @@ if( $lang_switched ) { patips_restore_locale(); }
 
 ?>
 <div class='wrap'>
-	<h1><?php echo ! $patron_id ? esc_html__( 'Create Patron', 'patrons-tips' ) : /* translators: %s is the patron ID */ sprintf( esc_html__( 'Edit Patron #%s', 'patrons-tips' ), (int) $patron_id ); ?></h1>
+	<h1 class='wp-heading-inline'><?php echo ! $patron_id ? esc_html__( 'Create Patron', 'patrons-tips' ) : /* translators: %s is the patron ID */ sprintf( esc_html__( 'Edit Patron #%s', 'patrons-tips' ), (int) $patron_id ); ?></h1>
 	<hr class='wp-header-end'/>
 	<div id='patips-patron-editor-page-container'>
 		<?php
@@ -358,18 +358,18 @@ function patips_display_patron_loyalty_meta_box( $patron ) {
 /**
  * Display 'publish' metabox content for patron
  * @since 0.6.0
- * @version 0.25.5
+ * @version 1.1.0
  * @param array $patron
  */
 function patips_display_patron_publish_meta_box( $patron ) {
 	$is_new = isset( $_GET[ 'action' ] ) && $_GET[ 'action' ] === 'new';
 ?>
 	<div class='submitbox' id='submitpost'>
-		<div id='major-publishing-actions' >
+		<div id='major-publishing-actions'>
 			<div id='delete-action'>
 			<?php
 				if( ! $is_new && current_user_can( 'patips_delete_patrons' ) ) {
-					echo '<a href="' . esc_url( wp_nonce_url( admin_url( 'admin.php?page=patips_patrons&action=trash&patron_id=' . $patron[ 'id' ] ), 'trash-patron_' . $patron[ 'id' ] ) ) . '" class="submitdelete deletion" >'
+					echo '<a href="' . esc_url( wp_nonce_url( admin_url( 'admin.php?page=patips_patrons&action=trash&patron_id=' . $patron[ 'id' ] ), 'trash-patron_' . $patron[ 'id' ] ) ) . '" class="submitdelete deletion">'
 							. esc_html_x( 'Trash', 'verb', 'patrons-tips' )
 						. '</a>';
 				}

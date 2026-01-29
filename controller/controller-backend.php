@@ -294,12 +294,12 @@ add_action( 'wp_ajax_patipsDismissAdminNotice', 'patips_controller_dismiss_admin
 /** 
  * Display a warning notice if the patronage sales page is not published
  * @since 0.25.2
- * @version 0.26.3
+ * @version 1.1.0
  */
 function patips_display_notice_publish_patronage_sales_page() {
 	if( ! patips_is_own_screen() ) { return; }
 	
-	if( ! current_user_can( 'patips_manage_patrons_tips' ) ) { return; }
+	if( ! current_user_can( 'patips_manage_patrons_tips' ) || ! empty( $_GET[ 'action' ] ) ) { return; }
 	
 	$dismissed = get_option( 'patips_notice_dismissed_publish_patronage_sales_page' );
 	if( $dismissed ) { return; }
@@ -337,12 +337,12 @@ add_action( 'admin_notices', 'patips_display_notice_publish_patronage_sales_page
 /** 
  * Display a warning notice if the patron area page is not published
  * @since 0.25.2
- * @version 0.26.3
+ * @version 1.1.0
  */
 function patips_display_notice_publish_patron_area_page() {
 	if( ! patips_is_own_screen() ) { return; }
 	
-	if( ! current_user_can( 'patips_manage_patrons_tips' ) ) { return; }
+	if( ! current_user_can( 'patips_manage_patrons_tips' ) || ! empty( $_GET[ 'action' ] ) ) { return; }
 	
 	$dismissed = get_option( 'patips_notice_dismissed_publish_patron_area_page' );
 	if( $dismissed ) { return; }

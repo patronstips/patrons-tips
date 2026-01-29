@@ -84,6 +84,126 @@ add_filter( 'patips_wcs_subscription_edit_url', 'patips_wcs_controller_get_subsc
 
 
 /**
+ * Create new subscription product for a tier
+ * @since 1.1.0
+ * @param int $product_id
+ * @param int $tier_id
+ * @param string $frequency
+ * @param boolean $assign
+ * @param string $product_type
+ * @return int
+ */
+function patips_wcs_controller_create_tier_subscription_product( $product_id, $tier_id, $frequency, $assign, $product_type ) {
+	if( ! patips_is_plugin_active( 'woocommerce-subscriptions/woocommerce-subscriptions.php' ) || $product_id || $frequency === 'one_off' ) { return $product_id; }
+	
+	$variation_id = patips_wc_create_tier_product( $tier_id, $frequency, $assign, $product_type );
+	$variation    = $variation_id ? wc_get_product( $variation_id ) : null;
+	
+	// Set interval and period and reset other recurring settings
+	if( is_a( $variation, 'WC_Product_Subscription' ) || is_a( $variation, 'WC_Product_Subscription_Variation' ) ) {
+		$_i        = strpos( $frequency, '_' );
+		$interval  = is_int( $_i ) ? substr( $frequency, 0, $_i ) : 1;
+		$period    = is_int( $_i ) ? substr( $frequency, $_i + 1 ) : 'month';
+		$interval  = is_numeric( $interval ) && intval( $interval ) ? intval( $interval ) : 1;
+		$period    = $period === 'year' ? 'year' : 'month';
+		$parent_id = is_a( $variation, 'WC_Product_Subscription_Variation' ) && is_callable( array( $variation, 'get_parent_id' ) ) ? $variation->get_parent_id() : $variation->get_id();
+		$parent    = $parent_id && $parent_id !== $variation_id ? wc_get_product( $parent_id ) : null;
+		
+		// Subscription fields for simple product and variation
+		$common_fields = array(
+			'_subscription_price'           => $variation->get_regular_price(),
+			'_subscription_sign_up_fee'     => wc_format_decimal( 0 ),
+			'_subscription_period_interval' => $interval,
+			'_subscription_period'          => $period,
+			'_subscription_length'          => 0,
+			'_subscription_trial_length'    => 0,
+			'_subscription_trial_period'    => $period
+		);
+		
+		// Subscription fields for simple product and variable product
+		$parent_fields = array(
+			'_subscription_limit'             => 'no',
+			'_subscription_one_time_shipping' => 'no'
+		);
+		
+		foreach( $common_fields as $field_name => $field_value ) {
+			$variation->add_meta_data( $field_name, $field_value, true );
+		}
+		
+		foreach( $parent_fields as $field_name => $field_value ) {
+			if( $parent ) {
+				$parent->add_meta_data( $field_name, $field_value, true );
+			} else {
+				// $variation can be a simple product so we need to add these meta to it as well
+				$variation->add_meta_data( $field_name, $field_value, true );
+			}
+		}
+		
+		$variation->save();
+		
+		if( $parent ) {
+			// Sync parent product data
+			if( is_callable( array( $parent, 'sync' ) ) ) {
+				$parent->sync( $parent, true );
+			} else if( is_callable( array( $parent, 'save' ) ) ) {
+				$parent->save();
+			}
+		}
+		
+		$product_id = $variation_id;
+	}
+	
+	return $product_id;
+}
+add_filter( 'patips_wcs_new_tier_subscription_product', 'patips_wcs_controller_create_tier_subscription_product', 10, 5 );
+
+
+/**
+ * Change patronage simple product class name
+ * @since 1.1.0
+ * @param string $class_name
+ * @param int $tier_id
+ * @param string $frequency
+ * @return string
+ */
+function patips_wcs_patronage_simple_product_class( $class_name, $tier_id, $frequency ) {
+	if( ! patips_is_plugin_active( 'woocommerce-subscriptions/woocommerce-subscriptions.php' ) || $frequency === 'one_off' ) { return $class_name; }
+	return 'WC_Product_Subscription';
+}
+add_filter( 'patips_patronage_simple_product_class', 'patips_wcs_patronage_simple_product_class', 10, 3 );
+
+
+/**
+ * Change patronage variable product class name
+ * @since 1.1.0
+ * @param string $class_name
+ * @param int $tier_id
+ * @param string $frequency
+ * @return string
+ */
+function patips_wcs_patronage_variable_product_class( $class_name, $tier_id, $frequency ) {
+	if( ! patips_is_plugin_active( 'woocommerce-subscriptions/woocommerce-subscriptions.php' ) || $frequency === 'one_off' ) { return $class_name; }
+	return 'WC_Product_Variable_Subscription';
+}
+add_filter( 'patips_patronage_variable_product_class', 'patips_wcs_patronage_variable_product_class', 10, 3 );
+
+
+/**
+ * Change patronage variation product class name
+ * @since 1.1.0
+ * @param string $class_name
+ * @param int $tier_id
+ * @param string $frequency
+ * @return string
+ */
+function patips_wcs_patronage_variation_product_class( $class_name, $tier_id, $frequency ) {
+	if( ! patips_is_plugin_active( 'woocommerce-subscriptions/woocommerce-subscriptions.php' ) || $frequency === 'one_off' ) { return $class_name; }
+	return 'WC_Product_Subscription_Variation';
+}
+add_filter( 'patips_patronage_variation_product_class', 'patips_wcs_patronage_variation_product_class', 10, 3 );
+
+
+/**
  * Get product WCS Subscription frequency
  * @since 0.13.0
  * @version 0.13.1

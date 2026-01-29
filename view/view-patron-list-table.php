@@ -2,7 +2,7 @@
 /**
  * Patron list page
  * @since 0.6.0
- * @version 1.0.4
+ * @version 1.1.0
  * @global WP_Locale $wp_locale
  */
 
@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 global $wp_locale;
-$tiers = patips_get_tiers_data();
+$tiers = patips_get_tiers_data( array( 'active' => false ) );
 ?>
 <div class='wrap'>
 	<h1 class='wp-heading-inline'>
@@ -41,11 +41,20 @@ $tiers = patips_get_tiers_data();
 	<hr class='wp-header-end'/>
 	
 	<?php
+	// Prepare patron list items
+	$patron_list_table = new PATIPS_Patrons_List_Table();
+	$patron_list_table->prepare_items();
+	
 	// Check if there are tiers
 	if( ! $tiers ) {
-		patips_display_first_tier_notice();
-		?></div><!-- end of wp wrap --><?php
-		exit;
+		patips_display_quick_start_notice();
+		
+		if( empty( $patron_list_table->items ) ) {
+			?></div><!-- end of wp wrap --><?php
+			return;
+		} else {
+			?><hr/><?php
+		}
 	}
 	?>
 	
@@ -74,15 +83,15 @@ $tiers = patips_get_tiers_data();
 						$i=0;
 						foreach( $order_by as $column_name ) {
 							if( $i === 0 ) {
-								echo '<input type="hidden" name="orderby" value="' . esc_attr( $column_name ) . '" />';
+								echo '<input type="hidden" name="orderby" value="' . esc_attr( $column_name ) . '"/>';
 							}
-							echo '<input type="hidden" name="order_by[' . (int) $i . ']" value="' . esc_attr( $column_name ) . '" />';
+							echo '<input type="hidden" name="order_by[' . (int) $i . ']" value="' . esc_attr( $column_name ) . '"/>';
 							++$i;
 						}
 					}
 					$order = ! empty( $_REQUEST[ 'order' ] ) ? sanitize_title_with_dashes( wp_unslash( $_REQUEST[ 'order' ] ) ) : '';
 					if( $order ) {
-						echo '<input type="hidden" name="order" value="' . esc_attr( $order ) . '" />';
+						echo '<input type="hidden" name="order" value="' . esc_attr( $order ) . '"/>';
 					}
 
 					do_action( 'patips_patron_filters_before' );
@@ -295,8 +304,6 @@ $tiers = patips_get_tiers_data();
 			
 			<div id='patips-patron-list-table'>
 			<?php
-				$patron_list_table = new PATIPS_Patrons_List_Table();
-				$patron_list_table->prepare_items();
 				$patron_list_table->views();
 				$patron_list_table->display();
 			?>

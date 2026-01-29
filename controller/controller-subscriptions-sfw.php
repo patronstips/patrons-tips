@@ -75,6 +75,75 @@ add_filter( 'patips_sfw_subscription_edit_url', 'patips_sfw_controller_get_subsc
 
 
 /**
+ * Create new subscription product for a tier (use simple product)
+ * @since 1.1.0
+ * @param int $product_id
+ * @param int $tier_id
+ * @param string $frequency
+ * @param boolean $assign
+ * @param string $product_type
+ * @return int
+ */
+function patips_sfw_controller_create_tier_subscription_product( $product_id, $tier_id, $frequency, $assign, $product_type ) {
+	if( ! patips_is_plugin_active( 'subscriptions-for-woocommerce/subscriptions-for-woocommerce.php' ) || $product_id || $frequency === 'one_off' ) { return $product_id; }
+	
+	// Only the Pro version supports variable subscription products
+	$product_type = ( ! $product_type || $product_type === 'variable' ) && patips_is_plugin_active( 'woocommerce-subscriptions-pro/woocommerce-subscriptions-pro.php' ) ? 'variable' : 'simple';
+	$variation_id = patips_wc_create_tier_product( $tier_id, $frequency, $assign, $product_type );
+	$variation    = $variation_id ? wc_get_product( $variation_id ) : null;
+	
+	// Set interval and period and reset other recurring settings
+	if( is_a( $variation, 'WC_Product_Simple' ) || is_a( $variation, 'WC_Product_Variation' ) ) {
+		$_i        = strpos( $frequency, '_' );
+		$interval  = is_int( $_i ) ? substr( $frequency, 0, $_i ) : 1;
+		$period    = is_int( $_i ) ? substr( $frequency, $_i + 1 ) : 'month';
+		$interval  = is_numeric( $interval ) && intval( $interval ) ? intval( $interval ) : 1;
+		$period    = $period === 'year' ? 'year' : 'month';
+		$parent_id = is_a( $variation, 'WC_Product_Variation' ) && is_callable( array( $variation, 'get_parent_id' ) ) ? $variation->get_parent_id() : $variation->get_id();
+		$parent    = $parent_id && $parent_id !== $variation_id ? wc_get_product( $parent_id ) : null;
+		$is_subscription_key = is_a( $variation, 'WC_Product_Variation' ) ? 'wps_sfw_variable_product' : '_wps_sfw_product';
+		
+		// Subscription fields for simple product and variation
+		$common_fields = array(
+			$is_subscription_key                        => 'yes',
+			'wps_sfw_subscription_initial_signup_price' => wc_format_decimal( 0 ),
+			'wps_sfw_subscription_number'               => $interval,
+			'wps_sfw_subscription_interval'             => $period,
+			'wps_sfw_subscription_expiry_number'        => 0,
+			'wps_sfw_subscription_expiry_interval'      => $period,
+			'wps_sfw_subscription_free_trial_number'    => 0,
+			'wps_sfw_subscription_free_trial_interval'  => $period
+		);
+		
+		// Save the same values in both the variation and the parent
+		foreach( $common_fields as $field_name => $field_value ) {
+			$variation->add_meta_data( $field_name, $field_value, true );
+			
+			if( $parent ) {
+				$parent->add_meta_data( $field_name, $field_value, true );
+			}
+		}
+		
+		$variation->save();
+		
+		if( $parent ) {
+			// Sync parent product data
+			if( is_callable( array( $parent, 'sync' ) ) ) {
+				$parent->sync( $parent, true );
+			} else if( is_callable( array( $parent, 'save' ) ) ) {
+				$parent->save();
+			}
+		}
+		
+		$product_id = $variation_id;
+	}
+	
+	return $product_id;
+}
+add_filter( 'patips_sfw_new_tier_subscription_product', 'patips_sfw_controller_create_tier_subscription_product', 10, 5 );
+
+
+/**
  * Get product SFW Subscription frequency
  * @since 0.24.0
  * @param string $frequency
