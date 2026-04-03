@@ -2,14 +2,14 @@
 # This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Patrons Tips 1.1.0\n"
+"Project-Id-Version: Patrons Tips 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/patrons-tips\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-01-29T13:27:27+00:00\n"
+"POT-Creation-Date: 2026-04-03T12:17:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: patrons-tips\n"
@@ -113,7 +113,7 @@ msgstr ""
 #: functions/functions-patron-editor.php:132
 #: functions/functions-patrons.php:1301
 #: functions/functions-tiers.php:544
-#: functions/functions-woocommerce.php:979
+#: functions/functions-woocommerce.php:947
 #: view/view-patron-editor.php:172
 #: view/view-patron-editor.php:174
 #: view/view-patron-editor.php:176
@@ -426,8 +426,8 @@ msgid "Patron area"
 msgstr ""
 
 #: controller/controller-backend.php:54
-#: functions/functions-woocommerce.php:434
-#: functions/functions-woocommerce.php:463
+#: functions/functions-woocommerce.php:425
+#: functions/functions-woocommerce.php:451
 msgid "Patronage"
 msgstr ""
 
@@ -1266,7 +1266,7 @@ msgid "Become a patron to never miss exclusive content anymore!"
 msgstr ""
 
 #: controller/controller-woocommerce-frontend.php:210
-#: functions/functions-woocommerce.php:1102
+#: functions/functions-woocommerce.php:1071
 #: blocks/tier-form/index.js:3
 msgid "Add to cart"
 msgstr ""
@@ -1557,8 +1557,8 @@ msgstr ""
 
 #: functions/functions-patron-editor.php:148
 #: functions/functions-patrons.php:1170
-#: functions/functions-woocommerce.php:486
-#: functions/functions-woocommerce.php:495
+#: functions/functions-woocommerce.php:474
+#: functions/functions-woocommerce.php:483
 #: view/view-patron-editor.php:219
 #: view/view-patron-editor.php:266
 msgid "Tier"
@@ -1877,12 +1877,12 @@ msgid "The content of this post can only be seen by current patrons of sufficien
 msgstr ""
 
 #. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00").
-#: functions/functions-woocommerce.php:1106
+#: functions/functions-woocommerce.php:1075
 msgid "The selected tier \"{title}\" ({price}) will be debited as soon as the order is completed. The corresponding rewards will be unlocked for one month."
 msgstr ""
 
 #. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00"). {frequency} = Frequency name like "every 2 months", "yearly"...
-#: functions/functions-woocommerce.php:1107
+#: functions/functions-woocommerce.php:1076
 msgid "The selected tier \"{title}\" ({price}) will be debited recurringly ({frequency}). You can cancel your subscription at any time."
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Patrons Tips 0.25.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/patrons-tips\n"
-"POT-Creation-Date: 2026-01-29T13:27:27+00:00\n"
-"PO-Revision-Date: 2026-02-11 11:50+0100\n"
+"POT-Creation-Date: 2026-04-03T12:17:20+00:00\n"
+"PO-Revision-Date: 2026-04-03 14:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -111,7 +111,7 @@ msgstr "Compte n°%s"
 #: controller/controller-woocommerce-frontend.php:724
 #: functions/functions-patron-editor.php:132
 #: functions/functions-patrons.php:1301 functions/functions-tiers.php:544
-#: functions/functions-woocommerce.php:979 view/view-patron-editor.php:172
+#: functions/functions-woocommerce.php:947 view/view-patron-editor.php:172
 #: view/view-patron-editor.php:174 view/view-patron-editor.php:176
 #: view/view-patron-editor.php:183 view/view-patron-list-table.php:132
 #: blocks/patron-history/index.js:3 blocks/patron-history/index.js:5
@@ -395,8 +395,8 @@ msgstr "Page de vente du mécénat"
 msgid "Patron area"
 msgstr "Espace mécène"
 
-#: controller/controller-backend.php:54 functions/functions-woocommerce.php:434
-#: functions/functions-woocommerce.php:463
+#: controller/controller-backend.php:54 functions/functions-woocommerce.php:425
+#: functions/functions-woocommerce.php:451
 msgid "Patronage"
 msgstr "Mécénat"
 
@@ -1359,7 +1359,7 @@ msgid "Become a patron to never miss exclusive content anymore!"
 msgstr "Deviens mécène pour ne plus jamais manquer de contenu exclusif !"
 
 #: controller/controller-woocommerce-frontend.php:210
-#: functions/functions-woocommerce.php:1102 blocks/tier-form/index.js:3
+#: functions/functions-woocommerce.php:1071 blocks/tier-form/index.js:3
 msgid "Add to cart"
 msgstr "Ajouter au panier"
 
@@ -1643,8 +1643,8 @@ msgid "Period"
 msgstr "Période"
 
 #: functions/functions-patron-editor.php:148
-#: functions/functions-patrons.php:1170 functions/functions-woocommerce.php:486
-#: functions/functions-woocommerce.php:495 view/view-patron-editor.php:219
+#: functions/functions-patrons.php:1170 functions/functions-woocommerce.php:474
+#: functions/functions-woocommerce.php:483 view/view-patron-editor.php:219
 #: view/view-patron-editor.php:266
 msgid "Tier"
 msgstr "Niveau"
@@ -1980,7 +1980,7 @@ msgstr ""
 "suffisant."
 
 #. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00").
-#: functions/functions-woocommerce.php:1106
+#: functions/functions-woocommerce.php:1075
 msgid ""
 "The selected tier \"{title}\" ({price}) will be debited as soon as the order "
 "is completed. The corresponding rewards will be unlocked for one month."
@@ -1989,7 +1989,7 @@ msgstr ""
 "terminée. Les récompenses correspondantes seront débloquées durant un mois."
 
 #. translators: {title} = the tier title. {price} = a formatted price (e.g.: "$10.00"). {frequency} = Frequency name like "every 2 months", "yearly"...
-#: functions/functions-woocommerce.php:1107
+#: functions/functions-woocommerce.php:1076
 msgid ""
 "The selected tier \"{title}\" ({price}) will be debited recurringly "
 "({frequency}). You can cancel your subscription at any time."
