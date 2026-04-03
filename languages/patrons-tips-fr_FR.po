@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Patrons Tips 0.25.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/patrons-tips\n"
 "POT-Creation-Date: 2026-01-29T13:27:27+00:00\n"
-"PO-Revision-Date: 2026-01-29 14:44+0100\n"
+"PO-Revision-Date: 2026-02-11 11:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -1356,7 +1356,7 @@ msgstr ""
 #: controller/controller-woocommerce-frontend.php:188
 #: functions/functions-posts.php:409
 msgid "Become a patron to never miss exclusive content anymore!"
-msgstr "Devient mécène pour ne plus jamais manquer de contenu exclusif !"
+msgstr "Deviens mécène pour ne plus jamais manquer de contenu exclusif !"
 
 #: controller/controller-woocommerce-frontend.php:210
 #: functions/functions-woocommerce.php:1102 blocks/tier-form/index.js:3
@@ -1893,7 +1893,7 @@ msgstr ""
 
 #: functions/functions-templates.php:71
 msgid "Become my patron"
-msgstr "Devient mécène"
+msgstr "Deviens mécène"
 
 #: functions/functions-tier-editor.php:25
 msgid "Tiers per page:"

@@ -260,7 +260,7 @@ function patips_get_post_taxonomies( $post ) {
 
 
 /**
- * Get post terms (both categories and tags) in 
+ * Get post terms (both categories and tags)
  * @since 0.10.0
  * @version 0.21.0
  * @param WP_Post $post

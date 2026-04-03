@@ -878,7 +878,7 @@ function patips_wc_get_patron_history_entry_price( $history_entry, $fallback_to_
 /**
  * Get add to cart tier form
  * @since 0.16.0
- * @version 1.0.4
+ * @version 1.1.1
  * @param array $args
  * @return string
  */
@@ -1026,6 +1026,7 @@ function patips_wc_get_add_to_cart_tier_form( $args = array() ) {
 		<div class='patips-tier-frequency-container <?php echo count( $frequencies ) <= 1 ? 'patips-hidden' : ''; ?>'>
 		<?php
 			foreach( $frequencies as $frequency ) {
+				$input_key        = md5( wp_rand() );
 				$frequency_adverb = patips_get_frequency_name( $frequency );
 
 				$attr = array(

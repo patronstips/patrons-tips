@@ -1,8 +1,8 @@
 === Patrons Tips ===
 Contributors: patronstips, yoancutillas, karolanebohaer
-Tags: patronage, membership, patreon, tipeee, crowdfunding
-Tested up to: 6.9
-Stable tag: 1.1.0
+Tags: patronage, crowdfunding, membership, patreon, tipeee
+Tested up to: 7.0
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -129,7 +129,7 @@ This sponsorship system was specifically created to meet the needs of **most ind
 * **Sportspeople** (athletes, coaches...)
 * and maybe you!
 
-If you want to be financially supported for your creative work, then you should give it a try!
+If you want to monetize your creative work, then you should give it a try!
 
 
 = We are listening =
@@ -227,6 +227,11 @@ Sure, you don't have to offer benefits if you just want a tip system that allow 
 
 
 == Changelog ==
+
+= 1.1.1 - 2026/04/03 =
+* Fix - PHP Warning: Undefined variable $input_key when displaying WC add to cart tier form
+* Fix - French translation typo
+* Dev - Update WP and WC compatible versions
 
 = 1.1.0 - 2026/01/29 =
 * Feature - Add a quick start button to automatically create tiers with demo data (when no tiers exist)
