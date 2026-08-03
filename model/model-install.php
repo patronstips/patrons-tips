@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Create Patrons Tips database tables
  * @since 0.5.0
- * @version 0.26.0
+ * @version 1.1.2
  * @global wpdb $wpdb
  */
 function patips_create_tables() {
@@ -25,7 +25,8 @@ function patips_create_tables() {
 		user_id BIGINT UNSIGNED,
 		creation_date DATETIME,
 		active TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
-		PRIMARY KEY ( id ) ) ' . $collate . ';';
+		PRIMARY KEY ( id ),
+		KEY active ( active ) ) ' . $collate . ';';
 	
 	$table_restricted_terms_query = 'CREATE TABLE ' . PATIPS_TABLE_RESTRICTED_TERMS . ' ( 
 		id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT, 
@@ -53,7 +54,8 @@ function patips_create_tables() {
 		creation_date DATETIME, 
 		active TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
 		PRIMARY KEY ( id ),
-		KEY tier_id ( user_id ) ) ' . $collate . ';';
+		KEY tier_id ( user_id ),
+		KEY active ( active ) ) ' . $collate . ';';
 
 	$table_patrons_history_query = 'CREATE TABLE ' . PATIPS_TABLE_PATRONS_HISTORY . ' ( 
 		id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT, 
@@ -72,7 +74,8 @@ function patips_create_tables() {
 		active TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
 		PRIMARY KEY ( id ),
 		KEY patron_id ( patron_id ),
-		KEY tier_id ( tier_id ) ) ' . $collate . ';';
+		KEY tier_id ( tier_id ),
+		KEY active ( active ) ) ' . $collate . ';';
 
 	$table_meta_query = 'CREATE TABLE ' . PATIPS_TABLE_META . ' ( 
 		id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT, 
@@ -93,7 +96,8 @@ function patips_create_tables() {
 		expiration_date DATETIME, 
 		sequence BIGINT UNSIGNED DEFAULT 0, 
 		active TINYINT(1) UNSIGNED NOT NULL DEFAULT 1, 
-		PRIMARY KEY ( id ) ) ' . $collate . ';';
+		PRIMARY KEY ( id ),
+		KEY active ( active ) ) ' . $collate . ';';
 
 	// Execute the queries
 	if( ! function_exists( 'dbDelta' ) ) {
