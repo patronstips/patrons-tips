@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 function patips_get_default_patron_post_filters() {
 	return apply_filters( 'patips_default_patron_post_filters', array(
 		'types'       => array( 'post' ), // 'post', 'page', 'attachment', 'product'
-		'statuses'    => array( 'publish' ), 
+		'statuses'    => array( 'publish' ),
 		'categories'  => array(),
 		'tags'        => array(),
 		'cat_and_tag' => true,

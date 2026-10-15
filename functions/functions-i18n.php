@@ -434,6 +434,7 @@ add_filter( 'patips_translate_external_text_with_wpml', 'patips_translate_wc_tex
 /**
  * WPML's function for switch_to_locale
  * @since 0.25.3
+ * @version 1.1.3
  * @global array $patips_wpml_stack
  * @param string $locale
  * @return string
@@ -445,7 +446,9 @@ function patips_wpml_switch_locale( $locale ) {
 	$old_locale = patips_get_current_lang_code( true );
 	
 	$lang_code = strpos( $locale, '_' ) !== false ? substr( $locale, 0, strpos( $locale, '_' ) ) : $locale;
-	do_action( 'wpml_switch_language', $lang_code );
+	
+	$has_stack = defined( 'ICL_SITEPRESS_VERSION' ) && version_compare( ICL_SITEPRESS_VERSION, '5.0', '>=' );
+    do_action( 'wpml_switch_language', $has_stack ? null : $lang_code );
 	
 	$new_locale = patips_get_current_lang_code( true );
 	

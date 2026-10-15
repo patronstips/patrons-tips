@@ -511,14 +511,14 @@ add_shortcode( 'patronstips_period_results', 'patips_shortcode_period_results' )
 /**
  * Shortcode to display period name
  * @since 0.15.0
- * @version 0.25.5
+ * @version 1.1.3
  * @param array $raw_args
  * @return string
  */
 function patips_shortcode_period_name( $raw_args = array() ) {
 	$default_args = array( 
-		'show_period_start' => '',
-		'show_period_end'   => '',
+		'show_period_start' => false,
+		'show_period_end'   => false,
 		'date_format'       => '',
 		'date'              => '',
 		'until'             => '',

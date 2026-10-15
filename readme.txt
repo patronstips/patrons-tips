@@ -2,7 +2,7 @@
 Contributors: patronstips, yoancutillas, karolanebohaer
 Tags: patronage, crowdfunding, membership, patreon, tipeee
 Tested up to: 7.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -227,6 +227,10 @@ Sure, you don't have to offer benefits if you just want a tip system that allow 
 
 
 == Changelog ==
+
+= 1.1.3 - 2026/10/15 =
+* Dev - Decode json data sent by blocks as assoc array with patips_maybe_decode_json to avoid potential issues
+* Dev - Support WPML v5
 
 = 1.1.2 - 2026/08/03 =
 * Dev - Update blocks API version to 3 to support iframe post editor

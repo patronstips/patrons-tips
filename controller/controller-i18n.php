@@ -155,6 +155,7 @@ add_filter( 'patips_translate_text_external', 'patips_translate_external_text_wi
 /**
  * Get current lang code with plugin
  * @since 0.26.1
+ * @version 1.1.3
  * @global string $patips_locale
  * @param string $lang_code
  * @param boolean $with_locale
@@ -168,10 +169,19 @@ function patips_current_lang_code_with_plugin( $lang_code, $with_locale ) {
 	$plugin = patips_get_translation_plugin();
 
 	if( in_array( $plugin, array( 'wpml', 'polylang' ), true ) ) {
-		$lang_code = apply_filters( 'wpml_current_language', '' );
-		if( $lang_code && $with_locale ) {
+		$wpml_lang = apply_filters( 'wpml_current_language', '' );
+		$lang_code = strpos( $wpml_lang, '-' ) ? substr( $wpml_lang, 0, strpos( $wpml_lang, '-' ) ) : $wpml_lang;
+		
+		if( $wpml_lang && $with_locale ) {
 			$languages = apply_filters( 'wpml_active_languages', array() );
-			if( ! empty( $languages[ $lang_code ][ 'default_locale' ] ) ) { $lang_code = $languages[ $lang_code ][ 'default_locale' ]; }
+			if( $languages && ! empty( $languages[ $wpml_lang ][ 'default_locale' ] ) ) {
+				$lang_code = $languages[ $wpml_lang ][ 'default_locale' ];
+			} else if( strpos( $wpml_lang, '-' ) ) {
+				$country_code = strtoupper( substr( $wpml_lang, strpos( $wpml_lang, '-' ) + 1 ) );
+				if( $country_code ) {
+					$lang_code .= '_' . $country_code;
+				}
+			}
 		}
 	}
 
@@ -183,6 +193,7 @@ add_filter( 'patips_current_lang_code', 'patips_current_lang_code_with_plugin', 
 /**
  * Get site default locale with WPML
  * @since 0.25.3
+ * @version 1.1.3
  * @param string $locale
  * @param boolean $with_locale
  * @return string
@@ -191,10 +202,19 @@ function patips_site_default_locale_with_plugin( $locale, $with_locale ) {
 	$plugin = patips_get_translation_plugin();
 	
 	if( in_array( $plugin, array( 'wpml', 'polylang' ), true ) ) {
-		$locale = apply_filters( 'wpml_default_language', '' );
-		if( $with_locale && $locale ) {
+		$wpml_lang = apply_filters( 'wpml_default_language', '' );
+		$locale    = strpos( $wpml_lang, '-' ) ? substr( $wpml_lang, 0, strpos( $wpml_lang, '-' ) ) : $wpml_lang;
+		
+		if( $wpml_lang && $with_locale ) {
 			$languages = apply_filters( 'wpml_active_languages', array() );
-			if( $languages && ! empty( $languages[ $locale ][ 'default_locale' ] ) ) { $locale = $languages[ $locale ][ 'default_locale' ]; }
+			if( $languages && ! empty( $languages[ $wpml_lang ][ 'default_locale' ] ) ) {
+				$locale = $languages[ $wpml_lang ][ 'default_locale' ];
+			} else if( strpos( $wpml_lang, '-' ) ) {
+				$country_code = strtoupper( substr( $wpml_lang, strpos( $wpml_lang, '-' ) + 1 ) );
+				if( $country_code ) {
+					$locale .= '_' . $country_code;
+				}
+			}
 		}
 	}
 	
@@ -248,12 +268,14 @@ function patips_settings_section_i18n_callback() {}
 /**
  * Display "Register translatable texts" setting
  * @since 0.25.3
- * @version 0.25.5
+ * @version 1.1.3
  */
 function patips_settings_i18n_register_translatable_texts_callback() {
 	$plugin = patips_get_translation_plugin();
 	if( ! in_array( $plugin, array( 'wpml', 'polylang' ), true ) ) { return; }
 	
+	$url = '';
+		
 	if( $plugin === 'wpml' ) {
 		if( ! patips_is_plugin_active( 'wpml-string-translation/plugin.php' ) ) {
 		?>
@@ -267,9 +289,13 @@ function patips_settings_i18n_register_translatable_texts_callback() {
 			return;
 		}
 		
-		$url = defined( 'WPML_ST_FOLDER' ) ? admin_url( 'admin.php?page=' . WPML_ST_FOLDER . '/menu/string-translation.php&context=Patrons%20Tips' ) : '';
+		if( defined( 'WPML_ST_FOLDER' ) ) {
+			$is_wpml5 = defined( 'ICL_SITEPRESS_VERSION' ) && version_compare( ICL_SITEPRESS_VERSION, '5.0', '>=' );
+			$url      = $is_wpml5 ? admin_url( 'admin.php?page=' . ( defined( 'WPML_TM_FOLDER' ) ? WPML_TM_FOLDER : 'tm' ) . '/menu/main.php&tab=strings&context=Patrons%20Tips' ) : admin_url( 'admin.php?page=' . WPML_ST_FOLDER . '/menu/string-translation.php&context=Patrons%20Tips' );
+		}
+		
 		/* translators: This is the path to translate strings from the backend with WPML. */
-		$string_translation_path = esc_html__( 'WPML > String Translation', 'patrons-tips' );
+		$string_translation_path = esc_html__( 'WPML > Translations > Strings', 'patrons-tips' );
 	}
 	
 	else if( $plugin === 'polylang' ) {
@@ -298,6 +324,7 @@ function patips_settings_i18n_register_translatable_texts_callback() {
 /**
  * Register all translatable texts - on plugin translation specific pages only
  * @since 0.25.3
+ * @version 1.1.3
  */
 function patips_controller_register_all_translatable_texts() {
 	$plugin = patips_get_translation_plugin();
@@ -310,7 +337,11 @@ function patips_controller_register_all_translatable_texts() {
 	if( $plugin === 'wpml' ) {
 		// Make sure we are on WPML String Translation page, "Patrons Tips" domain
 		if( empty( $_GET[ 'page' ] ) || empty( $_GET[ 'context' ] ) || ! defined( 'WPML_ST_FOLDER' ) ) { return; }
-		if( $_GET[ 'page' ]    !== WPML_ST_FOLDER . '/menu/string-translation.php' ) { return; }
+		
+		$is_wpml5 = defined( 'ICL_SITEPRESS_VERSION' ) && version_compare( ICL_SITEPRESS_VERSION, '5.0', '>=' );
+		$page     = $is_wpml5 ? ( defined( 'WPML_TM_FOLDER' ) ? constant( 'WPML_TM_FOLDER' ) : 'tm' ) . '/menu/main.php' : WPML_ST_FOLDER . '/menu/string-translation.php';
+		
+		if( $_GET[ 'page' ]    !== $page ) { return; }
 		if( $_GET[ 'context' ] !== 'Patrons Tips' ) { return; }
 	}
 	else if( $plugin === 'polylang' ) {

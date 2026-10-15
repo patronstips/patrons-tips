@@ -379,7 +379,7 @@ add_action( 'wp_ajax_nopriv_patipsGetPeriodResults', 'patips_controller_get_peri
 /**
  * AJAX Controller - Get period media
  * @since 0.18.0
- * @version 1.0.4
+ * @version 1.1.3
  */
 function patips_controller_get_period_media() {
 	// Check nonce
@@ -388,7 +388,7 @@ function patips_controller_get_period_media() {
 	
 	$args = array( 
 		'date'       => isset( $_POST[ 'period' ] ) ? sanitize_text_field( wp_unslash( $_POST[ 'period' ] ) ) : '',
-		'categories' => isset( $_POST[ 'categories' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'categories' ] ) ) ) : array(),
+		'categories' => isset( $_POST[ 'categories' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'categories' ] ), true ) ) : array(),
 		'image_size' => isset( $_POST[ 'image_size' ] ) ? sanitize_text_field( wp_unslash( $_POST[ 'image_size' ] ) ) : 'large',
 		'per_page'   => isset( $_POST[ 'per_page' ] ) ? intval( $_POST[ 'per_page' ] ) : 1
 	);
@@ -409,14 +409,14 @@ add_action( 'wp_ajax_nopriv_patipsGetPeriodMedia', 'patips_controller_get_period
 /**
  * AJAX Controller - Get patron list
  * @since 0.19.0
- * @version 0.26.3
+ * @version 1.1.3
  */
 function patips_controller_get_patron_list() {
 	// Check nonce
 	$is_nonce_valid = check_ajax_referer( 'patips_nonce_get_patron_list', 'nonce', false );
 	if( ! $is_nonce_valid ) { patips_send_json_invalid_nonce( 'get_patron_list' ); }
 	
-	$tier_ids = isset( $_POST[ 'tier_ids' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'tier_ids' ] ) ) ) : array();
+	$tier_ids = isset( $_POST[ 'tier_ids' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'tier_ids' ] ), true ) ) : array();
 	
 	$args = array(
 		'period'   => isset( $_POST[ 'period' ] ) ? sanitize_text_field( wp_unslash( $_POST[ 'period' ] ) ) : '',
@@ -447,16 +447,16 @@ add_action( 'wp_ajax_nopriv_patipsGetPatronList', 'patips_controller_get_patron_
 /**
  * AJAX Controller - Get patron post list
  * @since 0.19.0
- * @verison 0.26.3
+ * @verison 1.1.3
  */
 function patips_controller_get_patron_post_list() {
 	// Check nonce
 	$is_nonce_valid = check_ajax_referer( 'patips_nonce_get_patron_post_list', 'nonce', false );
 	if( ! $is_nonce_valid ) { patips_send_json_invalid_nonce( 'get_patron_post_list' ); }
 	
-	$types      = isset( $_POST[ 'types' ] ) ? patips_str_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'types' ] ) ) ) : array();
-	$categories = isset( $_POST[ 'categories' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'categories' ] ) ) ) : array();
-	$tags       = isset( $_POST[ 'tags' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'tags' ] ) ) ) : array();
+	$types      = isset( $_POST[ 'types' ] ) ? patips_str_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'types' ] ), true ) ) : array();
+	$categories = isset( $_POST[ 'categories' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'categories' ] ), true ) ) : array();
+	$tags       = isset( $_POST[ 'tags' ] ) ? patips_ids_to_array( patips_maybe_decode_json( wp_unslash( $_POST[ 'tags' ] ), true ) ) : array();
 	
 	$args = array(
 		'user_id'     => ! empty( $_POST[ 'user_id' ] ) ? intval( $_POST[ 'user_id' ] ) : get_current_user_id(),

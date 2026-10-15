@@ -428,7 +428,7 @@ function patips_get_price_args() {
 /**
  * Format a price with currency symbol
  * @since 0.21.0
- * @version 0.25.5
+ * @version 1.1.3
  * @param int|float $price_raw
  * @param array $args_raw Arguments to format a price (default to price settings values) {
  *     @type string $currency_symbol    Currency symbol.
@@ -450,7 +450,7 @@ function patips_format_price( $price_raw, $args_raw = array() ) {
 	$price  = (float) $price_raw;
 	$amount = number_format( abs( $price ), $args[ 'decimals' ], $args[ 'decimal_separator' ], $args[ 'thousand_separator' ] );
 
-	if( apply_filters( 'patips_price_trim_zeros', false ) && $args[ 'decimals' ] > 0 ) {
+	if( apply_filters( 'patips_price_trim_zeros', false ) && intval( $args[ 'decimals' ] ) > 0 ) {
 		$amount = preg_replace( '/' . preg_quote( $args[ 'decimal_separator' ], '/' ) . '0++$/', '', $amount );
 	}
 
